@@ -1,1 +1,6 @@
-09-06-2019
+# Safe Evolution
+Safelink For Blogger
+
+## Getting Started
+
+Visit Documentation Blog : [Safeplatinum](https://safeplatinum.blogspot.com)
