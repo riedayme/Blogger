@@ -119,7 +119,7 @@
 &quot;url&quot;: &quot;<data:blog.homepageUrl/>&quot;}
 </script>
 
-<link href='https://rawgit.com/irfaanprogrammer/bloggertemplate/master/Hexo%20Indigo/css/style.css' rel='stylesheet'/>
+<link href='https://cdn.statically.io/gh/riedayme/bloggertemplate/master/Hexo%20Indigo/css/style.css' rel='stylesheet'/>
 
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'/>
 <script>window.lazyScripts=[]</script>
@@ -785,15 +785,15 @@ kodein_MoveByID(&#39;ads-bottom-post-source&#39;,&#39;ads-bottom-target&#39;);
 <b:widget-setting name='content'>&lt;script type=&quot;text/javascript&quot;&gt;
 var setting = {
 pageurl : &quot;/p/out.html&quot;,
-pengecualianstatus : false,
+pengecualianstatus : true,
 pengecualian : &quot;google.com,twitter.com,javascript:;,mailto:&quot;,
 hanyauntukstatus : false,
 hanyauntuk : &quot;githubusercontent.com&quot;,
 path : &quot;#link?from=&quot;
 };	
 &lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot; src=&#39;https://min.gitcdn.link/repo/irfaanprogrammer/bloggercode/master/js/crypto.js&#39;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot; src=&#39;https://min.gitcdn.link/repo/irfaanprogrammer/bloggercode/25e2c6011e4fec887aa622a0afe60cb3d95752b5/js/replacelink.js&#39;&gt;&lt;/script&gt;</b:widget-setting>
+&lt;script type=&quot;text/javascript&quot; src=&#39;https://cdn.statically.io/gh/riedayme/bloggercode/master/js/crypto.js&#39;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&#39;https://cdn.statically.io/gh/riedayme/bloggercode/master/js/replacelink.js&#39;&gt;&lt;/script&gt;</b:widget-setting>
 </b:widget-settings>
 <b:includable id='main'>
 <data:content/>
