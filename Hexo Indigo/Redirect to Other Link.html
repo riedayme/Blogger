@@ -1,0 +1,21 @@
+<style type="text/css">.countdown{border:2px solid #888;border-radius:50%;color:#888;display:block;font-size:16px;font-weight:300;height:100px;line-height:18px;margin:0 auto;padding:29px 0 0;width:100px}.countdown .timer{font-size:25px}#outlink{margin:auto;display:block;text-align:center;width:100%;background:#f5f5f5;}#timer{width:80px;margin:auto}#nextbutton{display:inline-block;padding:6px 12px;margin-bottom:0;font-size:14px;font-weight:400;line-height:1.42857143;text-align:center;white-space:nowrap;vertical-align:middle;-ms-touch-action:manipulation;touch-action:manipulation;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;background-image:none;border:1px solid transparent;border-radius:4px;color:#fff;background-color:#5cb85c;border-color:#4cae4c;padding:10px 16px;font-size:18px;line-height:1.3333333;border-radius:6px}</style>
+<div class='adspost'>
+<!-- slot iklan horizontal atas --></div>
+<div id="outlink">
+<div class='adspost'>
+<!-- slot iklan kotak atas -->
+</div>
+<span id="countdown" class="countdown"><span id="timer" class="timer">0</span>
+Seconds</span><button id="nextbutton" style="display:none">Get Link</button>
+<div class='adspost'>
+<!-- slot iklan kotak bawah --></div>
+</div>
+<div class='adspost bottom'>
+<!-- slot iklan horizontal bawah -->
+</div>
+
+<script type="text/javascript">
+if($.urlParam=function(n){var t=new RegExp("[?&]"+n+"=([^&#]*)").exec(window.location.href);return null==t?null:decodeURI(t[1])||0},null!=$.urlParam("from")){var countdown=$("#countdown"),nextbutton=$("#nextbutton"),time=10;function CountDown(){document.getElementById("timer").innerHTML=time,(time-=1)<0?countdown.fadeOut("slow",function(){nextbutton.fadeIn()}):window.setTimeout("CountDown()",1e3)}CountDown(),nextbutton.on("click",function(){var n=aesCrypto.decrypt(convertstr($.urlParam("from")),convertstr("root"));window.location.href=n})}
+$("#menu").addClass('hide');
+</script>
+<script type="text/javascript" src='https://min.gitcdn.link/repo/irfaanprogrammer/bloggercode/master/js/crypto.js'></script>
