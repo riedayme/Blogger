@@ -619,9 +619,7 @@
 								</b:if>
 								<b:if cond='data:view.search.query'>
 									<b:if cond='data:posts.size gte 1'>                      
-										<data:view.search.resultsMessageHtml/>     
-										<b:else/>                      
-										<b:include name='redirect.js'/>                          
+										<data:view.search.resultsMessageHtml/>                           
 									</b:if>
 								</b:if>
 								<b:if cond='data:view.isArchive'>
@@ -720,17 +718,7 @@
 									<b:if cond='data:view.isPost'>
 										<blockquote class='post-copyright'>
 											<div class='content'>
-												<span class='post-time'>
-													Last updated: 
-													<time class='update' expr:datetime='data:post.lastUpdated.iso8601' expr:title='data:post.lastUpdated.iso8601'>
-														<data:post.lastUpdated/>
-													</time>
-												</span>
-												<br/>
-												<data:messages.share/> &#65306;  
-												<a expr:href='data:post.link ? data:post.link : data:post.url' expr:title='data:post.title ? data:post.title : data:messages.noTitle'>
-													<b:eval expr='data:post.title ? data:post.title : data:messages.noTitle'/>
-												</a>
+												<b:include name='breadcrumb'/>
 											</div>
 											<footer>
 												<a href='javascript:;'>
@@ -1157,6 +1145,7 @@
 					<meta expr:content='data:post.author.name' itemprop='name'/>
 				</span>
 			</b:includable>
+
 			<b:includable id='body'>
 				<body/>
 			</b:includable>
@@ -1165,6 +1154,42 @@
 				<b:attr name='xmlns:b' value=''/>
 				<b:attr name='xmlns:expr' value=''/>
 				<b:attr name='xmlns:data' value=''/>
+			</b:includable>
+			<b:includable id='breadcrumb'>
+				<b:if cond='data:post.labels'>
+					<p id='breadcrumb' itemscope='itemscope' itemtype='http://schema.org/BreadcrumbList'>
+						<span>
+							<span>
+								<a expr:href='data:blog.homepageUrl' expr:title='data:messages.home'>
+									<span><data:messages.home/></span>  
+								</a> &#187; 
+								<span>
+									<b:if cond='data:post.labels'>
+										<b:loop index='no' values='data:post.labels limit 1' var='label'>
+											<span class='breadlabel' itemprop='itemListElement' itemscope='itemscope' itemtype='http://schema.org/ListItem'>                
+												<a expr:href='data:label.url' expr:title='data:label.name' itemprop='item'>
+													<span itemprop='name'><data:label.name/></span>       
+												</a> &#187; 
+												<meta expr:content='1 + data:no' itemprop='position'/>    
+											</span>
+										</b:loop>
+										<b:else/>
+										<b:if cond='data:view.isPost'>
+											<span class='breadlabel' itemprop='itemListElement' itemscope='itemscope' itemtype='http://schema.org/ListItem'>
+												<span itemprop='name'>Unlabelled</span>       
+												<meta content='1' itemprop='position'/>
+												&#187;  
+											</span>
+										</b:if>
+									</b:if>
+									<span aria-current='page' class='breadcrumb_last'>
+										<data:post.title/>
+									</span>
+								</span>
+							</span>
+						</span>
+					</p>
+				</b:if>
 			</b:includable>
 			<b:includable id='relatedpost'>   
 				<script>
