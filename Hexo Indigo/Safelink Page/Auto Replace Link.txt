@@ -1,0 +1,12 @@
+<script type="text/javascript">
+var setting = {
+pageurl : "/p/out.html",
+pengecualianstatus : true,
+pengecualian : "google.com,twitter.com,javascript:;,mailto:",
+hanyauntukstatus : false,
+hanyauntuk : "githubusercontent.com",
+path : "#link?from="
+};	
+</script>
+<script type="text/javascript" src='https://cdn.statically.io/gh/riedayme/bloggercode/master/js/crypto.js'></script>
+<script type="text/javascript" src='https://cdn.statically.io/gh/riedayme/bloggercode/master/js/replacelink.js'></script>
