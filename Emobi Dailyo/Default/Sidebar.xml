@@ -1,0 +1,166 @@
+<b:section id='b-section-ampsidebar' showaddelement='no'>
+  <b:widget id='LinkList3' locked='true' title='My Social Media' type='LinkList' version='2' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='sorting'>NONE</b:widget-setting>
+      <b:widget-setting name='text-1'>instagram</b:widget-setting>
+      <b:widget-setting name='link-1'>https://instagram.com/</b:widget-setting>
+      <b:widget-setting name='text-0'>facebook</b:widget-setting>
+      <b:widget-setting name='link-2'>https://twitter.com/</b:widget-setting>
+      <b:widget-setting name='link-0'>https://facebook.com/</b:widget-setting>
+      <b:widget-setting name='text-2'>twitter</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+      <ul class='social-list clearfix'>
+        <!-- <div class="social-title"><data:title/></div> -->
+        <li class='social-item followblog'>
+          <a expr:href='&quot;https://www.blogger.com/follow.g?view=FOLLOW&amp;blogID=&quot;+ data:blog.blogId' expr:title='data:link.name' rel='noopener' target='_blank'>
+            <i class='fa fa-user'/>
+          </a>
+        </li>
+        <b:loop values='data:links' var='link'>
+          <li expr:class='&quot;social-item &quot; + data:link.name'><a expr:href='data:link.target' expr:title='data:link.name' rel='noopener' target='_blank'><i expr:class='&quot;fa fa-&quot; + data:link.name'/></a></li>
+        </b:loop>
+      </ul>
+      <li>
+        <a expr:href='data:blog.homepageUrl' expr:title='data:title'>
+          <data:messages.home/>
+        </a>   
+      </li>
+    </b:includable>
+    <b:includable id='content'/>
+  </b:widget>
+  <b:widget id='PageList2' locked='false' title='Tautan Pilihan [List]' type='PageList' version='2' visible='true'>
+    <b:widget-settings>
+     <b:widget-setting name='pageListJson'>{}</b:widget-setting>
+      <b:widget-setting name='homeTitle'>Beranda</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>  
+      <b:loop values='data:links' var='link'>
+        <li>
+          <a expr:href='data:link.href' expr:title='data:link.title' itemprop='url'>
+            <span itemprop='name'><data:link.title/></span>
+          </a>
+        </li>
+      </b:loop>       
+    </b:includable>
+    <b:includable id='content'/>
+    <b:includable id='overflowButton'/>
+    <b:includable id='overflowablePageList'/>
+    <b:includable id='pageLink'/>
+    <b:includable id='pageList'/>
+  </b:widget>
+  <b:widget id='PageList3' locked='false' title='Sistem' type='PageList' version='2' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='pageListJson'>{}</b:widget-setting>
+      <b:widget-setting name='homeTitle'>Beranda</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>  
+      <li class='drop'>
+        <section>
+          <h6>
+            <span><data:title/></span>
+            <svg viewBox='0 0 24 24'><path d='M7,10L12,15L17,10H7Z' fill='#000000'/></svg>
+          </h6>
+          <ul>
+            <b:loop values='data:links' var='link'>
+              <li>
+                <a expr:href='data:link.href' expr:title='data:link.title' itemprop='url'>
+                  <span itemprop='name'><data:link.title/></span>
+                </a>
+              </li>
+            </b:loop>
+          </ul>
+        </section>
+      </li>         
+    </b:includable>
+    <b:includable id='content'/>
+    <b:includable id='overflowButton'/>
+    <b:includable id='overflowablePageList'/>
+    <b:includable id='pageLink'/>
+    <b:includable id='pageList'/>
+  </b:widget>
+  <b:widget id='PageList1' locked='false' title='Halaman Statis' type='PageList' version='2' visible='true'>
+    <b:widget-settings>
+<b:widget-setting name='pageListJson'>{}</b:widget-setting>
+      <b:widget-setting name='homeTitle'>Beranda</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>  
+      <li class='drop'>
+        <section>
+          <h6>
+            <span><data:title/></span>
+            <svg viewBox='0 0 24 24'><path d='M7,10L12,15L17,10H7Z' fill='#000000'/></svg>
+          </h6>
+          <ul>
+            <b:loop values='data:links' var='link'>
+              <li>
+                <a expr:href='data:link.href' expr:title='data:link.title' itemprop='url'>
+                  <span itemprop='name'><data:link.title/></span>
+                </a>
+              </li>
+            </b:loop>
+          </ul>
+        </section>
+      </li>         
+    </b:includable>
+    <b:includable id='content'/>
+    <b:includable id='overflowButton'/>
+    <b:includable id='overflowablePageList'/>
+    <b:includable id='pageLink'/>
+    <b:includable id='pageList'/>
+  </b:widget>
+  <b:widget id='Label1' locked='false' title='Label Menu' type='Label' version='2' visible='false'>
+    <b:widget-settings>
+      <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
+      <b:widget-setting name='display'>LIST</b:widget-setting>
+      <b:widget-setting name='selectedLabelsList'/>
+      <b:widget-setting name='showType'>ALL</b:widget-setting>
+      <b:widget-setting name='showFreqNumbers'>false</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+      <b:loop values='data:labels' var='label'>
+        <li>
+          <a expr:href='params(data:label.url, { max-results: &quot;8&quot; })' expr:title='data:label.name' itemprop='url'>
+            <span itemprop='name'>#<data:label.name/></span> 
+            <b:if cond='data:this.showFreqNumbers'>[<data:label.count/>]</b:if>
+          </a>
+        </li>
+      </b:loop>
+    </b:includable>
+    <b:includable id='cloud'/>
+    <b:includable id='content'/>
+    <b:includable id='list'/>
+  </b:widget>
+  <b:widget id='Label2' locked='false' title='Daftar Kategori' type='Label' version='2' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
+      <b:widget-setting name='display'>LIST</b:widget-setting>
+      <b:widget-setting name='selectedLabelsList'/>
+      <b:widget-setting name='showType'>ALL</b:widget-setting>
+      <b:widget-setting name='showFreqNumbers'>false</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+      <li class='drop'>
+        <section>
+          <h6>
+            <span><data:title/></span>
+            <svg viewBox='0 0 24 24'><path d='M7,10L12,15L17,10H7Z' fill='#000000'/></svg>
+          </h6>
+          <ul>
+            <b:loop values='data:labels' var='label'>
+              <li>
+                <a expr:href='params(data:label.url, { max-results: &quot;8&quot; })' expr:title='data:label.name' itemprop='url'>
+                  <span itemprop='name'>#<data:label.name/></span> 
+                  <b:if cond='data:this.showFreqNumbers'>[<data:label.count/>]</b:if>
+                </a>
+              </li>
+            </b:loop>
+          </ul>
+        </section>
+      </li>         
+    </b:includable>
+    <b:includable id='cloud'/>
+    <b:includable id='content'/>
+    <b:includable id='list'/>
+  </b:widget>
+</b:section> 
