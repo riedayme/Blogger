@@ -11,7 +11,7 @@
  		hljs.highlightBlock(pres[i]);
  	}
  	var options = {
- 		contentSelector: ".entry-content",
+ 		contentSelector: ".blog-posts",
  		loadDelay:0,
  		copyIconClass: "fa fa-copy",
  		checkIconClass: "fa fa-check u-color-success",
