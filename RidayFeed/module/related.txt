@@ -1,0 +1,78 @@
+    <b:includable id='extractfeed.js'>   
+      <script>
+        //<![CDATA[
+        var allrelatedfeedorigin=new Array;
+        function removetag(e,t){for(var i=e.split("<"),n=0;n<i.length;n++)-1!=i[n].indexOf(">")&&(i[n]=i[n].substring(i[n].indexOf(">")+1,i[n].length));return i=(i=i.join("")).substring(0,t-1)}function extractfeed(e){var t=e.feed.entry,n=t.length,r=new Array;for(r[1]="Jan",r[2]="Feb",r[3]="Mar",r[4]="Apr",r[5]="May",r[6]="Jun",r[7]="Jul",r[8]="Aug",r[9]="Sep",r[10]="Oct",r[11]="Nov",r[12]="Dec",i=0;i<n;i++){var a,l=t[i].title.$t,s=t[i].published.$t,u=s.substring(0,4),o=s.substring(5,7),f=s.substring(8,10),g=(s.substring(11,16),f+" "+r[parseInt(o,10)]+","+u);"summary"in t[i]?a=t[i].summary.$t:"content"in t[i]&&(a=t[i].content.$t);var m=removetag(a,150);if("media$thumbnail"in t[i])h=(h=t[i].media$thumbnail.url).replace("/s72-c/","/w300/");else var h="https://lh3.googleusercontent.com/-jVmO_aPaG0k/XViP6n5PXxI/AAAAAAAAAX4/GskZfM6jfbowlfyJUwv7BLJmCWAJPzPUgCLcBGAs/s250/noimage-kurteyki.jpg";for(var c=h,v=0;v<t[i].link.length;v++)if("alternate"==t[i].link[v].rel){var A=t[i].link[v].href;break}var b=t[i].author[0].name.$t;allrelatedfeedorigin.push({title:l,link:A,images:c,author:b,date:g,snippet:m}),0}}function shuffle(e){for(var t,i,n=e.length;0!==n;)i=Math.floor(Math.random()*n),t=e[n-=1],e[n]=e[i],e[i]=t;return e}const removeDupliactes=e=>{let t=e.map(e=>Object.values(e).join(""));return e.filter((e,i)=>t.indexOf(t[i])===i)};
+        //]]>   
+      </script>
+    </b:includable>   
+
+    <b:includable id='artikelterkait.js'>
+      <script type='text/javascript'>
+        //<![CDATA[
+        document.addEventListener("DOMContentLoaded", function() {
+        var maxrelated = 6;
+        write =  document.getElementById('related-post-write');
+        write_title =  document.getElementById('related-post-title-write');            
+        var allrelatedfeed = shuffle(removeDupliactes(allrelatedfeedorigin));
+        var allrelatedfeedlength = allrelatedfeed.length;
+        var url_path = location.protocol + '//' + location.host + location.pathname;
+        var html_top ='<h4 class="col-12 u-p-zero c-card__title u-text-bold">';
+        html_top +='    Related Post ';
+        html_top +='  </h4>'; 
+        write_title.insertAdjacentHTML('beforeend',html_top)
+        if (allrelatedfeedlength == 1) {
+        html = '<div class="c-alert c-alert--info u-m-small"> <i class="c-alert__icon fa fa-info-circle"></i> No Post.</div>';   
+        write.insertAdjacentHTML('beforeend',html)         
+        }else {        
+        for (var xx = 0; xx < allrelatedfeedlength; xx++) { 
+        if (allrelatedfeed[xx].link !== url_path) {
+
+        html = '<div class="col-md-6 col-sm-12 col-12 u-p-xsmall">';
+        html += '    <div class="c-project-card">';
+        html += '        <img class="c-img-100" src="'+allrelatedfeed[xx].images+'" alt="'+allrelatedfeed[xx].title+'"/>';
+        html += '        <div class="c-project-card__content">';
+        html += '            <div class="c-project-card__head u-p-small">';
+        html += '                <a class="c-post-title-link" href="'+allrelatedfeed[xx].link+'" title="'+allrelatedfeed[xx].title+'"><h4 class="c-project-card__title u-text-bold">'+allrelatedfeed[xx].title+'</h4></a>';
+        html += '            </div>';
+        html += '        </div>';
+        html += '    </div>';
+        html += '</div>';              
+        write.insertAdjacentHTML('beforeend',html)
+        if (xx >= maxrelated) {
+        break;
+        }
+        /* end if maxrelated */
+        } 
+        /* if not this post */
+        }
+        /* end for */
+        }
+        /* end else */
+        }); 
+        //]]>   
+      </script>
+    </b:includable>
+    <b:includable id='article.related.post'>   
+      <b:include name='extractfeed.js'/>
+      <b:loop values='data:posts' var='post'>    
+        <b:loop index='yo' values='data:post.labels' var='label'>
+          <b:if cond='data:yo&lt;2'>
+            <script expr:src='&quot;/feeds/posts/default/-/&quot; + data:label.name + &quot;?alt=json-in-script&amp;callback=extractfeed&amp;max-results=7&quot;' type='text/javascript'/>
+          </b:if>
+        </b:loop>
+      </b:loop>
+      <div class='c-card u-p-zero hfeed hentry'>
+
+        <div class='c-card__header c-card__header--transparent o-line u-p-small' id='related-post-title-write'>
+        </div>
+        <div class='c-card__body u-p-zero'>
+
+          <div class='row u-m-zero' id='related-post-write'>
+            <b:include name='artikelterkait.js'/>
+          </div>
+
+        </div>
+
+      </div>
+    </b:includable>
