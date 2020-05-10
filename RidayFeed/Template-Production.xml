@@ -362,8 +362,8 @@ body#layout .widget-content{box-shadow:none}
 </b:skin>
 </b:includable>			
 <b:includable id='MY_CSS_EXTERNAL'>
-<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@a923c16d1eec7f388372c1305f958568d6de6450/RidayFeed/assets/css/main.css' rel='stylesheet'/>
-<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@a923c16d1eec7f388372c1305f958568d6de6450/RidayFeed/assets/css/custom.css' rel='stylesheet'/>
+<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@66adeb12e2e2a1feb72b1ce22250ef1ebab8c12c/RidayFeed/assets/css/main.css' rel='stylesheet'/>
+<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@66adeb12e2e2a1feb72b1ce22250ef1ebab8c12c/RidayFeed/assets/css/custom.css' rel='stylesheet'/>
 </b:includable>	
 <b:includable id='MY_CSS_INTERNAL'>
 <style>
@@ -500,8 +500,8 @@ body#layout .widget-content{box-shadow:none}
 </b:includable>
 <b:includable id='MY_JS_EXTERNAL'>
 <b:include name='MY_BODY_JS'/>
-<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@a923c16d1eec7f388372c1305f958568d6de6450/RidayFeed/assets/js/main.js'/>
-<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@a923c16d1eec7f388372c1305f958568d6de6450/RidayFeed/assets/js/custom.js'/>
+<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@66adeb12e2e2a1feb72b1ce22250ef1ebab8c12c/RidayFeed/assets/js/main.js'/>
+<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@66adeb12e2e2a1feb72b1ce22250ef1ebab8c12c/RidayFeed/assets/js/custom.js'/>
 <b:if cond='!data:view.isPreview'>
 <script>
 window.cookieconsent.initialise({
