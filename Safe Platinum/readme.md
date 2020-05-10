@@ -1,4 +1,4 @@
-# RidayFeed Template :trophy:
+# Safe Platinum Template :trophy:
 
 ![Riedayme](https://github.com/riedayme/Blogger/blob/master/Safe%20Platinum/preview.png?raw=true)
 
