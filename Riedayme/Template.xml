@@ -315,27 +315,72 @@ LAYOUTS
 				</b:widget>
 				<b:widget id='LinkList1' locked='true' title='Meta Manual' type='LinkList' version='2' visible='true'>
 					<b:widget-settings>
+						<b:widget-setting name='sorting'>NONE</b:widget-setting>
+						<b:widget-setting name='text-1'>facebook_url</b:widget-setting>
+						<b:widget-setting name='link-1'>https://facebook.com/kurteyki</b:widget-setting>
 						<b:widget-setting name='text-0'>default_image</b:widget-setting>
-						<b:widget-setting name='link-1'>https://4.bp.blogspot.com/-G2VNu4ce3O0/XS9PzNRywZI/AAAAAAAAAPM/mtqg2rpSmt4tHTTx0p7SSHrvzKP06xIlwCK4BGAYYCw/s200/kurteyki-logo.png</b:widget-setting>
+						<b:widget-setting name='link-2'>#FFFFFF</b:widget-setting>
+						<b:widget-setting name='link-0'>https://1.bp.blogspot.com/-FbkBxOIv3Ws/XrZZ0xI0QBI/AAAAAAAABKA/4484IbQHxTQteo7gAXoDcuiKTbSIWXMtQCPcBGAsYHg/s640/43917-winter-landscape-trees-depth_of_field-snow-city.jpg</b:widget-setting>
+						<b:widget-setting name='text-2'>bar_color</b:widget-setting>
 					</b:widget-settings>
 					<b:includable id='main'>&lt;/head&gt;--&gt;
 						<b:loop values='data:links' var='link'>
 
-							<!--[ Default Image ]-->
-							<b:if cond='data:link.name == &quot;default_image&quot; AND data:link.target'>
-								<b:if cond='!data:view.featuredImage'>
+							<!--[ Schema.org markup for Google Manual ]-->
+							<b:if cond='data:view.isMultipleItems'>
+								<b:if cond='data:link.name == &quot;default_image&quot; AND data:link.target'>
 									<meta expr:content='data:link.target' itemprop='image'/>
-									<meta expr:content='data:link.target' property='og:image'/>
-									<meta expr:content='data:link.target' property='og:image:secure_url'/>
-									<meta content='640' property='og:image:width'/>
-									<meta content='480' property='og:image:height'/>
-									<b:if cond='data:view.isMultipleItems'>
-										<meta expr:content='data:blog.metaDescription ? data:blog.metaDescription.escaped : data:blog.pageName.escaped' property='og:image:alt'/>
-										<b:elseif cond='data:view.isSingleItem'/>
-										<meta expr:content='data:blog.pageName' property='og:image:alt'/>
-									</b:if>
-									<meta expr:content='data:link.target' property='twitter:image'/>
 								</b:if>
+							</b:if>
+							<b:if cond='data:view.isSingleItem'>
+								<b:if cond='data:link.name == &quot;default_image&quot; AND data:link.target'>
+									<b:if cond='!data:view.featuredImage'>
+										<meta expr:content='data:link.target' itemprop='image'/>
+									</b:if>
+								</b:if>
+							</b:if>
+
+							<!--[ Open Graph Manual Value]-->
+							<b:if cond='data:view.isMultipleItems'>
+								<b:if cond='data:link.name == &quot;default_image&quot; AND data:link.target'>
+									<meta expr:content='data:link.target' property='og:image'/>
+								</b:if>
+							</b:if>
+							<b:if cond='data:view.isSingleItem'>
+								<b:if cond='data:link.name == &quot;default_image&quot; AND data:link.target'>
+									<b:if cond='!data:view.featuredImage'>
+										<meta expr:content='data:link.target' property='og:image'/>
+									</b:if>
+								</b:if>
+							</b:if>
+							<b:if cond='data:link.name == &quot;facebook_url&quot; AND data:link.target'>
+								<meta expr:content='data:link.target' property='article:publisher'/>
+							</b:if>
+
+							<!--[ Twitter Card Manual Value]-->
+							<b:if cond='data:link.name == &quot;twitter_username&quot; AND data:link.target'>
+								<meta expr:content='data:link.target' name='twitter:site'/>
+							</b:if>
+							<b:if cond='data:view.isMultipleItems'>
+								<b:if cond='data:link.name == &quot;default_image&quot; AND data:link.target'>
+									<meta content='summary_large_image' name='twitter:card'/>
+									<meta expr:content='data:link.target' name='twitter:image:src'/>
+								</b:if>
+							</b:if>
+							<b:if cond='data:view.isSingleItem'>
+								<b:if cond='!data:view.featuredImage'>
+									<b:if cond='data:link.name == &quot;default_image&quot; AND data:link.target'>
+										<meta content='summary_large_image' name='twitter:card'/>
+										<meta expr:content='data:link.target' name='twitter:image:src'/>
+									</b:if>
+								</b:if>
+							</b:if>
+
+							<!--[ Browser Color Bar ]-->
+							<b:if cond='data:link.name == &quot;bar_color&quot; AND data:link.target'>
+								<meta expr:content='data:link.target' name='theme-color'/>
+								<meta expr:content='data:link.target' name='msapplication-navbutton-color'/>
+								<meta expr:content='data:link.target' name='apple-mobile-web-app-status-bar-style'/>
 							</b:if>
 
 						</b:loop>
@@ -358,7 +403,8 @@ LAYOUTS
 				body#layout #main-nav,body#layout #Blog2,body#layout #reset{display:none}
 				body#layout {max-width:1040px;padding:50px 20px;}
 				body#layout .widget-content{box-shadow:none}
-				]]>				
+
+				]]>					
 			</b:skin>
 		</b:includable>			
 		<b:includable id='MY_CSS_EXTERNAL'>
@@ -418,9 +464,9 @@ LAYOUTS
 				.c-post-content dt::after{content:&#39;:&#39;}
 
 				.c-post-content blockquote {color: #000; font-family: inherit; font-weight: 500; line-height: 1.5; } 
-				.c-post-content blockquote {border: 1px solid #e2e2e2; padding: 15px 15px 15px 60px; text-align: left; position: relative; clear: both; border-left:2px solid #2196f3;font-family:Georgia,Times,"Times New Roman",serif; } 
+				.c-post-content blockquote {border: 1px solid #e2e2e2; padding: 15px 15px 15px 60px; text-align: left; position: relative; clear: both; border-left:2px solid #2196f3;font-family:Georgia,Times,&quot;Times New Roman&quot;,serif; } 
 				.c-post-content blockquote p:last-child {margin-bottom: 0; } 
-				.c-post-content blockquote:before {content: "\f10e"; font: normal normal normal 14px/1 FontAwesome; color: #d3d3d3; font-size: 28px; position: absolute; left: 12px; top: 17px; }
+				.c-post-content blockquote:before {content: &quot;\f10e&quot;; font: normal normal normal 14px/1 FontAwesome; color: #d3d3d3; font-size: 28px; position: absolute; left: 12px; top: 17px; }
 
 				.hidden{visibility:hidden;height:0;overflow:hidden;display:none} .clear{clear:both} .shadow{-webkit-box-shadow:0 1px 1px rgba(0,0,0,.05);box-shadow:0 1px 1px rgba(0,0,0,.05)} .margin-0{margin:0} .padding-0{padding:0}
 
@@ -448,11 +494,12 @@ LAYOUTS
 				pre {
 				background: unset;
 				white-space: pre;
-				margin: unset;
+				margin: 0 0 15px 0;
 				padding: unset;
 				border: unset;
 				overflow:unset;
 				}
+				.code-badge-language {display:none}
 				.hljs-ln-numbers {-webkit-touch-callout: none !important; -webkit-user-select: none !important; -khtml-user-select: none !important; -moz-user-select: none !important; -ms-user-select: none !important; user-select: none !important; text-align: center !important; color: #ccc !important; border-right: 1px solid #CCC !important; vertical-align: top !important; padding-right: 5px !important; /* your custom style here */ } /* for block of code */ .hljs-ln-code {padding-left: 10px !important; } .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #272822; color: #ddd; } .hljs-tag, .hljs-keyword, .hljs-selector-tag, .hljs-literal, .hljs-strong, .hljs-name {color: #f92672; } .hljs-code {color: #66d9ef; } .hljs-class .hljs-title {color: white; } .hljs-attribute, .hljs-symbol, .hljs-regexp, .hljs-link {color: #bf79db; } .hljs-string, .hljs-bullet, .hljs-subst, .hljs-title, .hljs-section, .hljs-emphasis, .hljs-type, .hljs-built_in, .hljs-builtin-name, .hljs-selector-attr, .hljs-selector-pseudo, .hljs-addition, .hljs-variable, .hljs-template-tag, .hljs-template-variable {color: #a6e22e; } .hljs-comment, .hljs-quote, .hljs-deletion, .hljs-meta {color: #75715e; } .hljs-keyword, .hljs-selector-tag, .hljs-literal, .hljs-doctag, .hljs-title, .hljs-section, .hljs-type, .hljs-selector-id {font-weight: bold; }
 
 				/*!
@@ -629,15 +676,38 @@ LAYOUTS
 			<b:include name='MY_BODY_JS'/>
 			<script src='https://cdn.jsdelivr.net/gh/riedayme/Kurteyki@master/storage/assets/app/js/all-modules.js'/>
 			<script src='https://cdn.jsdelivr.net/gh/riedayme/Kurteyki@master/storage/assets/app/js/main.min.js'/>
-			<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js'/>
-			<script src='https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.7.0/highlightjs-line-numbers.min.js'/>
-			<script>
-				document.addEventListener(&#39;DOMContentLoaded&#39;, (event) =&gt; {
-				document.querySelectorAll(&#39;pre code&#39;).forEach((block) =&gt; {
-				hljs.highlightBlock(block);
-				hljs.initLineNumbersOnLoad();
-				});
+			<script src="https://unpkg.com/highlightjs-badge/highlightjs/highlight.pack.js"></script>
+			<script src="https://unpkg.com/highlightjs-badge/highlightjs-badge.min.js"></script>
+			<script>   
+				//<![CDATA[
+
+				document.addEventListener("DOMContentLoaded", (event) => {
+				var pres = document.querySelectorAll("pre>code");
+				for (var i = 0; i < pres.length; i++) {
+				hljs.highlightBlock(pres[i]);
+				}
+				var options = {
+				contentSelector: ".entry-content",
+				// Delay in ms used for `setTimeout` before badging is applied
+				// Use if you need to time highlighting and badge application
+				// since the badges need to be applied afterwards.
+				// 0 - direct execution (ie. you handle timing
+				loadDelay:0,
+
+				// CSS class(es) used to render the copy icon.
+				copyIconClass: "fa fa-copy",
+				// CSS class(es) used to render the done icon.
+				checkIconClass: "fa fa-check u-color-success",
+
+				// hook to allow modifying the text before it's pasted
+				onBeforeTextCopied: function(text, codeElement) {
+				return text;   //  you can fix up the text here
+				}
+				};
+				window.highlightJsBadge(options);
 				});    
+
+				//]]>
 			</script>
 			<b:if cond='!data:view.isPreview'>
 				<link href='https://cdn.jsdelivr.net/gh/riedayme/Kurteyki@master/storage/plugins-f/cookieconsent/cookieconsent.min.css' rel='stylesheet'/>
@@ -803,15 +873,20 @@ LAYOUTS
 		<b:includable id='MY_LINKLIST_WIDGET_HEADER'>
 			<b:section id='ElementerNavHeader' maxwidgets='1' showaddelement='no'>
 				<b:widget id='LinkList2' locked='true' title='Link Widget' type='LinkList' version='2' visible='true'>
+					<b:widget-settings>
+						<b:widget-setting name='sorting'>NONE</b:widget-setting>
+						<b:widget-setting name='text-0'>My Site</b:widget-setting>
+						<b:widget-setting name='link-0'>https://riedayme.kurteyki.com/</b:widget-setting>
+					</b:widget-settings>
 					<b:includable id='main'>
-						<div class="c-dropdown dropdown u-ml-xsmall" style='top:4px;'>
-							<a href='javascript:;' class="has-dropdown dropdown-toggle u-text-dark" id="pagemenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<svg class="gb_Ve" focusable="false" viewBox="0 0 24 24" style="width: 24px; height: 24px; color: #333; opacity: 1; fill: currentColor;"><path d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z"></path></svg>
+						<div class='c-dropdown dropdown u-ml-xsmall' style='top:4px;'>
+							<a aria-expanded='false' aria-haspopup='true' class='has-dropdown dropdown-toggle u-text-dark' data-toggle='dropdown' href='javascript:;' id='pagemenu'>
+								<svg class='gb_Ve' focusable='false' style='width: 24px; height: 24px; color: #333; opacity: 1; fill: currentColor;' viewBox='0 0 24 24'><path d='M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z'/></svg>
 							</a>
-							<div class="c-dropdown__menu dropdown-menu dropdown-menu-right" aria-labelledby="pagemenu" x-placement="top-start">
+							<div aria-labelledby='pagemenu' class='c-dropdown__menu dropdown-menu dropdown-menu-right' x-placement='top-start'>
 								<a class='c-dropdown__item dropdown-item' expr:href='data:blog.homepageUrl' expr:title='data:messages.home'><data:messages.home/></a>
 								<b:loop values='data:links' var='link'>
-									<a class="c-dropdown__item dropdown-item" expr:href='data:link.target' expr:title='data:link.name'><data:link.name/></a>
+									<a class='c-dropdown__item dropdown-item' expr:href='data:link.target' expr:title='data:link.name'><data:link.name/></a>
 								</b:loop>
 							</div>
 						</div>
@@ -869,19 +944,19 @@ LAYOUTS
 							<b:loop values='data:labels' var='label'>
 								<li class='c-menu__item'>
 									<a class='c-menu__link u-pl-zero' expr:href='data:label.url + &quot;?max-results=2&quot;' expr:title='data:label.name'>
-										<b:if cond='data:label.name == "CodeIgniter"'>											
-											<svg id="Layer_1" class='u-mr-xsmall' style="width:14px;" version="1.1" viewBox="0 0 256 304" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">
+										<b:if cond='data:label.name == &quot;CodeIgniter&quot;'>											
+											<svg class='u-mr-xsmall' id='Layer_1' style='width:14px;' version='1.1' viewBox='0 0 256 304' xml:space='preserve' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><style type='text/css'>
 												.st0{fill:#EE4323;}
-											</style><g><path class="st0" d="M85.2,303.1c-18-7.8-34.8-27.5-34.8-47.7c0-22,13.9-40.7,31.3-53c-2.1,7.9-3.2,15.1,1.9,22.2   c4.8,6.6,13.2,9.8,21.2,8c18.6-4.1,19.4-24.5,8.4-36.4C102.3,184.3,91.8,171,96,153.9c2.1-8.6,7.3-16.6,14-22.3   c-5.1,13.5,9.4,26.7,19,33.4c16.6,11.5,34.9,20.1,50.2,33.6c16.1,14.1,28,33.3,25.6,55.4c-2.6,24-21.7,40.7-43.1,49.2   c45.3-10,92-45.1,93-95.3c0.8-41.3-27.5-73.1-62.6-91.3l-1.8-1c1,2.3,1.3,4.3,1.2,6.1c0.3-1.3,0.5-2.7,0.6-4.1   c0,1.7-0.2,3.4-0.6,4.9l0.1-0.8c-0.5,2.2-1.4,4.3-2.6,6.2l0.5-0.6c-7,11.6-26,14.1-35.3,2.1c-15.1-19.3,0.3-40.2,2.5-60.7   c2.7-25.7-13.4-50.6-33.4-65.5c11,17.8-3.5,41.3-15.1,54.5c-11.2,12.8-24.9,23.4-37.3,35c-13.3,12.4-26.1,25.5-37.1,40.1   c-21.9,29.2-35.3,66-25.5,102.4C18,271.7,49.6,294.9,85.2,303.1L85.2,303.1z"/></g></svg>
+											</style><g><path class='st0' d='M85.2,303.1c-18-7.8-34.8-27.5-34.8-47.7c0-22,13.9-40.7,31.3-53c-2.1,7.9-3.2,15.1,1.9,22.2   c4.8,6.6,13.2,9.8,21.2,8c18.6-4.1,19.4-24.5,8.4-36.4C102.3,184.3,91.8,171,96,153.9c2.1-8.6,7.3-16.6,14-22.3   c-5.1,13.5,9.4,26.7,19,33.4c16.6,11.5,34.9,20.1,50.2,33.6c16.1,14.1,28,33.3,25.6,55.4c-2.6,24-21.7,40.7-43.1,49.2   c45.3-10,92-45.1,93-95.3c0.8-41.3-27.5-73.1-62.6-91.3l-1.8-1c1,2.3,1.3,4.3,1.2,6.1c0.3-1.3,0.5-2.7,0.6-4.1   c0,1.7-0.2,3.4-0.6,4.9l0.1-0.8c-0.5,2.2-1.4,4.3-2.6,6.2l0.5-0.6c-7,11.6-26,14.1-35.3,2.1c-15.1-19.3,0.3-40.2,2.5-60.7   c2.7-25.7-13.4-50.6-33.4-65.5c11,17.8-3.5,41.3-15.1,54.5c-11.2,12.8-24.9,23.4-37.3,35c-13.3,12.4-26.1,25.5-37.1,40.1   c-21.9,29.2-35.3,66-25.5,102.4C18,271.7,49.6,294.9,85.2,303.1L85.2,303.1z'/></g></svg>
 											<data:label.name/> 
-											<b:elseif cond='data:label.name == "HTML"'/>
-											<svg class='u-mr-xsmall' style="width:14px;" enable-background="new 0 0 50 50" id="Layer_1" version="1.1" viewBox="0 0 50 50" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="HTML_5"><polygon fill="#F16529" points="17.4,12.7 18.6,12.7 18.6,14 20,14 20,10 18.6,10 18.6,11.3 17.4,11.3 17.4,10 16,10 16,14    17.4,14  "/><polygon fill="#F16529" points="22.2,14 23.5,14 23.5,11.3 24.7,11.3 24.7,10 21,10 21,11.3 22.2,11.3  "/><polygon fill="#F16529" points="26.8,12 27.7,13.5 27.7,13.5 28.6,12 28.6,14 30,14 30,10 28.6,10 27.7,11.4 26.8,10 25.4,10    25.4,14 26.8,14  "/><polygon fill="#F16529" points="34,12.7 32.1,12.7 32.1,10 30.7,10 30.7,14 34,14  "/><path d="M14,16l2,22l9,2l9-2l2-22H14z M31.5,23H25h-4l0.5,2H25h6l-1,9l-5,2l-5-2l-0.8-4H22l0.5,2l2.5,1l2.5-1l0.5-4   h-3h-6l-1-8h7h7L31.5,23z" fill="#F16529"/></g><path d="M25,1C11.7,1,1,11.7,1,25s10.7,24,24,24s24-10.7,24-24S38.3,1,25,1z M25,44C14.5,44,6,35.5,6,25S14.5,6,25,6  s19,8.5,19,19S35.5,44,25,44z" fill="#F16529"/></svg>
+											<b:elseif cond='data:label.name == &quot;HTML&quot;'/>
+											<svg class='u-mr-xsmall' enable-background='new 0 0 50 50' id='Layer_1' style='width:14px;' version='1.1' viewBox='0 0 50 50' xml:space='preserve' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><g id='HTML_5'><polygon fill='#F16529' points='17.4,12.7 18.6,12.7 18.6,14 20,14 20,10 18.6,10 18.6,11.3 17.4,11.3 17.4,10 16,10 16,14    17.4,14  '/><polygon fill='#F16529' points='22.2,14 23.5,14 23.5,11.3 24.7,11.3 24.7,10 21,10 21,11.3 22.2,11.3  '/><polygon fill='#F16529' points='26.8,12 27.7,13.5 27.7,13.5 28.6,12 28.6,14 30,14 30,10 28.6,10 27.7,11.4 26.8,10 25.4,10    25.4,14 26.8,14  '/><polygon fill='#F16529' points='34,12.7 32.1,12.7 32.1,10 30.7,10 30.7,14 34,14  '/><path d='M14,16l2,22l9,2l9-2l2-22H14z M31.5,23H25h-4l0.5,2H25h6l-1,9l-5,2l-5-2l-0.8-4H22l0.5,2l2.5,1l2.5-1l0.5-4   h-3h-6l-1-8h7h7L31.5,23z' fill='#F16529'/></g><path d='M25,1C11.7,1,1,11.7,1,25s10.7,24,24,24s24-10.7,24-24S38.3,1,25,1z M25,44C14.5,44,6,35.5,6,25S14.5,6,25,6  s19,8.5,19,19S35.5,44,25,44z' fill='#F16529'/></svg>
 											<data:label.name/> 
-											<b:elseif cond='data:label.name == "Python"'/>
-											<svg class='u-mr-xsmall' style="width:14px;" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="comp_x5F_267-python"><g><g><g><path d="M194.005,240.252h105.054c29.216,0,52.529-24.101,52.529-53.414V86.603      c0-28.525-24.002-49.871-52.529-54.691c-35.214-5.804-73.479-5.509-105.054,0.097c-44.462,7.87-52.527,24.298-52.527,54.693      v21.453H246.63v31.959H102.032c-30.591,0-57.349,18.394-65.709,53.315c-9.64,40.035-10.032,65.02,0,106.826      c7.477,31.085,25.28,53.314,55.872,53.314h36.101v-48.001C128.296,270.845,158.298,240.252,194.005,240.252L194.005,240.252z" style="fill:#347AB4;"/><g><path d="M128.296,363.569H92.195c-32.842,0-56.137-21.655-65.595-60.976       c-10.146-42.276-10.145-69.37,0-111.505c4.521-18.885,14.243-34.559,28.112-45.314c13.21-10.245,29.573-15.66,47.319-15.66       H236.63v-11.959h-95.152c-5.523,0-10-4.477-10-10V86.702c0-13.954,1.423-29.889,11.979-42.278       c9.452-11.094,24.504-17.96,48.806-22.261c16.512-2.932,35.127-4.482,53.829-4.482c18.655,0,37.023,1.469,54.594,4.365       c16.345,2.762,31.383,10.299,42.385,21.229c11.941,11.865,18.519,27.253,18.519,43.329v100.235       c0,34.967-28.051,63.414-62.529,63.414H194.005c-29.677,0-55.709,25.849-55.709,55.316v48.001       C138.296,359.092,133.819,363.569,128.296,363.569z M102.032,150.114c-28.213,0-49.142,17.063-55.984,45.643       c-9.526,39.563-9.525,62.475-0.001,102.165c5.008,20.821,17.081,45.647,46.148,45.647h26.101v-38.001       c0-19.263,8.159-38.487,22.386-52.743c14.527-14.557,33.464-22.573,53.323-22.573h105.054       c23.451,0,42.529-19.476,42.529-43.414V86.603c0-24.529-22.233-41.12-44.195-44.831c-16.46-2.713-33.733-4.092-51.302-4.092       c-17.549,0-34.956,1.444-50.337,4.175c-39.908,7.064-44.275,19.689-44.275,44.847v11.453h95.152c5.523,0,10,4.477,10,10v31.959       c0,5.523-4.477,10-10,10H102.032z" style="fill:#275C87;"/></g></g><g><path d="M474.975,209.372c-7.575-30.395-21.935-53.315-52.527-53.315h-39.443v46.626      c0,36.199-30.692,66.691-65.71,66.691H212.24c-28.724,0-52.528,24.594-52.528,53.414v100.138      c0,28.524,24.788,45.246,52.528,53.413c33.247,9.737,65.215,11.509,105.054,0c26.462-7.675,52.529-23.116,52.529-53.413v-20.997      H264.867v-32.417h157.58c30.593,0,41.904-21.346,52.527-53.314C485.992,283.244,485.501,251.57,474.975,209.372L474.975,209.372      z" style="fill:#FFCA1D;"/><g><path d="M264.431,494.32c-17.747,0-35.738-2.743-55.001-8.385       c-38.515-11.339-59.718-33.715-59.718-63.01V322.788c0-34.374,28.634-63.414,62.528-63.414h105.054       c29.678,0,55.71-26.491,55.71-56.691v-46.626c0-5.523,4.478-10,10-10h39.443c17.276,0,31.546,6.279,42.412,18.664       c8.734,9.955,15.217,23.77,19.818,42.232c11.191,44.863,11.126,78.483-0.219,112.415c-10.11,30.424-23.23,60.144-62.012,60.144       h-147.58v12.417h94.956c5.522,0,10,4.478,10,10v20.997c0,20.844-10.365,48.696-59.744,63.018       C300.563,491.581,282.364,494.32,264.431,494.32z M212.24,279.374c-23.053,0-42.528,19.881-42.528,43.414v100.138       c0,26.51,28.415,38.834,45.353,43.82c17.639,5.166,33.33,7.574,49.366,7.574c16.028,0,32.413-2.482,50.088-7.589       c30.059-8.718,45.305-23.457,45.305-43.806v-10.997h-94.956c-5.522,0-10-4.478-10-10v-32.417c0-5.522,4.478-10,10-10h157.58       c21.148,0,31.204-10.857,43.037-46.468c10.189-30.476,10.126-59.805-0.213-101.252c-7.883-31.631-21.09-45.735-42.824-45.735       h-29.443v36.626c0,41.571-34.671,76.691-75.71,76.691H212.24z" style="fill:#BF9816;"/></g></g><path d="M187.414,89.594c-10.479,0-18.975-8.591-18.975-19.164c0.094-10.668,8.496-19.259,18.975-19.259     c10.386,0,18.976,8.685,18.976,19.259C206.39,81.003,197.894,89.594,187.414,89.594z" style="fill:#FFFFFF;"/><path d="M314.908,460.076c-10.479,0-18.976-8.591-18.976-19.164c0.095-10.668,8.496-19.259,18.976-19.259     c10.385,0,18.976,8.685,18.976,19.259C333.884,451.485,325.388,460.076,314.908,460.076z" style="fill:#FFFFFF;"/></g></g></g><g id="Layer_1"/></svg>
+											<b:elseif cond='data:label.name == &quot;Python&quot;'/>
+											<svg class='u-mr-xsmall' style='width:14px;' version='1.1' viewBox='0 0 512 512' xml:space='preserve' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><g id='comp_x5F_267-python'><g><g><g><path d='M194.005,240.252h105.054c29.216,0,52.529-24.101,52.529-53.414V86.603      c0-28.525-24.002-49.871-52.529-54.691c-35.214-5.804-73.479-5.509-105.054,0.097c-44.462,7.87-52.527,24.298-52.527,54.693      v21.453H246.63v31.959H102.032c-30.591,0-57.349,18.394-65.709,53.315c-9.64,40.035-10.032,65.02,0,106.826      c7.477,31.085,25.28,53.314,55.872,53.314h36.101v-48.001C128.296,270.845,158.298,240.252,194.005,240.252L194.005,240.252z' style='fill:#347AB4;'/><g><path d='M128.296,363.569H92.195c-32.842,0-56.137-21.655-65.595-60.976       c-10.146-42.276-10.145-69.37,0-111.505c4.521-18.885,14.243-34.559,28.112-45.314c13.21-10.245,29.573-15.66,47.319-15.66       H236.63v-11.959h-95.152c-5.523,0-10-4.477-10-10V86.702c0-13.954,1.423-29.889,11.979-42.278       c9.452-11.094,24.504-17.96,48.806-22.261c16.512-2.932,35.127-4.482,53.829-4.482c18.655,0,37.023,1.469,54.594,4.365       c16.345,2.762,31.383,10.299,42.385,21.229c11.941,11.865,18.519,27.253,18.519,43.329v100.235       c0,34.967-28.051,63.414-62.529,63.414H194.005c-29.677,0-55.709,25.849-55.709,55.316v48.001       C138.296,359.092,133.819,363.569,128.296,363.569z M102.032,150.114c-28.213,0-49.142,17.063-55.984,45.643       c-9.526,39.563-9.525,62.475-0.001,102.165c5.008,20.821,17.081,45.647,46.148,45.647h26.101v-38.001       c0-19.263,8.159-38.487,22.386-52.743c14.527-14.557,33.464-22.573,53.323-22.573h105.054       c23.451,0,42.529-19.476,42.529-43.414V86.603c0-24.529-22.233-41.12-44.195-44.831c-16.46-2.713-33.733-4.092-51.302-4.092       c-17.549,0-34.956,1.444-50.337,4.175c-39.908,7.064-44.275,19.689-44.275,44.847v11.453h95.152c5.523,0,10,4.477,10,10v31.959       c0,5.523-4.477,10-10,10H102.032z' style='fill:#275C87;'/></g></g><g><path d='M474.975,209.372c-7.575-30.395-21.935-53.315-52.527-53.315h-39.443v46.626      c0,36.199-30.692,66.691-65.71,66.691H212.24c-28.724,0-52.528,24.594-52.528,53.414v100.138      c0,28.524,24.788,45.246,52.528,53.413c33.247,9.737,65.215,11.509,105.054,0c26.462-7.675,52.529-23.116,52.529-53.413v-20.997      H264.867v-32.417h157.58c30.593,0,41.904-21.346,52.527-53.314C485.992,283.244,485.501,251.57,474.975,209.372L474.975,209.372      z' style='fill:#FFCA1D;'/><g><path d='M264.431,494.32c-17.747,0-35.738-2.743-55.001-8.385       c-38.515-11.339-59.718-33.715-59.718-63.01V322.788c0-34.374,28.634-63.414,62.528-63.414h105.054       c29.678,0,55.71-26.491,55.71-56.691v-46.626c0-5.523,4.478-10,10-10h39.443c17.276,0,31.546,6.279,42.412,18.664       c8.734,9.955,15.217,23.77,19.818,42.232c11.191,44.863,11.126,78.483-0.219,112.415c-10.11,30.424-23.23,60.144-62.012,60.144       h-147.58v12.417h94.956c5.522,0,10,4.478,10,10v20.997c0,20.844-10.365,48.696-59.744,63.018       C300.563,491.581,282.364,494.32,264.431,494.32z M212.24,279.374c-23.053,0-42.528,19.881-42.528,43.414v100.138       c0,26.51,28.415,38.834,45.353,43.82c17.639,5.166,33.33,7.574,49.366,7.574c16.028,0,32.413-2.482,50.088-7.589       c30.059-8.718,45.305-23.457,45.305-43.806v-10.997h-94.956c-5.522,0-10-4.478-10-10v-32.417c0-5.522,4.478-10,10-10h157.58       c21.148,0,31.204-10.857,43.037-46.468c10.189-30.476,10.126-59.805-0.213-101.252c-7.883-31.631-21.09-45.735-42.824-45.735       h-29.443v36.626c0,41.571-34.671,76.691-75.71,76.691H212.24z' style='fill:#BF9816;'/></g></g><path d='M187.414,89.594c-10.479,0-18.975-8.591-18.975-19.164c0.094-10.668,8.496-19.259,18.975-19.259     c10.386,0,18.976,8.685,18.976,19.259C206.39,81.003,197.894,89.594,187.414,89.594z' style='fill:#FFFFFF;'/><path d='M314.908,460.076c-10.479,0-18.976-8.591-18.976-19.164c0.095-10.668,8.496-19.259,18.976-19.259     c10.385,0,18.976,8.685,18.976,19.259C333.884,451.485,325.388,460.076,314.908,460.076z' style='fill:#FFFFFF;'/></g></g></g><g id='Layer_1'/></svg>
 											<data:label.name/> 
-											<b:elseif cond='data:label.name == "Web API"'/>
-											<svg class='u-mr-xsmall' style="width:14px;" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><circle class="st0" cx="255.8" cy="343.7" r="63.1"/><circle class="st1" cx="54.8" cy="346.3" r="42.8"/><circle class="st1" cx="458.2" cy="343.7" r="42.8"/><circle class="st1" cx="255.8" cy="142.9" r="42.8"/><circle class="st1" cx="104.2" cy="201.5" r="42.8"/><circle class="st1" cx="405.6" cy="201.5" r="42.8"/><line class="st2" x1="255.8" x2="255.8" y1="280.5" y2="185.7"/><line class="st2" x1="134.6" x2="215.5" y1="231.6" y2="295.1"/><line class="st2" x1="296.2" x2="376.7" y1="295.1" y2="233.1"/><line class="st2" x1="97.5" x2="192.7" y1="346.3" y2="346.3"/><line class="st2" x1="318.9" x2="415.5" y1="346.3" y2="346.3"/></svg>
+											<b:elseif cond='data:label.name == &quot;Web API&quot;'/>
+											<svg class='u-mr-xsmall' style='width:14px;' version='1.1' viewBox='0 0 512 512' xml:space='preserve' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><circle class='st0' cx='255.8' cy='343.7' r='63.1'/><circle class='st1' cx='54.8' cy='346.3' r='42.8'/><circle class='st1' cx='458.2' cy='343.7' r='42.8'/><circle class='st1' cx='255.8' cy='142.9' r='42.8'/><circle class='st1' cx='104.2' cy='201.5' r='42.8'/><circle class='st1' cx='405.6' cy='201.5' r='42.8'/><line class='st2' x1='255.8' x2='255.8' y1='280.5' y2='185.7'/><line class='st2' x1='134.6' x2='215.5' y1='231.6' y2='295.1'/><line class='st2' x1='296.2' x2='376.7' y1='295.1' y2='233.1'/><line class='st2' x1='97.5' x2='192.7' y1='346.3' y2='346.3'/><line class='st2' x1='318.9' x2='415.5' y1='346.3' y2='346.3'/></svg>
 											<data:label.name/> 
 											<b:else/>
 											<i class='fa fa-hashtag u-mr-xsmall'/><data:label.name/> 
@@ -902,10 +977,7 @@ LAYOUTS
 			<b:section id='ElementerRight' maxwidgets='1' showaddelement='no'>
 				<b:widget cond='!data:view.isPreview OR !data:view.search.query' id='HTML600' locked='true' title='Iklan Sidebar' type='HTML' version='2' visible='false'>
 					<b:widget-settings>
-						<b:widget-setting name='content'><![CDATA[
-							<img src='https://1.bp.blogspot.com/-9bQQKOOeeyw/Xixh8sx2sjI/AAAAAAAABFY/xWQfVEUuo1EI6MSpB90iHuDxB8xt1PvnwCLcBGAsYHQ/s1600/HTML%2B5.png'/>
-							]]>
-						</b:widget-setting>
+						<b:widget-setting name='content'><![CDATA[<img src='https://1.bp.blogspot.com/-9bQQKOOeeyw/Xixh8sx2sjI/AAAAAAAABFY/xWQfVEUuo1EI6MSpB90iHuDxB8xt1PvnwCLcBGAsYHQ/s1600/HTML%2B5.png'/>]]></b:widget-setting>
 					</b:widget-settings>
 					<b:includable id='main'>  
 						<div class='adspost'>
@@ -1090,7 +1162,7 @@ LAYOUTS
 					<b:includable id='threadedCommentJs'/>
 					<b:includable id='threadedComments'/>
 				</b:widget>
-				<b:widget cond='!data:view.isPreview and data:view.isPost' id='HTML602' locked='true' title='Iklan dibagian atas Artikel' type='HTML' version='2' visible='false'>
+				<b:widget cond='!data:view.isPreview and data:view.isPost' id='HTML602' locked='true' title='Iklan dibagian atas Artikel' type='HTML' version='2' visible='true'>
 					<b:widget-settings>
 						<b:widget-setting name='content'>&lt;!-- DF-HR-POST-TOP --&gt;
 							&lt;ins class=&quot;adsbygoogle&quot;
@@ -1156,7 +1228,7 @@ LAYOUTS
 
 					</b:includable>
 				</b:widget>
-				<b:widget cond='!data:view.isPreview and data:view.isPost' id='HTML605' locked='true' title='Iklan Dibawah Artikel' type='HTML' version='2' visible='false'>
+				<b:widget cond='!data:view.isPreview and data:view.isPost' id='HTML605' locked='true' title='Iklan Dibawah Artikel' type='HTML' version='2' visible='true'>
 					<b:widget-settings>
 						<b:widget-setting name='content'>&lt;!-- DF-HR-POST-TOP --&gt;
 							&lt;ins class=&quot;adsbygoogle&quot;
@@ -1276,7 +1348,7 @@ LAYOUTS
 
 							<div class='c-event__img u-m-zero'>
 								<a expr:href='data:post.link ? data:post.link : data:post.url' expr:title='data:post.title ? data:post.title : data:messages.noTitle'>
-									<img class='c-post-image' src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" expr:data-src='data:post.featuredImage ? data:post.featuredImage : &quot;https://lh3.googleusercontent.com/-jVmO_aPaG0k/XViP6n5PXxI/AAAAAAAAAX4/GskZfM6jfbowlfyJUwv7BLJmCWAJPzPUgCLcBGAs/s1600/noimage-kurteyki.jpg&quot;' expr:title='data:post.title ? data:post.title : data:messages.noTitle'/>
+									<img class='c-post-image' expr:data-src='data:post.featuredImage ? data:post.featuredImage : &quot;https://lh3.googleusercontent.com/-jVmO_aPaG0k/XViP6n5PXxI/AAAAAAAAAX4/GskZfM6jfbowlfyJUwv7BLJmCWAJPzPUgCLcBGAs/s1600/noimage-kurteyki.jpg&quot;' expr:title='data:post.title ? data:post.title : data:messages.noTitle' src='data:image/svg+xml,%3Csvg xmlns=&apos;http://www.w3.org/2000/svg&apos; viewBox=&apos;0 0 3 2&apos;%3E%3C/svg%3E'/>
 								</a>
 							</div>
 							<div class='c-event__meta u-ph-small u-pt-xsmall'>
@@ -1381,9 +1453,9 @@ LAYOUTS
 						<div class='c-avatar c-avatar--xsmall'>
 
 							<b:if cond='data:post.author.authorPhoto.image'>
-								<img class='c-avatar__img' expr:alt='data:post.author.name' src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" expr:data-src='resizeImage(data:post.author.authorPhoto.image, 36)' expr:title='data:post.author.name'/>
+								<img class='c-avatar__img' expr:alt='data:post.author.name' expr:data-src='resizeImage(data:post.author.authorPhoto.image, 36)' expr:title='data:post.author.name' src='data:image/svg+xml,%3Csvg xmlns=&apos;http://www.w3.org/2000/svg&apos; viewBox=&apos;0 0 3 2&apos;%3E%3C/svg%3E'/>
 								<b:else/>
-								<img class='c-avatar__img' expr:alt='data:post.author.name' src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" expr:data-src='resizeImage(&quot;https://lh3.googleusercontent.com/zFdxGE77vvD2w5xHy6jkVuElKv-U9_9qLkRYK8OnbDeJPtjSZ82UPq5w6hJ-SA=w60-h60-p-k-no-nu&quot;, 36)' expr:title='data:post.author.name'/>
+								<img class='c-avatar__img' expr:alt='data:post.author.name' expr:data-src='resizeImage(&quot;https://lh3.googleusercontent.com/zFdxGE77vvD2w5xHy6jkVuElKv-U9_9qLkRYK8OnbDeJPtjSZ82UPq5w6hJ-SA=w60-h60-p-k-no-nu&quot;, 36)' expr:title='data:post.author.name' src='data:image/svg+xml,%3Csvg xmlns=&apos;http://www.w3.org/2000/svg&apos; viewBox=&apos;0 0 3 2&apos;%3E%3C/svg%3E'/>
 							</b:if>
 
 						</div>
@@ -1588,9 +1660,9 @@ LAYOUTS
 				<div class='o-media__img u-mr-small'>
 					<div class='c-avatar c-avatar--xsmall'>
 						<b:if cond='data:cb.level.authorAvatarSrc != &quot;//resources.blogblog.com/img/blank.gif&quot;'>
-							<img class='c-avatar__img' expr:alt='data:cb.level.author' src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" expr:data-src='resizeImage(data:cb.level.authorAvatarSrc, 36, (1 + &quot;:&quot; + 1))' expr:title='data:cb.level.author'/>
+							<img class='c-avatar__img' expr:alt='data:cb.level.author' expr:data-src='resizeImage(data:cb.level.authorAvatarSrc, 36, (1 + &quot;:&quot; + 1))' expr:title='data:cb.level.author' src='data:image/svg+xml,%3Csvg xmlns=&apos;http://www.w3.org/2000/svg&apos; viewBox=&apos;0 0 3 2&apos;%3E%3C/svg%3E'/>
 							<b:else/>
-							<img class='c-avatar__img' expr:alt='data:cb.level.author' expr:title='data:cb.level.author' src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src='https://lh3.googleusercontent.com/zFdxGE77vvD2w5xHy6jkVuElKv-U9_9qLkRYK8OnbDeJPtjSZ82UPq5w6hJ-SA=w60-h60-p-k-no-nu'/>
+							<img class='c-avatar__img' data-src='https://lh3.googleusercontent.com/zFdxGE77vvD2w5xHy6jkVuElKv-U9_9qLkRYK8OnbDeJPtjSZ82UPq5w6hJ-SA=w60-h60-p-k-no-nu' expr:alt='data:cb.level.author' expr:title='data:cb.level.author' src='data:image/svg+xml,%3Csvg xmlns=&apos;http://www.w3.org/2000/svg&apos; viewBox=&apos;0 0 3 2&apos;%3E%3C/svg%3E'/>
 						</b:if>
 					</div>
 				</div>
