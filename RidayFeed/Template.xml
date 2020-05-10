@@ -403,8 +403,8 @@ WIDGET
 			</b:skin>
 		</b:includable>			
 		<b:includable id='MY_CSS_EXTERNAL'>
-			<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@master/RidayFeed/assets/css/main.css' rel='stylesheet'/>
-			<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@master/RidayFeed/assets/css/custom.css' rel='stylesheet'/>
+			<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@a923c16d1eec7f388372c1305f958568d6de6450/RidayFeed/assets/css/main.css' rel='stylesheet'/>
+			<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@a923c16d1eec7f388372c1305f958568d6de6450/RidayFeed/assets/css/custom.css' rel='stylesheet'/>
 		</b:includable>	
 		<b:includable id='MY_CSS_INTERNAL'>
 			<style>
@@ -541,8 +541,8 @@ WIDGET
 		</b:includable>
 		<b:includable id='MY_JS_EXTERNAL'>
 			<b:include name='MY_BODY_JS'/>
-			<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@master/RidayFeed/assets/js/main.js'/>
-			<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@master/RidayFeed/assets/js/custom.js'/>
+			<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@a923c16d1eec7f388372c1305f958568d6de6450/RidayFeed/assets/js/main.js'/>
+			<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@a923c16d1eec7f388372c1305f958568d6de6450/RidayFeed/assets/js/custom.js'/>
 			<b:if cond='!data:view.isPreview'>
 				<script>
 					window.cookieconsent.initialise({
@@ -928,14 +928,7 @@ WIDGET
 				</b:widget>
 				<b:widget cond='!data:view.isPreview and data:view.isPost' id='HTML602' locked='true' title='Iklan dibagian atas Artikel' type='HTML' version='2' visible='true'>
 					<b:widget-settings>
-						<b:widget-setting name='content'>&lt;!-- DF-HR-POST-TOP --&gt;
-							&lt;ins class=&quot;adsbygoogle&quot;
-							style=&quot;display:block;width:auto;height:100px&quot;
-							data-ad-client=&quot;ca-pub-2846006866814506&quot;
-							data-ad-slot=&quot;1965824573&quot;&gt;&lt;/ins&gt;
-							&lt;script&gt;
-							(adsbygoogle = window.adsbygoogle || []).push({});
-							&lt;/script&gt;
+						<b:widget-setting name='content'>
 						</b:widget-setting>
 					</b:widget-settings>
 					<b:includable id='main'>  
@@ -955,14 +948,7 @@ WIDGET
 				</b:widget>
 				<b:widget cond='!data:view.isPreview and data:view.isPost' id='HTML603' locked='true' title='Iklan Ditengah Artikel' type='HTML' version='2' visible='false'>
 					<b:widget-settings>
-						<b:widget-setting name='content'>&lt;!-- DF-HR-POST-TOP --&gt;
-							&lt;ins class=&quot;adsbygoogle&quot;
-							style=&quot;display:block;width:auto;height:100px&quot;
-							data-ad-client=&quot;ca-pub-2846006866814506&quot;
-							data-ad-slot=&quot;1965824573&quot;&gt;&lt;/ins&gt;
-							&lt;script&gt;
-							(adsbygoogle = window.adsbygoogle || []).push({});
-							&lt;/script&gt;
+						<b:widget-setting name='content'>
 						</b:widget-setting>
 					</b:widget-settings>
 					<b:includable id='main'>
@@ -994,14 +980,7 @@ WIDGET
 				</b:widget>
 				<b:widget cond='!data:view.isPreview and data:view.isPost' id='HTML605' locked='true' title='Iklan Dibawah Artikel' type='HTML' version='2' visible='true'>
 					<b:widget-settings>
-						<b:widget-setting name='content'>&lt;!-- DF-HR-POST-TOP --&gt;
-							&lt;ins class=&quot;adsbygoogle&quot;
-							style=&quot;display:block;width:auto;height:253px&quot;
-							data-ad-client=&quot;ca-pub-2846006866814506&quot;
-							data-ad-slot=&quot;1965824573&quot;&gt;&lt;/ins&gt;
-							&lt;script&gt;
-							(adsbygoogle = window.adsbygoogle || []).push({});
-							&lt;/script&gt;
+						<b:widget-setting name='content'>
 						</b:widget-setting>
 					</b:widget-settings>
 					<b:includable id='main'>      
@@ -1524,7 +1503,7 @@ WIDGET
 		</b:includable>
 		<b:includable id='COMMENT_THREAD_JS'>
 			<script>
-				//<![CDATA[mankoin.blog
+				//<![CDATA[
 				document.addEventListener("DOMContentLoaded", function() {
 				var a = document,
 				commentform = document.getElementById("comment-editor"),
