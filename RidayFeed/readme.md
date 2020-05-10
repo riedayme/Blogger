@@ -1,4 +1,4 @@
-# Riedayme Template :trophy:
+# RidayFeed Template :trophy:
 
 ![Riedayme](https://github.com/riedayme/Blogger/blob/master/RidayFeed/preview.png?raw=true)
 
