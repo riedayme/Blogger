@@ -739,7 +739,7 @@ WIDGET
 		</b:includable>
 		<b:includable id='MY_WIDGET_MAIN_RIGHT'>
 			<b:section id='ElementerRight' maxwidgets='1' showaddelement='no'>
-				<b:widget cond='!data:view.isPreview OR !data:view.search.query' id='HTML600' locked='true' title='Iklan Sidebar' type='HTML' version='2' visible='false'>
+				<b:widget cond='!data:view.isPreview AND !data:view.search.query' id='HTML600' locked='true' title='Iklan Sidebar' type='HTML' version='2' visible='false'>
 					<b:widget-settings>
 						<b:widget-setting name='content'><![CDATA[<img src='https://1.bp.blogspot.com/-9bQQKOOeeyw/Xixh8sx2sjI/AAAAAAAABFY/xWQfVEUuo1EI6MSpB90iHuDxB8xt1PvnwCLcBGAsYHQ/s1600/HTML%2B5.png'/>]]></b:widget-setting>
 					</b:widget-settings>
