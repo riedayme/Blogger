@@ -30,6 +30,7 @@ WIDGET
 - BLOG_POST_SCHEMA
 - BLOG_POST_MESSAGE
 - BLOG_POST_LAYOUTS_HEADER
+- BLOG_POST_LAYOUTS_FOOTER
 - BLOG_POST_NEXT_PREV
 - BLOG_POST_SHARE
 - BLOG_POST_COMMENT
@@ -44,13 +45,12 @@ WIDGET
 - COMMENT_THREAD_JS
 -->
 
-<!-- [==================== HEAD ============== ] -->
+<b:comment><!-- [==================== HEAD ============== ] --></b:comment>
 <b:defaultmarkups>
 	<b:defaultmarkup type='Common'>
 		<b:includable id='MASTER_HEAD'>
 			<b:include cond='data:view.isError' name='MY_REDIRECT'/>
 			<b:include name='MY_REMOVEHTML'/>
-			&lt;head&gt;
 			<b:include name='MY_META'/>
 			<b:include name='MY_CSS_EXTERNAL'/>
 			<b:include cond='data:view.isLayoutMode' name='MY_CSS_BLOGGER'/>
@@ -67,7 +67,7 @@ WIDGET
 			<b:attr name='xmlns:data' value=''/>
 		</b:includable>
 		<b:includable id='MY_META'>
-			&lt;!--&lt;head&gt;<b:section id='ElementerMeta' maxwidgets='1' showaddelement='no'>
+			&lt;!--&lt;head&gt;<b:section id='ElementerMeta' maxwidgets='1' preferred='no' showaddelement='no'>
 			<b:widget id='Blog2' locked='true' title='Posting Blog' type='Blog' version='2' visible='true'>
 				<b:widget-settings>
 					<b:widget-setting name='commentLabel'/>
@@ -98,6 +98,7 @@ WIDGET
 					<b:widget-setting name='showReactions'>true</b:widget-setting>
 				</b:widget-settings>
 				<b:includable id='main' var='this'>&lt;/head&gt;--&gt;
+					&lt;head&gt;
 
 					<!--[ meta for browser ]-->
 					<meta charset='UTF-8'/>
@@ -247,77 +248,21 @@ WIDGET
 					</b:if>
 
 					&lt;!--&lt;head&gt;</b:includable>
-					<b:includable id='aboutPostAuthor'/>
-					<b:includable id='addComments'/>
-					<b:includable id='blogThisShare'/>
-					<b:includable id='bylineByName'/>
-					<b:includable id='bylineRegion'/>
-					<b:includable id='commentAuthorAvatar'/>
-					<b:includable id='commentDeleteIcon'/>
-					<b:includable id='commentForm'/>
-					<b:includable id='commentFormIframeSrc'/>
-					<b:includable id='commentItem'/>
-					<b:includable id='commentList'/>
-					<b:includable id='commentPicker'/>
-					<b:includable id='comments'/>
-					<b:includable id='commentsLink'/>
-					<b:includable id='commentsLinkIframe'/>
-					<b:includable id='commentsTitle'/>
-					<b:includable id='defaultAdUnit'/>
-					<b:includable id='emailPostIcon'/>
-					<b:includable id='facebookShare'/>
-					<b:includable id='feedLinks'/>
-					<b:includable id='feedLinksBody'/>
-					<b:includable id='footerBylines'/>
-					<b:includable id='googlePlusShare'/>
-					<b:includable id='headerByline'/>
-					<b:includable id='homePageLink'/>
-					<b:includable id='iframeComments'/>
-					<b:includable id='inlineAd'/>
-					<b:includable id='linkShare'/>
-					<b:includable id='nextPageLink'/>
-					<b:includable id='otherSharingButton'/>
-					<b:includable id='platformShare'/>
-					<b:includable id='post'/>
-					<b:includable id='postAuthor'/>
-					<b:includable id='postBody'/>
-					<b:includable id='postBodySnippet'/>
-					<b:includable id='postCommentsAndAd'/>
-					<b:includable id='postCommentsLink'/>
-					<b:includable id='postFooter'/>
-					<b:includable id='postFooterAuthorProfile'/>
-					<b:includable id='postHeader'/>
-					<b:includable id='postJumpLink'/>
-					<b:includable id='postLabels'/>
-					<b:includable id='postLocation'/>
-					<b:includable id='postMeta'/>
-					<b:includable id='postMetadataJSONImage'/>
-					<b:includable id='postMetadataJSONPublisher'/>
-					<b:includable id='postPagination'/>
-					<b:includable id='postReactions'/>
-					<b:includable id='postShareButtons'/>
-					<b:includable id='postTimestamp'/>
-					<b:includable id='postTitle'/>
-					<b:includable id='previousPageLink'/>
-					<b:includable id='sharingButton'/>
-					<b:includable id='sharingButtonContent'/>
-					<b:includable id='sharingButtons'/>
-					<b:includable id='sharingButtonsMenu'/>
-					<b:includable id='sharingPlatformIcon'/>
-					<b:includable id='status-message'/>
-					<b:includable id='threadedCommentForm'/>
-					<b:includable id='threadedCommentJs'/>
-					<b:includable id='threadedComments'/>
+					<b:includable id='aboutPostAuthor'/><b:includable id='addComments'/><b:includable id='blogThisShare'/><b:includable id='bylineByName'/><b:includable id='bylineRegion'/><b:includable id='commentAuthorAvatar'/><b:includable id='commentDeleteIcon'/><b:includable id='commentForm'/><b:includable id='commentFormIframeSrc'/><b:includable id='commentItem'/><b:includable id='commentList'/><b:includable id='commentPicker'/><b:includable id='comments'/><b:includable id='commentsLink'/><b:includable id='commentsLinkIframe'/><b:includable id='commentsTitle'/><b:includable id='defaultAdUnit'/><b:includable id='emailPostIcon'/><b:includable id='facebookShare'/><b:includable id='feedLinks'/><b:includable id='feedLinksBody'/><b:includable id='footerBylines'/><b:includable id='googlePlusShare'/><b:includable id='headerByline'/><b:includable id='homePageLink'/><b:includable id='iframeComments'/><b:includable id='inlineAd'/><b:includable id='linkShare'/><b:includable id='nextPageLink'/><b:includable id='otherSharingButton'/><b:includable id='platformShare'/><b:includable id='post'/><b:includable id='postAuthor'/><b:includable id='postBody'/><b:includable id='postBodySnippet'/><b:includable id='postCommentsAndAd'/><b:includable id='postCommentsLink'/><b:includable id='postFooter'/><b:includable id='postFooterAuthorProfile'/><b:includable id='postHeader'/><b:includable id='postJumpLink'/><b:includable id='postLabels'/><b:includable id='postLocation'/><b:includable id='postMeta'/><b:includable id='postMetadataJSONImage'/><b:includable id='postMetadataJSONPublisher'/><b:includable id='postPagination'/><b:includable id='postReactions'/><b:includable id='postShareButtons'/><b:includable id='postTimestamp'/><b:includable id='postTitle'/><b:includable id='previousPageLink'/><b:includable id='sharingButton'/><b:includable id='sharingButtonContent'/><b:includable id='sharingButtons'/><b:includable id='sharingButtonsMenu'/><b:includable id='sharingPlatformIcon'/><b:includable id='status-message'/><b:includable id='threadedCommentForm'/><b:includable id='threadedCommentJs'/><b:includable id='threadedComments'/>
 				</b:widget>
 				<b:widget id='LinkList1' locked='true' title='Meta Manual' type='LinkList' version='2' visible='true'>
 					<b:widget-settings>
 						<b:widget-setting name='sorting'>NONE</b:widget-setting>
 						<b:widget-setting name='text-1'>facebook_url</b:widget-setting>
 						<b:widget-setting name='link-1'>https://facebook.com/kurteyki</b:widget-setting>
+						<b:widget-setting name='link-0'>https://1.bp.blogspot.com/-FbkBxOIv3Ws/XrZZ0xI0QBI/AAAAAAAABKA/4484IbQHxTQteo7gAXoDcuiKTbSIWXMtQCPcBGAsYHg/s640/43917-winter-landscape-trees-depth_of_field-snow-city.jpg</b:widget-setting>
 						<b:widget-setting name='text-0'>default_image</b:widget-setting>
 						<b:widget-setting name='link-2'>#FFFFFF</b:widget-setting>
-						<b:widget-setting name='link-0'>https://1.bp.blogspot.com/-FbkBxOIv3Ws/XrZZ0xI0QBI/AAAAAAAABKA/4484IbQHxTQteo7gAXoDcuiKTbSIWXMtQCPcBGAsYHg/s640/43917-winter-landscape-trees-depth_of_field-snow-city.jpg</b:widget-setting>
 						<b:widget-setting name='text-2'>bar_color</b:widget-setting>
+						<b:widget-setting name='text-3'>schema_organization_name</b:widget-setting>
+						<b:widget-setting name='link-3'>Kurteyki</b:widget-setting>
+						<b:widget-setting name='text-4'>schema_organization_logo</b:widget-setting>
+						<b:widget-setting name='link-4'>https://1.bp.blogspot.com/-GCGPUYy1rW4/XrlIXenw31I/AAAAAAAABKY/uHYdP7g16voSxoMSwar_lv6pKjFvfXABACLcBGAsYHQ/s1600/organization_logo_url_20200424151642.png</b:widget-setting>
 					</b:widget-settings>
 					<b:includable id='main'>&lt;/head&gt;--&gt;
 						<b:loop values='data:links' var='link'>
@@ -380,6 +325,51 @@ WIDGET
 							</b:if>
 
 						</b:loop>
+
+						<!--[ Schema Web Page ]-->
+						<script type='application/ld+json'>
+							{
+							"@context": "http://schema.org",
+							"@type": "WebPage",
+							"@id": "<data:blog.homepageUrl/>#webpage",
+							"name": "<data:blog.title/>",
+							"description": "<data:blog.metaDescription.escaped/>",
+							"publisher": {
+							"@id": "<data:blog.homepageUrl/>#organization"
+							}
+							}
+						</script>
+
+						<!--[ Schema Organization ]-->
+						<script type='application/ld+json'>
+							{
+							"@context":"https://schema.org",
+							"@id":"<data:blog.homepageUrl/>#organization",
+							"@type":"Organization",
+							"name":"<b:loop values='data:links' var='link'><b:if cond='data:link.name == "schema_organization_name"'><b:if cond='data:link.target'><data:link.target.escaped/></b:if></b:if></b:loop>",
+							"logo": {
+							"@type": "ImageObject",
+							"url": "<b:loop values='data:links' var='link'><b:if cond='data:link.name == "schema_organization_logo"'><b:if cond='data:link.target'><data:link.target.escaped/></b:if></b:if></b:loop>"
+							}
+							}
+						</script>
+
+						<!--[ Schema Google Search (ony homepage) ]-->
+						<b:if cond='data:view.isHomepage'>
+							<script type="application/ld+json">
+								{
+								"@context": "https://schema.org",
+								"@type": "WebSite",
+								"url": "<data:blog.homepageUrl/>",
+								"potentialAction": [{
+								"@type": "SearchAction",
+								"target": "<data:blog.homepageUrl/>search?q={q}",
+								"query-input": "required name=q"
+								}]
+								}
+							</script>
+						</b:if>
+
 						&lt;!--&lt;head&gt;
 					</b:includable>
 					<b:includable id='content'/>
@@ -399,8 +389,6 @@ WIDGET
 				body#layout #main-nav,body#layout #Blog2,body#layout #reset{display:none}
 				body#layout {max-width:1040px;padding:50px 20px;}
 				body#layout .widget-content{box-shadow:none}
-
-
 				]]>					
 			</b:skin>
 		</b:includable>     
@@ -410,6 +398,22 @@ WIDGET
 		</b:includable> 
 		<b:includable id='MY_CSS_INTERNAL'>
 			<style>
+				.smd .img-thumbnail {
+				border-radius: 33px;
+				width: 61px;
+				height: 61px
+				}
+
+				.smd .fa:before {
+				position: relative;
+				top: 20px
+				}
+
+				.smd {
+				width: 200px;
+				font-size: small;
+				text-align: center
+				}
 			</style>
 		</b:includable>
 	</b:defaultmarkup>      
@@ -417,7 +421,7 @@ WIDGET
 
 <b:include name='MASTER_HEAD'/>
 
-<!-- [==================== BODY ============== ] -->
+<b:comment><!-- [==================== BODY ============== ] --></b:comment>
 <b:defaultmarkups>
 	<b:defaultmarkup type='Common'>
 		<b:includable id='MASTER_BODY'>
@@ -532,7 +536,7 @@ WIDGET
 
 <b:include name='MASTER_BODY'/> 
 
-<!-- [==================== FOOTER ============== ] -->
+<b:comment><!-- [==================== FOOTER ============== ] --></b:comment>
 <b:defaultmarkups>
 	<b:defaultmarkup type='Common'>
 		<b:includable id='MASTER_FOOTER'>
@@ -624,7 +628,7 @@ WIDGET
 
 <b:include name='MASTER_FOOTER'/> 
 
-<!-- [==================== ALL WIDGET ============== ] -->
+<b:comment><!-- [==================== ALL WIDGET ============== ] --></b:comment>
 <b:defaultmarkups>
 	<b:defaultmarkup type='Common'>
 		<b:includable id='MY_HEADER_WIDGET_HEADER'>
@@ -828,44 +832,14 @@ WIDGET
 							</div>
 						</div>
 					</b:includable>
-					<b:includable id='blogThisShare'/>
-					<b:includable id='bylineByName' var='byline'/>
-					<b:includable id='bylineRegion' var='regionItems'/>
-					<b:includable id='commentsLink'/>
-					<b:includable id='commentsLinkIframe'/>
-					<b:includable id='emailPostIcon'/>
-					<b:includable id='facebookShare'/>
-					<b:includable id='footerBylines'/>
-					<b:includable id='googlePlusShare'/>
-					<b:includable id='headerByline'/>
-					<b:includable id='linkShare'/>
-					<b:includable id='otherSharingButton'/>
-					<b:includable id='platformShare'/>
-					<b:includable id='postAuthor'/>
-					<b:includable id='postCommentsLink'/>
-					<b:includable id='postJumpLink' var='post'/>
-					<b:includable id='postLabels'/>
-					<b:includable id='postLocation'/>
-					<b:includable id='postReactions'/>
-					<b:includable id='postShareButtons'/>
-					<b:includable id='postTimestamp'/>
-					<b:includable id='sharingButton'/>
-					<b:includable id='sharingButtonContent'/>
-					<b:includable id='sharingButtons'/>
-					<b:includable id='sharingButtonsMenu'/>
-					<b:includable id='sharingPlatformIcon'/>
-					<b:includable id='snippetedPostByline'/>
-					<b:includable id='snippetedPostContent'/>
-					<b:includable id='snippetedPostThumbnail'/>
-					<b:includable id='snippetedPostTitle'/>
-					<b:includable id='snippetedPosts'/>
+					<b:includable id='blogThisShare'/><b:includable id='bylineByName' var='byline'/><b:includable id='bylineRegion' var='regionItems'/><b:includable id='commentsLink'/><b:includable id='commentsLinkIframe'/><b:includable id='emailPostIcon'/><b:includable id='facebookShare'/><b:includable id='footerBylines'/><b:includable id='googlePlusShare'/><b:includable id='headerByline'/><b:includable id='linkShare'/><b:includable id='otherSharingButton'/><b:includable id='platformShare'/><b:includable id='postAuthor'/><b:includable id='postCommentsLink'/><b:includable id='postJumpLink' var='post'/><b:includable id='postLabels'/><b:includable id='postLocation'/><b:includable id='postReactions'/><b:includable id='postShareButtons'/><b:includable id='postTimestamp'/><b:includable id='sharingButton'/><b:includable id='sharingButtonContent'/><b:includable id='sharingButtons'/><b:includable id='sharingButtonsMenu'/><b:includable id='sharingPlatformIcon'/><b:includable id='snippetedPostByline'/><b:includable id='snippetedPostContent'/><b:includable id='snippetedPostThumbnail'/><b:includable id='snippetedPostTitle'/><b:includable id='snippetedPosts'/>
 				</b:widget>
 			</b:section>
 		</b:includable>
 	</b:defaultmarkup>
 </b:defaultmarkups>
 
-<!-- [==================== BLOG POST WIDGET ============== ] -->
+<b:comment><!-- [==================== BLOG POST WIDGET ============== ] --></b:comment>
 <b:defaultmarkups>
 	<b:defaultmarkup type='Common'>
 		<b:includable id='MY_BLOG_POST_WIDGET_MAIN'>
@@ -902,67 +876,7 @@ WIDGET
 					<b:includable id='main' var='this'>   
 						<b:include name='BLOG_POST_LOOP'/>
 					</b:includable>
-					<b:includable id='aboutPostAuthor'/>
-					<b:includable id='addComments'/>
-					<b:includable id='blogThisShare'/>
-					<b:includable id='bylineByName'/>
-					<b:includable id='bylineRegion'/>
-					<b:includable id='commentAuthorAvatar'/>
-					<b:includable id='commentDeleteIcon'/>
-					<b:includable id='commentForm'/>
-					<b:includable id='commentFormIframeSrc'/>
-					<b:includable id='commentItem'/>
-					<b:includable id='commentList'/>
-					<b:includable id='commentPicker'/>
-					<b:includable id='comments'/>
-					<b:includable id='commentsLink'/>
-					<b:includable id='commentsLinkIframe'/>
-					<b:includable id='commentsTitle'/>
-					<b:includable id='defaultAdUnit'/>
-					<b:includable id='emailPostIcon'/>
-					<b:includable id='facebookShare'/>
-					<b:includable id='feedLinks'/>
-					<b:includable id='feedLinksBody'/>
-					<b:includable id='footerBylines'/>
-					<b:includable id='googlePlusShare'/>
-					<b:includable id='headerByline'/>
-					<b:includable id='homePageLink'/>
-					<b:includable id='iframeComments'/>
-					<b:includable id='inlineAd'/>
-					<b:includable id='linkShare'/>
-					<b:includable id='nextPageLink'/>
-					<b:includable id='otherSharingButton'/>
-					<b:includable id='platformShare'/>
-					<b:includable id='post'/>
-					<b:includable id='postAuthor'/>
-					<b:includable id='postBody'/>
-					<b:includable id='postBodySnippet'/>
-					<b:includable id='postCommentsAndAd'/>
-					<b:includable id='postCommentsLink'/>
-					<b:includable id='postFooter'/>
-					<b:includable id='postFooterAuthorProfile'/>
-					<b:includable id='postHeader'/>
-					<b:includable id='postJumpLink'/>
-					<b:includable id='postLabels'/>
-					<b:includable id='postLocation'/>
-					<b:includable id='postMeta'/>
-					<b:includable id='postMetadataJSONImage'/>
-					<b:includable id='postMetadataJSONPublisher'/>
-					<b:includable id='postPagination'/>
-					<b:includable id='postReactions'/>
-					<b:includable id='postShareButtons'/>
-					<b:includable id='postTimestamp'/>
-					<b:includable id='postTitle'/>
-					<b:includable id='previousPageLink'/>
-					<b:includable id='sharingButton'/>
-					<b:includable id='sharingButtonContent'/>
-					<b:includable id='sharingButtons'/>
-					<b:includable id='sharingButtonsMenu'/>
-					<b:includable id='sharingPlatformIcon'/>
-					<b:includable id='status-message'/>
-					<b:includable id='threadedCommentForm'/>
-					<b:includable id='threadedCommentJs'/>
-					<b:includable id='threadedComments'/>
+					<b:includable id='aboutPostAuthor'/><b:includable id='addComments'/><b:includable id='blogThisShare'/><b:includable id='bylineByName'/><b:includable id='bylineRegion'/><b:includable id='commentAuthorAvatar'/><b:includable id='commentDeleteIcon'/><b:includable id='commentForm'/><b:includable id='commentFormIframeSrc'/><b:includable id='commentItem'/><b:includable id='commentList'/><b:includable id='commentPicker'/><b:includable id='comments'/><b:includable id='commentsLink'/><b:includable id='commentsLinkIframe'/><b:includable id='commentsTitle'/><b:includable id='defaultAdUnit'/><b:includable id='emailPostIcon'/><b:includable id='facebookShare'/><b:includable id='feedLinks'/><b:includable id='feedLinksBody'/><b:includable id='footerBylines'/><b:includable id='googlePlusShare'/><b:includable id='headerByline'/><b:includable id='homePageLink'/><b:includable id='iframeComments'/><b:includable id='inlineAd'/><b:includable id='linkShare'/><b:includable id='nextPageLink'/><b:includable id='otherSharingButton'/><b:includable id='platformShare'/><b:includable id='post'/><b:includable id='postAuthor'/><b:includable id='postBody'/><b:includable id='postBodySnippet'/><b:includable id='postCommentsAndAd'/><b:includable id='postCommentsLink'/><b:includable id='postFooter'/><b:includable id='postFooterAuthorProfile'/><b:includable id='postHeader'/><b:includable id='postJumpLink'/><b:includable id='postLabels'/><b:includable id='postLocation'/><b:includable id='postMeta'/><b:includable id='postMetadataJSONImage'/><b:includable id='postMetadataJSONPublisher'/><b:includable id='postPagination'/><b:includable id='postReactions'/><b:includable id='postShareButtons'/><b:includable id='postTimestamp'/><b:includable id='postTitle'/><b:includable id='previousPageLink'/><b:includable id='sharingButton'/><b:includable id='sharingButtonContent'/><b:includable id='sharingButtons'/><b:includable id='sharingButtonsMenu'/><b:includable id='sharingPlatformIcon'/><b:includable id='status-message'/><b:includable id='threadedCommentForm'/><b:includable id='threadedCommentJs'/><b:includable id='threadedComments'/>
 				</b:widget>
 				<b:widget cond='!data:view.isPreview and data:view.isPost' id='HTML602' locked='true' title='Iklan dibagian atas Artikel' type='HTML' version='2' visible='true'>
 					<b:widget-settings>
@@ -1064,23 +978,31 @@ WIDGET
 			</b:if> 
 		</b:includable>
 		<b:includable id='BLOG_POST_SCHEMA'>
-			<script type='application/ld+json'>
-				{ 
-				&quot;@context&quot;: &quot;https://schema.org&quot;, 
-				&quot;@type&quot;: &quot;Blog&quot;,
-				&quot;mainEntityOfPage&quot;:{
-				&quot;@type&quot;: &quot;WebPage&quot;,
-				&quot;@id&quot;: &quot;<data:blog.homepageUrl/>#webpage&quot;
+
+			<script type="application/ld+json">
+				{
+				"@context": "https://schema.org",
+				"@type": "NewsArticle",
+				"mainEntityOfPage":{
+				"@type": "WebPage",
+				"@id": "<data:blog.homepageUrl/>#webpage"
 				},
-				&quot;image&quot;: &quot;<b:eval expr='data:post.featuredImage'/>&quot;,
-				&quot;name&quot;: &quot;<b:eval expr='data:blog.pageName.escaped'/>&quot;,      
-				&quot;headline&quot;: &quot;<b:eval expr='data:blog.pageName.escaped'/>&quot;,
-				&quot;alternativeHeadline&quot;: &quot;<b:eval expr='data:blog.pageName'/>&quot;,
-				&quot;url&quot;: &quot;<data:post.url.canonical/>&quot;,
-				&quot;datePublished&quot;: &quot;<data:post.date.iso8601/>&quot;,
-				&quot;description&quot;: &quot;<b:eval expr='data:blog.metaDescription.escaped ? data:blog.metaDescription.escaped : data:post.snippets.long snippet { length: 147, links: false, linebreaks: false, ellipsis: false }'/>&quot;,
-				&quot;comment&quot;: {
-				&quot;@id&quot;: &quot;<data:blog.homepageUrl/>#comment&quot;
+				"url": "<data:post.url.canonical/>",
+				"headline": "<b:eval expr='data:blog.pageName.escaped'/>",
+				"description": "<b:eval expr='data:post.snippets.long.escaped snippet { length: 147, links: false, linebreaks: false, ellipsis: false }' name='twitter:description'/>",
+				"articleBody": "<b:eval expr='data:post.snippets.long.escaped snippet { length: 147, links: false, linebreaks: false, ellipsis: false }' name='twitter:description'/>",
+				"image": "<b:eval expr='data:post.featuredImage'/>",
+				"datePublished": "<data:post.date.iso8601/>",
+				<b:if cond='data:post.lastUpdated'>"dateModified": "<data:post.lastUpdated.iso8601/>",</b:if>
+				"author": {
+				"@type": "Person",
+				"name": "<data:post.author.name/>"
+				},
+				"publisher": {
+				"@id": "<data:blog.homepageUrl/>#organization"
+				},
+				"comment": {
+				"@id": "<data:blog.homepageUrl/>#comment"
 				}
 				}
 			</script>
@@ -1140,7 +1062,6 @@ WIDGET
 
 					<div class='col-md-12 grid-item u-mb-small u-ph-zero'>
 						<article class='c-event u-m-zero u-p-zero'>
-							<b:include name='BLOG_POST_SCHEMA'/>
 
 							<b:include name='BLOG_POST_LAYOUTS_HEADER'/>
 
@@ -1159,22 +1080,7 @@ WIDGET
 
 							</div>
 
-							<div class='c-event__meta u-ph-small u-pv-xsmall u-border-top'>
-								<b:if cond='data:this.allBylineItems.comments'>
-									<b:if cond='data:post.allowComments'>
-										<div>                             
-											<data:post.numberOfComments/> <data:messages.comments/>
-										</div>
-									</b:if>
-								</b:if>
-								<b:if cond='data:post.labels'>
-									<span class='u-text-mute'>
-										<b:loop values='data:post.labels limit 1' var='label'>
-											<i class='fa fa-hashtag'/><data:label.name/>
-										</b:loop>
-									</span>
-								</b:if>
-							</div>
+							<b:include name='BLOG_POST_LAYOUTS_FOOTER'/>
 
 						</article><!-- // .c-event -->
 					</div>
@@ -1214,31 +1120,16 @@ WIDGET
 									<data:post.body/>
 									<div id='ads-bottom-target'/>
 								</div>
-							</div>                      
+							</div>     
 
-							<div class='c-event__meta u-ph-small u-pv-small u-border-top'>
-								<b:if cond='data:this.allBylineItems.comments'>
-									<b:if cond='data:post.allowComments'>
-										<div>                             
-											<data:post.numberOfComments/> <data:messages.comments/>
-										</div>
-									</b:if>
-								</b:if>
-								<b:if cond='data:post.labels'>
-									<span class='u-text-mute'>
-										<b:loop values='data:post.labels limit 1' var='label'>
-											<i class='fa fa-hashtag'/><data:label.name/>
-										</b:loop>
-									</span>
-								</b:if>
-							</div>
+							<b:include name='BLOG_POST_LAYOUTS_FOOTER'/>
 
 						</article><!-- // .c-event -->
 
 					</div>
 					<div class='col-12 u-ph-zero'>
 						<b:include name='BLOG_POST_NEXT_PREV'/>   
-						<b:include name='BLOG_POST_COMMENT'/>                           
+						<b:include name='BLOG_POST_COMMENT'/>
 					</div>
 				</b:loop>
 			</div>
@@ -1274,6 +1165,24 @@ WIDGET
 				</div>
 			</div>
 		</b:includable> 
+		<b:includable id='BLOG_POST_LAYOUTS_FOOTER'> 
+			<div class='c-event__meta u-ph-small u-pv-small u-border-top'>
+				<b:if cond='data:this.allBylineItems.comments'>
+					<b:if cond='data:post.allowComments'>
+						<div>                             
+							<data:post.numberOfComments/> <data:messages.comments/>
+						</div>
+					</b:if>
+				</b:if>
+				<b:if cond='data:post.labels'>
+					<span class='u-text-mute'>
+						<b:loop values='data:post.labels limit 1' var='label'>
+							<i class='fa fa-hashtag'/><data:label.name/>
+						</b:loop>
+					</span>
+				</b:if>
+			</div>
+		</b:includable>
 		<b:includable id='BLOG_POST_NEXT_PREV'>   
 			<nav class='c-pagination u-justify-between u-mb-small'>
 				<b:if cond='data:olderPageUrl'>
@@ -1298,25 +1207,6 @@ WIDGET
 					<div class='modal-content'>
 						<div class='c-card u-p-medium u-mh-auto' style='max-width:500px;'>
 							<h3>Share</h3>
-
-							<style>
-								.smd .img-thumbnail {
-								border-radius: 33px;
-								width: 61px;
-								height: 61px
-								}
-
-								.smd .fa:before {
-								position: relative;
-								top: 20px
-								}
-
-								.smd {
-								width: 200px;
-								font-size: small;
-								text-align: center
-								}
-							</style>
 							<div class='u-mb-small d-flex'>
 								<div class='smd'>
 									<a class='link-share-Twitter' href='javascript:;'>
@@ -1381,17 +1271,17 @@ WIDGET
 		<b:includable id='COMMENT_SCHEMA'>
 			<script type='application/ld+json'>
 				{ 
-				&quot;@context&quot;: &quot;https://schema.org&quot;, 
-				&quot;@type&quot;: &quot;Comment&quot;,
-				&quot;@id&quot;: &quot;<data:blog.homepageUrl/>#comment&quot;,
-				&quot;comment&quot;: {
-				&quot;@type&quot;: &quot;Comment&quot;,    
-				&quot;url&quot;: &quot;<data:post.url.canonical/><b:eval expr='&quot;#c&quot; + data:cb.level.id'/>&quot;,
-				&quot;dateCreated&quot;: &quot;<data:cb.level.timestamp/>&quot;,
-				&quot;text&quot;: &quot;<b:eval expr='data:cb.level.body snippet { links: false }'/>&quot;,
-				&quot;creator&quot;: {
-				&quot;@type&quot;: &quot;Person&quot;,
-				&quot;name&quot;: &quot;<data:cb.level.author/>&quot;
+				"@context": "https://schema.org", 
+				"@type": "Comment",
+				"@id": "<data:blog.homepageUrl/>#comment",
+				"comment": {
+				"@type": "Comment",    
+				"url": "<data:post.url.canonical/><b:eval expr='"#c" + data:cb.level.id'/>",
+				"dateCreated": "<data:cb.level.timestamp/>",
+				"text": "<b:eval expr='data:cb.level.body snippet { links: false }'/>",
+				"creator": {
+				"@type": "Person",
+				"name": "<data:cb.level.author/>"
 				}
 				}
 				}
@@ -1476,7 +1366,7 @@ WIDGET
 							<b:if cond='data:cb.d'>
 								<div class='u-flex u-justify-between'>
 									<div class='c-stream-item__actionlist'>
-										<a class='comment-reply-link c-stream-item__action c-btn u-color-white c-btn--small u-m-zero u-pl-xsmall u-pr-xsmall' expr:data-comment-id='data:commentLevel1.id' expr:href='&quot;#c&quot; + data:cb.level.id'>
+										<a class='comment-reply-link c-stream-item__action c-btn u-color-white c-btn--small u-m-zero u-pl-xsmall u-pr-xsmall' expr:data-comment-id='data:commentLevel1.id' href='javascript:;'>
 											<i class='fa fa-reply'/>Reply
 										</a>
 									</div>
