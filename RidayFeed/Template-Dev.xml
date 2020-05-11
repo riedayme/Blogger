@@ -987,7 +987,7 @@ WIDGET
 				"@type": "WebPage",
 				"@id": "<data:blog.homepageUrl/>#webpage"
 				},
-				"url": "<data:post.url.canonical/>",
+				"url": "<data:post.url.https/>",
 				"headline": "<b:eval expr='data:blog.pageName.escaped'/>",
 				"description": "<b:eval expr='data:post.snippets.long.escaped snippet { length: 147, links: false, linebreaks: false, ellipsis: false }' name='twitter:description'/>",
 				"articleBody": "<b:eval expr='data:post.snippets.long.escaped snippet { length: 147, links: false, linebreaks: false, ellipsis: false }' name='twitter:description'/>",
@@ -1004,6 +1004,24 @@ WIDGET
 				"comment": {
 				"@id": "<data:blog.homepageUrl/>#comment"
 				}
+				}
+			</script>
+			<script type="application/ld+json">
+				{
+				"@context": "https://schema.org",
+				"@type": "BreadcrumbList",
+				"itemListElement": [
+				<b:if cond='data:post.labels'>
+					<b:loop index='x' values='data:post.labels' var='label'>
+						{
+						"@type": "ListItem",
+						"position": <b:eval expr='data:x + 1'/>,
+						"name": "<data:label.name/>",
+						"item": "<data:label.url/>"
+						}<b:if cond='data:x + 1 != data:post.labels.size'>,</b:if>
+					</b:loop>
+				</b:if>
+				]
 				}
 			</script>
 		</b:includable> 
@@ -1276,7 +1294,7 @@ WIDGET
 				"@id": "<data:blog.homepageUrl/>#comment",
 				"comment": {
 				"@type": "Comment",    
-				"url": "<data:post.url.canonical/><b:eval expr='"#c" + data:cb.level.id'/>",
+				"url": "<data:post.url.https/><b:eval expr='"#c" + data:cb.level.id'/>",
 				"dateCreated": "<data:cb.level.timestamp/>",
 				"text": "<b:eval expr='data:cb.level.body snippet { links: false }'/>",
 				"creator": {
