@@ -17,6 +17,7 @@ MASTER_BODY
 - MY_WIDGET_MAIN_RIGHT
 - MY_FOOTER
 - MY_JS_EXTERNAL
+- MY_JS_MANUAL
 - MY_JS_INTERNAL
 WIDGET
 - MY_HEADER_WIDGET_HEADER
@@ -127,7 +128,7 @@ WIDGET
 							<b:else/>
 							<meta expr:content='data:blog.pageName.escaped ? data:blog.pageName.escaped : data:blog.title' name='description'/>
 						</b:if>
-					</b:if>				
+					</b:if>       
 					<b:if cond='data:view.isSingleItem'>
 						<b:if cond='data:blog.metaDescription'>
 							<meta expr:content='data:blog.metaDescription.escaped' name='description'/>            
@@ -147,7 +148,7 @@ WIDGET
 							<b:else/>
 							<meta expr:content='data:blog.pageName.escaped ? data:blog.pageName.escaped : data:blog.title' itemprop='description'/>
 						</b:if>
-					</b:if>				
+					</b:if>       
 					<b:if cond='data:view.isSingleItem'>
 						<b:if cond='data:blog.metaDescription'>
 							<meta expr:content='data:blog.metaDescription.escaped' itemprop='description'/>            
@@ -159,9 +160,9 @@ WIDGET
 						<b:if cond='data:view.featuredImage'>
 							<meta expr:content='resizeImage(data:view.featuredImage, 640)' itemprop='image'/>
 						</b:if>
-					</b:if>				
+					</b:if>       
 
-					<!--[ Favicon ]-->				
+					<!--[ Favicon ]-->        
 					<link expr:href='data:blog.blogspotFaviconUrl' rel='apple-touch-icon' sizes='120x120'/>
 					<link expr:href='data:blog.blogspotFaviconUrl' rel='apple-touch-icon' sizes='152x152'/>
 					<link expr:href='data:blog.blogspotFaviconUrl' rel='icon' type='image/x-icon'/>
@@ -172,7 +173,7 @@ WIDGET
 
 					<!--[ Feed ]-->
 					<link expr:href='data:blog.homepageUrl + &quot;feeds/posts/default?alt=rss&quot;' expr:title='data:blog.title + &quot; » Feed&quot;' rel='alternate' type='application/rss+xml'/>
-					<link expr:href='data:blog.homepageUrl + &quot;/feeds/comments/default?alt=rss&quot;' expr:title='data:blog.title + &quot; » Comments Feed&quot;' rel='alternate' type='application/rss+xml'/>				
+					<link expr:href='data:blog.homepageUrl + &quot;/feeds/comments/default?alt=rss&quot;' expr:title='data:blog.title + &quot; » Comments Feed&quot;' rel='alternate' type='application/rss+xml'/>        
 
 					<!--[ Open Graph Multiple Page ]-->
 					<b:if cond='data:view.isMultipleItems'>
@@ -187,7 +188,7 @@ WIDGET
 						<meta expr:content='data:blog.title' property='og:site_name'/>
 					</b:if>
 
-					<!--[ Open Graph Single Page ]-->		
+					<!--[ Open Graph Single Page ]-->   
 					<b:if cond='data:view.isSingleItem'>
 						<meta expr:content='data:view.title.escaped' property='og:title'/>
 						<meta content='article' property='og:type'/>
@@ -205,7 +206,7 @@ WIDGET
 							<b:if cond='data:post.lastUpdated'>
 								<meta expr:content='data:post.lastUpdated.iso8601' property='article:modified_time'/>
 							</b:if>
-							<meta expr:content='data:post.author.name' property='article:author'/>		
+							<meta expr:content='data:post.author.name' property='article:author'/>    
 						</b:loop>
 						<b:if cond='data:view.featuredImage'>
 							<meta expr:content='resizeImage(data:view.featuredImage, 640)' property='og:image'/>
@@ -237,7 +238,7 @@ WIDGET
 						<b:if cond='data:view.featuredImage'>
 							<meta content='summary_large_image' name='twitter:card'/>
 							<meta expr:content='resizeImage(data:view.featuredImage, 640)' name='twitter:image:src'/>
-						</b:if>					
+						</b:if>         
 					</b:if>
 
 					<!--[ No Index Page ]-->
@@ -399,18 +400,19 @@ WIDGET
 				body#layout {max-width:1040px;padding:50px 20px;}
 				body#layout .widget-content{box-shadow:none}
 
+
 				]]>					
 			</b:skin>
-		</b:includable>			
+		</b:includable>     
 		<b:includable id='MY_CSS_EXTERNAL'>
-			<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@879a2fba9a4838a493482ac8005bf02900102bfc/RidayFeed/assets/css/main.css' rel='stylesheet'/>
-			<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@879a2fba9a4838a493482ac8005bf02900102bfc/RidayFeed/assets/css/custom.css' rel='stylesheet'/>
-		</b:includable>	
+			<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@81e7f1b9cc6cd1b9759423f6eb2f0db1b5460fff/RidayFeed/assets/css/main.css' rel='stylesheet'/>
+			<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@81e7f1b9cc6cd1b9759423f6eb2f0db1b5460fff/RidayFeed/assets/css/custom.css' rel='stylesheet'/>
+		</b:includable> 
 		<b:includable id='MY_CSS_INTERNAL'>
 			<style>
 			</style>
 		</b:includable>
-	</b:defaultmarkup>			
+	</b:defaultmarkup>      
 </b:defaultmarkups>
 
 <b:include name='MASTER_HEAD'/>
@@ -423,7 +425,7 @@ WIDGET
 			<b:include name='MY_HEADER'/>
 			<b:include name='MY_MAIN'/>
 			<b:include name='MY_FOOTER'/>
-		</b:includable>		
+		</b:includable>   
 		<b:includable id='MY_HEADER'>
 			<header class='u-bg-white u-border-bottom'>
 				<div class='container'>
@@ -431,7 +433,7 @@ WIDGET
 						<div class='col-12'>
 							<div class='c-navbar u-border-bottom-zero u-p-zero'>
 
-								<b:include name='MY_HEADER_WIDGET_HEADER'/>	
+								<b:include name='MY_HEADER_WIDGET_HEADER'/> 
 
 								<div class='u-ml-auto u-hidden-up@tablet'/>
 								<form class='u-width-50 u-hidden-down@tablet' expr:action='data:blog.searchUrl' method='GET'>
@@ -451,7 +453,7 @@ WIDGET
 								<!-- Navigation items that will be collapes and toggle in small viewports -->
 								<nav class='c-nav collapse' id='main-nav'>
 									<div class='u-hidden-up@tablet'>
-										<b:include name='MY_LABEL_WIDGET_HEADER'/>	
+										<b:include name='MY_LABEL_WIDGET_HEADER'/>  
 										<ul class='c-nav__list'>         
 											<li class='c-nav__item'>
 												<form expr:action='data:blog.searchUrl' method='GET'>
@@ -480,7 +482,7 @@ WIDGET
 					</div>
 				</div>
 			</header>
-		</b:includable>	
+		</b:includable> 
 		<b:includable id='MY_MAIN'>
 			<main id='main-wrapper'>
 				<div class='container u-mv-small'>
@@ -491,7 +493,7 @@ WIDGET
 							<b:class cond='data:view.isMultipleItems' name='col-xl-2 col-lg-2'/>
 							<b:class cond='data:view.isSingleItem' name='col-xl-2 col-lg-2'/>
 
-							<aside class='c-menu u-mb-small' id='sidebar-left'>					
+							<aside class='c-menu u-mb-small' id='sidebar-left'>         
 								<b:include name='MY_WIDGET_MAIN_LEFT'/>
 							</aside>
 						</div>
@@ -502,7 +504,7 @@ WIDGET
 							<b:class cond='data:view.isSingleItem' name='col-xl-7 col-lg-6 col-md-12 col-12'/>
 
 							<b:include name='MY_BLOG_POST_WIDGET_MAIN'/>
-						</div>							
+						</div>              
 
 						<div class='u-hidden-down@desktop'>
 							<b:class cond='data:view.isMultipleItems' name='col-xl-3 col-lg-3'/>
@@ -518,81 +520,109 @@ WIDGET
 
 				</div><!-- // .container -->
 			</main>
-		</b:includable>		
+		</b:includable>   
 		<b:includable id='MY_FOOTER'>
 			<!--[ back to top ]-->
 			<a class='u-hidden-down@desktop' href='javascript:;' id='toTop' title='back to top'>
 				<i class='fa fa-arrow-up'/>
 			</a>
-		</b:includable>		
+		</b:includable>   
 	</b:defaultmarkup>
 </b:defaultmarkups>
 
-<b:include name='MASTER_BODY'/>	
+<b:include name='MASTER_BODY'/> 
 
 <!-- [==================== FOOTER ============== ] -->
 <b:defaultmarkups>
 	<b:defaultmarkup type='Common'>
 		<b:includable id='MASTER_FOOTER'>
+			<b:include name='MY_JS_MANUAL'/>
 			<b:include name='MY_JS_EXTERNAL'/>
 			<b:include name='MY_JS_INTERNAL'/>
 			<b:section id='reset'/>
-			&lt;/body&gt;<b:include name='MY_JS_INTERNAL'/>
+			&lt;/body&gt;
 		</b:includable>
 		<b:includable id='MY_JS_EXTERNAL'>
 			<b:include name='MY_BODY_JS'/>
-			<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@879a2fba9a4838a493482ac8005bf02900102bfc/RidayFeed/assets/js/main.js'/>
-			<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@879a2fba9a4838a493482ac8005bf02900102bfc/RidayFeed/assets/js/custom.js'/>
-			<b:if cond='!data:view.isPreview'>
-				<script>
-					window.cookieconsent.initialise({
-					&quot;palette&quot;: {
-					&quot;popup&quot;: {
-					&quot;background&quot;: &quot;#383b75&quot;
-					},
-					&quot;button&quot;: {
-					&quot;background&quot;: &quot;#f1d600&quot;
-					}
-					},
-					&quot;content&quot;: {
-					&quot;message&quot;: &quot;Situs web ini menggunakan cookie untuk mempersonalisasi konten dan menganalisis lalu lintas untuk menawarkan pengalaman yang lebih baik kepada Anda.&quot;,
-					&quot;dismiss&quot;: &quot;Setuju&quot;,
-					&quot;link&quot;: &quot;Pelajari selengkapnya&quot;
-					}
-					});
-				</script> 
+			<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@81e7f1b9cc6cd1b9759423f6eb2f0db1b5460fff/RidayFeed/assets/js/main.js'/>
+			<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@81e7f1b9cc6cd1b9759423f6eb2f0db1b5460fff/RidayFeed/assets/js/custom.js'/>
+			<b:if cond='data:view.isPage'>
+				<script src='https://min.gitcdn.link/repo/irfaanprogrammer/bloggercode/master/js/crypto.js' type='text/javascript'/>
 			</b:if>
+		</b:includable>
+		<b:includable id='MY_JS_MANUAL'>
+			&lt;!--
+			<b:section id='ElementerSetting' maxwidgets='1' showaddelement='no'>
+				<b:widget id='LinkList3' locked='true' title='JS Manual' type='LinkList' version='2' visible='true'>
+					<b:widget-settings>
+						<b:widget-setting name='sorting'>NONE</b:widget-setting>
+						<b:widget-setting name='text-1'>adsense_client_code</b:widget-setting>
+						<b:widget-setting name='link-1'>12345</b:widget-setting>
+						<b:widget-setting name='text-0'>adsense_status</b:widget-setting>
+						<b:widget-setting name='link-0'>unactive</b:widget-setting>
+					</b:widget-settings>
+					<b:includable id='main'>--&gt;
+						<script>
+							<b:loop values='data:links' var='link'>
+								<b:if cond='data:link.name == &quot;adsense_status&quot; AND data:link.target'>
+									var <data:link.name/> = "<data:link.target/>";
+								</b:if>
+								<b:if cond='data:link.name == &quot;adsense_client_code&quot; AND data:link.target'>
+									var <data:link.name/> = <data:link.target/>;
+								</b:if>
+							</b:loop>
+						</script>
+						&lt;!--
+					</b:includable>
+					<b:includable id='content'/>
+				</b:widget>
+			</b:section>
+			--&gt;
+		</b:includable>
+		<b:includable id='MY_JS_INTERNAL'>
+			<script>
+				//<![CDATA[     
+				window.cookieconsent.initialise({
+				"palette": {
+				"popup": {
+				"background": "#383b75"
+				},
+				"button": {
+				"background": "#f1d600"
+				}
+				},
+				"content": {
+				"message": "Situs web ini menggunakan cookie untuk mempersonalisasi konten dan menganalisis lalu lintas untuk menawarkan pengalaman yang lebih baik kepada Anda.",
+				"dismiss": "Setuju",
+				"link": "Pelajari selengkapnya"
+				}
+				});
+				//]]>
+			</script> 
 			<b:if cond='data:view.isPage'>
 				<script type='text/javascript'>
 					//<![CDATA[
 					if($.urlParam=function(n){var t=new RegExp("[?&]"+n+"=([^&#]*)").exec(window.location.href);return null==t?null:decodeURI(t[1])||0},null!=$.urlParam("from")){var countdown=$("#countdown"),nextbutton=$("#nextbutton"),time=10;function CountDown(){document.getElementById("timer").innerHTML=time,(time-=1)<0?countdown.fadeOut("slow",function(){nextbutton.fadeIn()}):window.setTimeout("CountDown()",1e3)}CountDown(),nextbutton.on("click",function(){var n=aesCrypto.decrypt(convertstr($.urlParam("from")),convertstr("root"));window.location.href=n})}
 					//]]>
 				</script>
-				<script src='https://min.gitcdn.link/repo/irfaanprogrammer/bloggercode/master/js/crypto.js' type='text/javascript'/>
 			</b:if>
-		</b:includable>
-		<b:includable id='MY_JS_INTERNAL'>
-			<script>
-				/*<![CDATA[*/    			
-				/*]]>*/
-			</script>	
 			<b:if cond='data:view.isSingleItem'>
 				<script type='text/javascript'>
-					//<![CDATA[			
+					//<![CDATA[     
 					$(document).ready(function(){
 					$(".entry-content a:has(img)").colorbox({rel:'image', transition:"none", width:"75%", height:"auto"});
 					});
 					//]]>
 				</script>
-			</b:if>			
-		</b:includable>	
+			</b:if>     
+		</b:includable> 
 		<b:includable id='MY_BODY_JS'>
 			<b:if cond='data:view.isPreview'><body/><b:else/>&lt;!--<body/>--&gt;</b:if>
 		</b:includable>
 	</b:defaultmarkup>
 </b:defaultmarkups>
 
-<b:include name='MASTER_FOOTER'/>	
+<b:include name='MASTER_FOOTER'/> 
 
 <!-- [==================== ALL WIDGET ============== ] -->
 <b:defaultmarkups>
@@ -639,8 +669,10 @@ WIDGET
 				<b:widget id='LinkList2' locked='true' title='Link Widget' type='LinkList' version='2' visible='true'>
 					<b:widget-settings>
 						<b:widget-setting name='sorting'>NONE</b:widget-setting>
-						<b:widget-setting name='text-0'>My Site</b:widget-setting>
-						<b:widget-setting name='link-0'>https://riedayme.kurteyki.com/</b:widget-setting>
+						<b:widget-setting name='text-1'>Catatan</b:widget-setting>
+						<b:widget-setting name='link-1'>/p/catatan-pemrograman.html</b:widget-setting>
+						<b:widget-setting name='text-0'>Parse</b:widget-setting>
+						<b:widget-setting name='link-0'>/p/parse-html.html</b:widget-setting>
 					</b:widget-settings>
 					<b:includable id='main'>
 						<div class='c-dropdown dropdown u-ml-xsmall' style='top:4px;'>
@@ -689,7 +721,7 @@ WIDGET
 					<b:includable id='list'/>
 				</b:widget>
 			</b:section> 
-		</b:includable>			
+		</b:includable>     
 		<b:includable id='MY_WIDGET_MAIN_LEFT'>
 			<b:section id='ElementerLeft' maxwidgets='1' showaddelement='no'>
 				<b:widget id='Label1' locked='true' title='Topik Pembahasan' type='Label' version='2' visible='true'>
@@ -708,7 +740,7 @@ WIDGET
 							<b:loop values='data:labels' var='label'>
 								<li class='c-menu__item'>
 									<a class='c-menu__link u-pl-zero' expr:href='data:label.url + &quot;?max-results=2&quot;' expr:title='data:label.name'>
-										<b:if cond='data:label.name == &quot;CodeIgniter&quot;'>											
+										<b:if cond='data:label.name == &quot;CodeIgniter&quot;'>                      
 											<svg class='u-mr-xsmall' id='Layer_1' style='width:14px;' version='1.1' viewBox='0 0 256 304' xml:space='preserve' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><style type='text/css'>
 												.st0{fill:#EE4323;}
 											</style><g><path class='st0' d='M85.2,303.1c-18-7.8-34.8-27.5-34.8-47.7c0-22,13.9-40.7,31.3-53c-2.1,7.9-3.2,15.1,1.9,22.2   c4.8,6.6,13.2,9.8,21.2,8c18.6-4.1,19.4-24.5,8.4-36.4C102.3,184.3,91.8,171,96,153.9c2.1-8.6,7.3-16.6,14-22.3   c-5.1,13.5,9.4,26.7,19,33.4c16.6,11.5,34.9,20.1,50.2,33.6c16.1,14.1,28,33.3,25.6,55.4c-2.6,24-21.7,40.7-43.1,49.2   c45.3-10,92-45.1,93-95.3c0.8-41.3-27.5-73.1-62.6-91.3l-1.8-1c1,2.3,1.3,4.3,1.2,6.1c0.3-1.3,0.5-2.7,0.6-4.1   c0,1.7-0.2,3.4-0.6,4.9l0.1-0.8c-0.5,2.2-1.4,4.3-2.6,6.2l0.5-0.6c-7,11.6-26,14.1-35.3,2.1c-15.1-19.3,0.3-40.2,2.5-60.7   c2.7-25.7-13.4-50.6-33.4-65.5c11,17.8-3.5,41.3-15.1,54.5c-11.2,12.8-24.9,23.4-37.3,35c-13.3,12.4-26.1,25.5-37.1,40.1   c-21.9,29.2-35.3,66-25.5,102.4C18,271.7,49.6,294.9,85.2,303.1L85.2,303.1z'/></g></svg>
@@ -735,13 +767,19 @@ WIDGET
 					<b:includable id='content'/>
 					<b:includable id='list'/>
 				</b:widget>
-			</b:section>	
+			</b:section>  
 		</b:includable>
 		<b:includable id='MY_WIDGET_MAIN_RIGHT'>
 			<b:section id='ElementerRight' maxwidgets='1' showaddelement='no'>
-				<b:widget cond='!data:view.isPreview AND !data:view.search.query' id='HTML600' locked='true' title='Iklan Sidebar' type='HTML' version='2' visible='false'>
+				<b:widget cond='!data:view.isPreview AND !data:view.search.query' id='HTML600' locked='true' title='Iklan Sidebar' type='HTML' version='2' visible='true'>
 					<b:widget-settings>
-						<b:widget-setting name='content'><![CDATA[<img src='https://1.bp.blogspot.com/-9bQQKOOeeyw/Xixh8sx2sjI/AAAAAAAABFY/xWQfVEUuo1EI6MSpB90iHuDxB8xt1PvnwCLcBGAsYHQ/s1600/HTML%2B5.png'/>]]></b:widget-setting>
+						<b:widget-setting name='content'>&lt;ins class=&quot;adsbygoogle&quot;
+							style=&quot;display:block;min-height:600px&quot;
+							data-ad-client=&quot;ca-pub-2846006866814506&quot;
+							data-ad-slot=&quot;6243178602&quot;
+							data-ad-format=&quot;auto&quot;
+							data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;&lt;script&gt;(adsbygoogle = window.adsbygoogle || []).push({});&lt;/script&gt;
+						</b:widget-setting>
 					</b:widget-settings>
 					<b:includable id='main'>  
 						<div class='adspost'>
@@ -749,7 +787,7 @@ WIDGET
 						</div>
 					</b:includable>
 				</b:widget>
-				<b:widget id='PopularPosts1' locked='false' title='Sering Dilihat' type='PopularPosts' version='2' visible='true'>
+				<b:widget id='PopularPosts1' locked='true' title='Sering Dilihat' type='PopularPosts' version='2' visible='true'>
 					<b:widget-settings>
 						<b:widget-setting name='numItemsToShow'>10</b:widget-setting>
 						<b:widget-setting name='showThumbnails'>false</b:widget-setting>
@@ -929,6 +967,15 @@ WIDGET
 				<b:widget cond='!data:view.isPreview and data:view.isPost' id='HTML602' locked='true' title='Iklan dibagian atas Artikel' type='HTML' version='2' visible='true'>
 					<b:widget-settings>
 						<b:widget-setting name='content'>
+							&lt;!-- DF-HR-POST-TOP --&gt;
+							&lt;ins class=&quot;adsbygoogle&quot;
+							style=&quot;display:block;height:90px&quot;
+							data-ad-client=&quot;ca-pub-2846006866814506&quot;
+							data-ad-slot=&quot;1965824573&quot;
+							data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+							&lt;script&gt;
+							(adsbygoogle = window.adsbygoogle || []).push({});
+							&lt;/script&gt;
 						</b:widget-setting>
 					</b:widget-settings>
 					<b:includable id='main'>  
@@ -948,8 +995,7 @@ WIDGET
 				</b:widget>
 				<b:widget cond='!data:view.isPreview and data:view.isPost' id='HTML603' locked='true' title='Iklan Ditengah Artikel' type='HTML' version='2' visible='false'>
 					<b:widget-settings>
-						<b:widget-setting name='content'>
-						</b:widget-setting>
+						<b:widget-setting name='content'/>
 					</b:widget-settings>
 					<b:includable id='main'>
 
@@ -981,6 +1027,15 @@ WIDGET
 				<b:widget cond='!data:view.isPreview and data:view.isPost' id='HTML605' locked='true' title='Iklan Dibawah Artikel' type='HTML' version='2' visible='true'>
 					<b:widget-settings>
 						<b:widget-setting name='content'>
+							&lt;!-- DF-HR-POST-TOP --&gt;
+							&lt;ins class=&quot;adsbygoogle&quot;
+							style=&quot;display:block;height:90px&quot;
+							data-ad-client=&quot;ca-pub-2846006866814506&quot;
+							data-ad-slot=&quot;1965824573&quot;
+							data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+							&lt;script&gt;
+							(adsbygoogle = window.adsbygoogle || []).push({});
+							&lt;/script&gt;
 						</b:widget-setting>
 					</b:widget-settings>
 					<b:includable id='main'>      
@@ -1029,7 +1084,7 @@ WIDGET
 				}
 				}
 			</script>
-		</b:includable>	
+		</b:includable> 
 		<b:includable id='BLOG_POST_MESSAGE'>
 			<div class='row'>
 				<div class='col-12 u-ph-zero'>
@@ -1107,7 +1162,7 @@ WIDGET
 							<div class='c-event__meta u-ph-small u-pv-xsmall u-border-top'>
 								<b:if cond='data:this.allBylineItems.comments'>
 									<b:if cond='data:post.allowComments'>
-										<div>															
+										<div>                             
 											<data:post.numberOfComments/> <data:messages.comments/>
 										</div>
 									</b:if>
@@ -1159,12 +1214,12 @@ WIDGET
 									<data:post.body/>
 									<div id='ads-bottom-target'/>
 								</div>
-							</div>											
+							</div>                      
 
 							<div class='c-event__meta u-ph-small u-pv-small u-border-top'>
 								<b:if cond='data:this.allBylineItems.comments'>
 									<b:if cond='data:post.allowComments'>
-										<div>															
+										<div>                             
 											<data:post.numberOfComments/> <data:messages.comments/>
 										</div>
 									</b:if>
@@ -1182,8 +1237,8 @@ WIDGET
 
 					</div>
 					<div class='col-12 u-ph-zero'>
-						<b:include name='BLOG_POST_NEXT_PREV'/>		
-						<b:include name='BLOG_POST_COMMENT'/>														
+						<b:include name='BLOG_POST_NEXT_PREV'/>   
+						<b:include name='BLOG_POST_COMMENT'/>                           
 					</div>
 				</b:loop>
 			</div>
@@ -1212,13 +1267,13 @@ WIDGET
 				</div>
 				<div class='u-ml-auto'>
 					<div class='u-flex u-justify-between u-pt-xsmall'>
-						<a class='u-text-dark button-share' data-target='#modal-share' data-toggle='modal' expr:data-url='data:post.url' href='javascript:;'>												
+						<a class='u-text-dark button-share' data-target='#modal-share' data-toggle='modal' expr:data-url='data:post.url' href='javascript:;'>                       
 							<i class='fa fa-share'/>
 						</a>
 					</div>
 				</div>
 			</div>
-		</b:includable>	
+		</b:includable> 
 		<b:includable id='BLOG_POST_NEXT_PREV'>   
 			<nav class='c-pagination u-justify-between u-mb-small'>
 				<b:if cond='data:olderPageUrl'>
@@ -1236,7 +1291,7 @@ WIDGET
 					<span class='u-mr-auto'/>
 				</b:if>
 			</nav>
-		</b:includable>	
+		</b:includable> 
 		<b:includable id='BLOG_POST_SHARE'> 
 			<div aria-labelledby='modal-share' class='c-modal modal' id='modal-share' role='dialog' tabindex='-1'>
 				<div class='c-modal__dialog modal-dialog' role='document'>
@@ -1291,7 +1346,7 @@ WIDGET
 						</div>
 					</div>
 				</div>
-			</div>  			
+			</div>        
 		</b:includable>
 		<b:includable id='BLOG_POST_COMMENT'>
 			<b:if cond='data:post.allowComments'>
@@ -1533,7 +1588,7 @@ WIDGET
 				});
 				//]]>
 			</script> 
-		</b:includable>	
+		</b:includable> 
 	</b:defaultmarkup>
 </b:defaultmarkups>
 </html>
