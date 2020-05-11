@@ -3,9 +3,8 @@
 ![Riedayme](https://github.com/riedayme/Blogger/blob/master/Mediumish/preview.png?raw=true)
 
 ## Change Log
-***10 May 2020***
+Latest
 * Clean Folder
-***v1.4***
 * Add Again Mansory
 * Rebuild JSON-LD
 * Add Border Radius Grid Post
