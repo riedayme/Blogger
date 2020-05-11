@@ -80,3 +80,23 @@ $(window).scroll(function(){$(this).scrollTop()>100?$("#toTop").fadeIn():$("#toT
 */
 function kodein_checkelement(e){return document.getElementById(e)?1:0}function kodein_insertelement(e,n,t){var r=n.parentNode;"after"==t&&r.insertBefore(e,n.nextSibling),"before"==t&&r.insertBefore(e,n)}function kodein_moveElement(e,n,t,r,i,o){if(!kodein_checkelement(r))return!1;var m=document.getElementById(i),d=m.getElementsByTagName(n),l=document.getElementById(r);if(0==t||d.length<0||d.length<t)return m.insertAdjacentElement(o,l),!1;kodein_insertelement(l,d[t-=1],e)}
 function kodein_MoveByID(e,n){var t=document.createDocumentFragment();t.appendChild(document.getElementById(e)),document.getElementById(n).appendChild(t)}	
+
+/**
+ * Adsense LazyLoad 
+ */
+ if(adsense_status == 'active') {							
+ 	var lazyAdsense = false;
+ 	window.addEventListener("scroll", function(){
+ 		if ((document.documentElement.scrollTop != 0 && lazyAdsense === false) || (document.body.scrollTop != 0 && lazyAdsense === false)) {
+ 			(function() { var ad = document.createElement('script'); ad.setAttribute('data-ad-client',adsense_client_code); ad.async = true; ad.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'; var sc = document.getElementsByTagName('script')[0]; sc.parentNode.insertBefore(ad, sc); })();
+ 			lazyAdsense = true;
+ 		}
+ 	}, true);    
+ }else {
+ 	var ad = document.createElement('script'); 
+ 	ad.setAttribute('data-ad-client',adsense_client_code); 
+ 	ad.async = true; 
+ 	ad.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'; 
+ 	var sc = document.getElementsByTagName('script')[0]; 
+ 	sc.parentNode.insertBefore(ad, sc);
+ }
