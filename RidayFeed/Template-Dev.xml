@@ -414,7 +414,7 @@ WIDGET
 				body#layout .widget-content{box-shadow:none}
 				body#layout #option h4{width: 100%;}
 				body#layout::before {
-				content: "RidayFeed v1.0";
+				content: "RidayFeed";
 				position: absolute;
 				top: 20px;
 				right: 20px;
@@ -468,7 +468,7 @@ WIDGET
 				body#layout #main-wrapper, body#layout #ElementerSetting {clear:both}
 
 				body#layout #ElementerSetting::before {
-				content: "Adsense Lazyload,Adsense Code [Dont Remove Edit Only]";
+				content: "Adsense Lazyload Status,Adsense Code [Dont Remove Edit Only]";
 				position: absolute;
 				bottom: 20px;
 				z-index: 999;
@@ -658,18 +658,18 @@ WIDGET
 						<b:widget-settings>
 							<b:widget-setting name='sorting'>NONE</b:widget-setting>
 							<b:widget-setting name='text-1'>adsense_client_code</b:widget-setting>
-							<b:widget-setting name='link-1'>12345</b:widget-setting>
-							<b:widget-setting name='text-0'>adsense_status</b:widget-setting>
-							<b:widget-setting name='link-0'>unactive</b:widget-setting>
+							<b:widget-setting name='link-1'>xxx</b:widget-setting>
+							<b:widget-setting name='text-0'>adsense_lazyload_status</b:widget-setting>
+							<b:widget-setting name='link-0'>active</b:widget-setting>
 						</b:widget-settings>
 						<b:includable id='main'>--&gt;
 							<script>
 								<b:loop values='data:links' var='link'>
-									<b:if cond='data:link.name == &quot;adsense_status&quot; AND data:link.target'>
+									<b:if cond='data:link.name == &quot;adsense_lazyload_status&quot; AND data:link.target'>
 										var <data:link.name/> = "<data:link.target/>";
 									</b:if>
 									<b:if cond='data:link.name == &quot;adsense_client_code&quot; AND data:link.target'>
-										var <data:link.name/> = <data:link.target/>;
+										var <data:link.name/> = "<data:link.target/>";
 									</b:if>
 								</b:loop>
 							</script>
@@ -684,7 +684,6 @@ WIDGET
 				<b:include name='MY_BODY_JS'/>
 				<script>
 					//<![CDATA[     
-
 					window.cookieconsent.initialise({
 					"palette": {
 					"popup": {
@@ -874,7 +873,7 @@ WIDGET
 			</b:includable>
 			<b:includable id='MY_WIDGET_MAIN_RIGHT'>
 				<b:section id='ElementerRight' maxwidgets='1' showaddelement='no'>
-					<b:widget cond='!data:view.isPreview AND !data:view.search.query' id='HTML600' locked='true' title='Iklan Sidebar' type='HTML' version='2' visible='true'>
+					<b:widget cond='!data:view.isPreview AND !data:view.search.query' id='HTML600' locked='true' title='Iklan Sidebar' type='HTML' version='2' visible='false'>
 						<b:widget-settings>
 							<b:widget-setting name='content'>&lt;ins class=&quot;adsbygoogle&quot;
 								style=&quot;display:block;min-height:600px&quot;
@@ -996,7 +995,7 @@ WIDGET
 							</div>             
 						</b:includable>
 					</b:widget>
-					<b:widget cond='!data:view.isPreview and data:view.isPost' id='HTML602' locked='true' title='Iklan atas artikel' type='HTML' version='2' visible='true'>
+					<b:widget cond='!data:view.isPreview and data:view.isPost' id='HTML602' locked='true' title='Iklan atas artikel' type='HTML' version='2' visible='false'>
 						<b:widget-settings>
 							<b:widget-setting name='content'>
 								&lt;!-- DF-HR-POST-TOP --&gt;
@@ -1056,7 +1055,7 @@ WIDGET
 
 						</b:includable>
 					</b:widget>
-					<b:widget cond='!data:view.isPreview and data:view.isPost' id='HTML605' locked='true' title='Iklan bawah artikel' type='HTML' version='2' visible='true'>
+					<b:widget cond='!data:view.isPreview and data:view.isPost' id='HTML605' locked='true' title='Iklan bawah artikel' type='HTML' version='2' visible='false'>
 						<b:widget-settings>
 							<b:widget-setting name='content'>
 								&lt;!-- DF-HR-POST-TOP --&gt;
@@ -1498,8 +1497,14 @@ WIDGET
 					<div class='c-stream-item__content o-media__body'>
 
 						<div class='c-stream-item__header'>
-							<span class='c-stream-item__name'>
-								<span class='u-block u-text-bold'><data:cb.level.author/></span>
+							<span class='c-stream-item__name' style='line-height:1.2'>
+								<span class='u-block u-text-bold'>
+									<b:if cond='data:cb.level.authorUrl != data:post.author.profileUrl'>
+										<data:cb.level.author/>
+										<b:else/>
+										<data:cb.level.author/> <i class='fa fa-star u-color-info'/>
+									</b:if>
+								</span>
 								<span class='c-stream-item__time c-no-wrap'><data:cb.level.timestamp/></span>
 							</span>
 							<b:if cond='data:post.allowNewComments'>
@@ -1507,7 +1512,13 @@ WIDGET
 									<div class='u-flex u-justify-between'>
 										<div class='c-stream-item__actionlist'>
 											<a class='comment-reply-link c-stream-item__action c-btn u-color-white c-btn--small u-m-zero u-pl-xsmall u-pr-xsmall' expr:data-comment-id='data:commentLevel1.id' href='javascript:;'>
-												<i class='fa fa-reply'/>Reply
+												<i class='fa fa-reply'/>
+												<b:switch var='data:blog.locale'>
+													<b:case value='id' />
+													Balas
+													<b:default />
+													Reply
+												</b:switch>
 											</a>
 										</div>
 									</div>
@@ -1531,45 +1542,55 @@ WIDGET
 			</b:includable>
 			<b:includable id='COMMENT_THREAD'>
 
-				<b:include name='COMMENT_TITLE'/> 
+				<div id='comment-container'>
+					<b:include name='COMMENT_TITLE'/> 
 
-				<b:if cond='data:post.showThreadedComments'>
-					<ol class='c-stream u-mb-xsmall u-border-zero' style='background:none'>          
-						<b:loop values='data:post.comments where (c =&gt; not c.inReplyTo)' var='commentLevel1'>
-							<li class='c-stream-item u-mb-xsmall u-bg-white u-border-rounded u-border-top u-border-right u-border-bottom u-border-left'>
-								<b:include data='{level: data:commentLevel1,d: true}' name='COMMENT_CONTENT'/>
-								<b:with value='data:post.comments where (c =&gt; c.inReplyTo == data:commentLevel1.id)' var='commentL2'>
-									<b:if cond='data:commentL2.size != &quot;0&quot;'>
-										<ol class='c-stream u-ml-small u-mt-small u-mb-zero'>
-											<b:loop values='data:commentL2' var='commentLevel2'>
-												<li class='c-stream-item u-border-bottom-zero' expr:id='&quot;c&quot; + data:commentLevel2.id'>
-													<b:include data='{level: data:commentLevel2,d: false}' name='COMMENT_CONTENT'/>
-												</li>
-											</b:loop>
-										</ol>
-									</b:if>
-								</b:with>   
-							</li>
-						</b:loop>
-					</ol>
-				</b:if>
-				<b:include name='COMMENT_PAGINATION'/> 
-				<b:if cond='data:post.allowNewComments'>
-					<div class='comment-footer c-card u-p-medium u-mb-zero'>
-						<b:comment>Form Comment</b:comment>
-						<b:include name='COMMENT_FORM'/>
-					</div>
-				</b:if>
-				<b:comment>Disable Comment Post</b:comment>
-				<b:if cond='not data:post.allowNewComments and data:post.numberOfComments &gt; 0'>
-					<div class='comment-disable c-alert c-alert--info'>
-						<data:post.noNewCommentsText/>
-					</div>
-				</b:if> 
-				<b:comment>Comment Thread JS</b:comment>
-				<b:if cond='data:post.showThreadedComments or data:post.allowNewComments and data:post.numberOfComments &gt; 0'>
-					<b:include name='COMMENT_THREAD_JS'/>
-				</b:if>
+					<b:if cond='data:post.showThreadedComments'>
+						<button class='c-btn c-btn--secondary c-btn--fullwidth  u-mb-xsmall button-show-comemnt'>
+							<b:switch var='data:blog.locale'>
+								<b:case value='id' />
+								Lihat Komentar
+								<b:default />
+								Show Comment
+							</b:switch> (<data:post.numberOfComments/>)
+						</button>
+						<ol class='c-stream u-mb-xsmall u-border-zero u-hidden-visually comment-response' style='background:none'>          
+							<b:loop values='data:post.comments where (c =&gt; not c.inReplyTo)' var='commentLevel1'>
+								<li class='c-stream-item u-mb-xsmall u-bg-white u-border-rounded u-border-top u-border-right u-border-bottom u-border-left'>
+									<b:include data='{level: data:commentLevel1,d: true}' name='COMMENT_CONTENT'/>
+									<b:with value='data:post.comments where (c =&gt; c.inReplyTo == data:commentLevel1.id)' var='commentL2'>
+										<b:if cond='data:commentL2.size != &quot;0&quot;'>
+											<ol class='c-stream u-ml-small u-mt-small u-mb-zero'>
+												<b:loop values='data:commentL2' var='commentLevel2'>
+													<li class='c-stream-item u-border-bottom-zero' expr:id='&quot;c&quot; + data:commentLevel2.id'>
+														<b:include data='{level: data:commentLevel2,d: false}' name='COMMENT_CONTENT'/>
+													</li>
+												</b:loop>
+											</ol>
+										</b:if>
+									</b:with>   
+								</li>
+							</b:loop>
+						</ol>
+					</b:if>
+					<b:include name='COMMENT_PAGINATION'/> 
+					<b:if cond='data:post.allowNewComments'>
+						<div class='comment-footer c-card u-p-medium u-mb-zero'>
+							<b:comment>Form Comment</b:comment>
+							<b:include name='COMMENT_FORM'/>
+						</div>
+					</b:if>
+					<b:comment>Disable Comment Post</b:comment>
+					<b:if cond='not data:post.allowNewComments and data:post.numberOfComments &gt; 0'>
+						<div class='comment-disable c-alert c-alert--info'>
+							<data:post.noNewCommentsText/>
+						</div>
+					</b:if> 
+					<b:comment>Comment Thread JS</b:comment>
+					<b:if cond='data:post.showThreadedComments or data:post.allowNewComments and data:post.numberOfComments &gt; 0'>
+						<b:include name='COMMENT_THREAD_JS'/>
+					</b:if>
+				</div>
 
 			</b:includable>
 			<b:includable id='COMMENT_MESSAGE_DISABLE'>
