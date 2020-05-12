@@ -28,7 +28,7 @@ $(window).on("load resize", function() {
 	if($(window).outerWidth() >= 993){		
 		$("#sidebar-left,#PopularPosts1").stick_in_parent({
 			parent: "#main-wrapper",
-			offset_top: 10
+			offset_top: 71
 		})
 	}
 });

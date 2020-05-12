@@ -485,6 +485,17 @@ WIDGET
 			</b:includable> 
 			<b:includable id='MY_CSS_INTERNAL'>
 				<style>
+					.sticky {
+					position: fixed;
+					top: 0;
+					width: 100%;
+					z-index:1;
+					}
+
+					.sticky + #main-wrapper {
+					padding-top: 71px;
+					}
+
 					.smd .img-thumbnail {
 					border-radius: 33px;
 					width: 61px;
@@ -518,7 +529,7 @@ WIDGET
 				<b:include name='MY_FOOTER'/>
 			</b:includable>   
 			<b:includable id='MY_HEADER'>
-				<header class='u-bg-white u-border-bottom'>
+				<header class='u-bg-white u-border-bottom sticky'>
 					<div class='container'>
 						<div class='row '>
 							<div class='col-12'>
@@ -673,6 +684,7 @@ WIDGET
 				<b:include name='MY_BODY_JS'/>
 				<script>
 					//<![CDATA[     
+
 					window.cookieconsent.initialise({
 					"palette": {
 					"popup": {
