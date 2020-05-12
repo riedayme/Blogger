@@ -2,15 +2,11 @@
 
 ![Riedayme](https://github.com/riedayme/Blogger/blob/master/RidayFeed/preview.png?raw=true)
 
-## Work List
-* Infinite scroll load adsense
-* Extract Feed using ajax 
-* Comment Show hide
-
 ## Change Log
 12 May 2020
 * Add schema breadcrumb
 * Update Layouts css
+* Infinite scroll load adsense
 
 11 May 2020
 * Add Lazyload Adsense
