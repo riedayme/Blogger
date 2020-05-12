@@ -480,11 +480,22 @@ font-size: 12px;
 ]]></b:template-skin>
 </b:includable>     
 <b:includable id='MY_CSS_EXTERNAL'>
-<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@91c93db07117ca9b4b4c1f2ccffd3cf4508f4064/RidayFeed/assets/css/main.css' rel='stylesheet'/>
-<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@91c93db07117ca9b4b4c1f2ccffd3cf4508f4064/RidayFeed/assets/css/custom.css' rel='stylesheet'/>
+<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@761d765f47fe9ea022e3223583d959ebba086f75/RidayFeed/assets/css/main.css' rel='stylesheet'/>
+<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@761d765f47fe9ea022e3223583d959ebba086f75/RidayFeed/assets/css/custom.css' rel='stylesheet'/>
 </b:includable> 
 <b:includable id='MY_CSS_INTERNAL'>
 <style>
+.sticky {
+position: fixed;
+top: 0;
+width: 100%;
+z-index:1;
+}
+
+.sticky + #main-wrapper {
+padding-top: 71px;
+}
+
 .smd .img-thumbnail {
 border-radius: 33px;
 width: 61px;
@@ -518,7 +529,7 @@ text-align: center
 <b:include name='MY_FOOTER'/>
 </b:includable>   
 <b:includable id='MY_HEADER'>
-<header class='u-bg-white u-border-bottom'>
+<header class='u-bg-white u-border-bottom sticky'>
 <div class='container'>
 <div class='row '>
 <div class='col-12'>
@@ -530,7 +541,7 @@ text-align: center
 <form class='u-width-50 u-hidden-down@tablet' expr:action='data:blog.searchUrl' method='GET'>
 <div class='c-field has-icon-right'>
 <span class='c-field__icon'>
-	<i class='fa fa-search'/>
+<i class='fa fa-search'/>
 </span>
 <label class='u-hidden-visually' for='navbar-search'>Cari</label>
 <input class='c-input' id='navbar-search' name='q' placeholder='Cari' type='text' value=''/>
@@ -546,18 +557,18 @@ text-align: center
 <div class='u-hidden-up@tablet'>
 <b:include name='MY_LABEL_WIDGET_HEADER'/>  
 <ul class='c-nav__list'>         
-	<li class='c-nav__item'>
-		<form expr:action='data:blog.searchUrl' method='GET'>
-			<div class='c-field c-field--inline has-icon-right'>
-				<span class='c-field__icon'>
-					<i class='fa fa-search'/> 
-				</span>
+<li class='c-nav__item'>
+<form expr:action='data:blog.searchUrl' method='GET'>
+<div class='c-field c-field--inline has-icon-right'>
+<span class='c-field__icon'>
+<i class='fa fa-search'/> 
+</span>
 
-				<label class='u-hidden-visually' for='navbar-search-small'>Seach</label>
-				<input class='c-input' id='navbar-search-small' name='q' placeholder='Search' type='text'/>
-			</div>
-		</form>
-	</li>
+<label class='u-hidden-visually' for='navbar-search-small'>Seach</label>
+<input class='c-input' id='navbar-search-small' name='q' placeholder='Search' type='text'/>
+</div>
+</form>
+</li>
 </ul>
 </div>
 </nav>
@@ -634,8 +645,8 @@ text-align: center
 &lt;/body&gt;
 </b:includable>
 <b:includable id='MY_JS_EXTERNAL'>
-<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@91c93db07117ca9b4b4c1f2ccffd3cf4508f4064/RidayFeed/assets/js/main.js'/>
-<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@91c93db07117ca9b4b4c1f2ccffd3cf4508f4064/RidayFeed/assets/js/custom.js'/>
+<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@761d765f47fe9ea022e3223583d959ebba086f75/RidayFeed/assets/js/main.js'/>
+<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@761d765f47fe9ea022e3223583d959ebba086f75/RidayFeed/assets/js/custom.js'/>
 <b:if cond='data:view.isPage'>
 <script src='https://min.gitcdn.link/repo/irfaanprogrammer/bloggercode/master/js/crypto.js' type='text/javascript'/>
 </b:if>
@@ -673,6 +684,7 @@ var <data:link.name/> = <data:link.target/>;
 <b:include name='MY_BODY_JS'/>
 <script>
 //<![CDATA[     
+
 window.cookieconsent.initialise({
 "palette": {
 "popup": {
@@ -832,21 +844,21 @@ $(".entry-content a:has(img)").colorbox({rel:'image', transition:"none", width:"
 <li class='c-menu__item'>
 <a class='c-menu__link u-pl-zero' expr:href='data:label.url + &quot;?max-results=2&quot;' expr:title='data:label.name'>
 <b:if cond='data:label.name == &quot;CodeIgniter&quot;'>                      
-	<svg class='u-mr-xsmall' id='Layer_1' style='width:14px;' version='1.1' viewBox='0 0 256 304' xml:space='preserve' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><style type='text/css'>
-		.st0{fill:#EE4323;}
-	</style><g><path class='st0' d='M85.2,303.1c-18-7.8-34.8-27.5-34.8-47.7c0-22,13.9-40.7,31.3-53c-2.1,7.9-3.2,15.1,1.9,22.2   c4.8,6.6,13.2,9.8,21.2,8c18.6-4.1,19.4-24.5,8.4-36.4C102.3,184.3,91.8,171,96,153.9c2.1-8.6,7.3-16.6,14-22.3   c-5.1,13.5,9.4,26.7,19,33.4c16.6,11.5,34.9,20.1,50.2,33.6c16.1,14.1,28,33.3,25.6,55.4c-2.6,24-21.7,40.7-43.1,49.2   c45.3-10,92-45.1,93-95.3c0.8-41.3-27.5-73.1-62.6-91.3l-1.8-1c1,2.3,1.3,4.3,1.2,6.1c0.3-1.3,0.5-2.7,0.6-4.1   c0,1.7-0.2,3.4-0.6,4.9l0.1-0.8c-0.5,2.2-1.4,4.3-2.6,6.2l0.5-0.6c-7,11.6-26,14.1-35.3,2.1c-15.1-19.3,0.3-40.2,2.5-60.7   c2.7-25.7-13.4-50.6-33.4-65.5c11,17.8-3.5,41.3-15.1,54.5c-11.2,12.8-24.9,23.4-37.3,35c-13.3,12.4-26.1,25.5-37.1,40.1   c-21.9,29.2-35.3,66-25.5,102.4C18,271.7,49.6,294.9,85.2,303.1L85.2,303.1z'/></g></svg>
-	<data:label.name/> 
-	<b:elseif cond='data:label.name == &quot;HTML&quot;'/>
-	<svg class='u-mr-xsmall' enable-background='new 0 0 50 50' id='Layer_1' style='width:14px;' version='1.1' viewBox='0 0 50 50' xml:space='preserve' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><g id='HTML_5'><polygon fill='#F16529' points='17.4,12.7 18.6,12.7 18.6,14 20,14 20,10 18.6,10 18.6,11.3 17.4,11.3 17.4,10 16,10 16,14    17.4,14  '/><polygon fill='#F16529' points='22.2,14 23.5,14 23.5,11.3 24.7,11.3 24.7,10 21,10 21,11.3 22.2,11.3  '/><polygon fill='#F16529' points='26.8,12 27.7,13.5 27.7,13.5 28.6,12 28.6,14 30,14 30,10 28.6,10 27.7,11.4 26.8,10 25.4,10    25.4,14 26.8,14  '/><polygon fill='#F16529' points='34,12.7 32.1,12.7 32.1,10 30.7,10 30.7,14 34,14  '/><path d='M14,16l2,22l9,2l9-2l2-22H14z M31.5,23H25h-4l0.5,2H25h6l-1,9l-5,2l-5-2l-0.8-4H22l0.5,2l2.5,1l2.5-1l0.5-4   h-3h-6l-1-8h7h7L31.5,23z' fill='#F16529'/></g><path d='M25,1C11.7,1,1,11.7,1,25s10.7,24,24,24s24-10.7,24-24S38.3,1,25,1z M25,44C14.5,44,6,35.5,6,25S14.5,6,25,6  s19,8.5,19,19S35.5,44,25,44z' fill='#F16529'/></svg>
-	<data:label.name/> 
-	<b:elseif cond='data:label.name == &quot;Python&quot;'/>
-	<svg class='u-mr-xsmall' style='width:14px;' version='1.1' viewBox='0 0 512 512' xml:space='preserve' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><g id='comp_x5F_267-python'><g><g><g><path d='M194.005,240.252h105.054c29.216,0,52.529-24.101,52.529-53.414V86.603      c0-28.525-24.002-49.871-52.529-54.691c-35.214-5.804-73.479-5.509-105.054,0.097c-44.462,7.87-52.527,24.298-52.527,54.693      v21.453H246.63v31.959H102.032c-30.591,0-57.349,18.394-65.709,53.315c-9.64,40.035-10.032,65.02,0,106.826      c7.477,31.085,25.28,53.314,55.872,53.314h36.101v-48.001C128.296,270.845,158.298,240.252,194.005,240.252L194.005,240.252z' style='fill:#347AB4;'/><g><path d='M128.296,363.569H92.195c-32.842,0-56.137-21.655-65.595-60.976       c-10.146-42.276-10.145-69.37,0-111.505c4.521-18.885,14.243-34.559,28.112-45.314c13.21-10.245,29.573-15.66,47.319-15.66       H236.63v-11.959h-95.152c-5.523,0-10-4.477-10-10V86.702c0-13.954,1.423-29.889,11.979-42.278       c9.452-11.094,24.504-17.96,48.806-22.261c16.512-2.932,35.127-4.482,53.829-4.482c18.655,0,37.023,1.469,54.594,4.365       c16.345,2.762,31.383,10.299,42.385,21.229c11.941,11.865,18.519,27.253,18.519,43.329v100.235       c0,34.967-28.051,63.414-62.529,63.414H194.005c-29.677,0-55.709,25.849-55.709,55.316v48.001       C138.296,359.092,133.819,363.569,128.296,363.569z M102.032,150.114c-28.213,0-49.142,17.063-55.984,45.643       c-9.526,39.563-9.525,62.475-0.001,102.165c5.008,20.821,17.081,45.647,46.148,45.647h26.101v-38.001       c0-19.263,8.159-38.487,22.386-52.743c14.527-14.557,33.464-22.573,53.323-22.573h105.054       c23.451,0,42.529-19.476,42.529-43.414V86.603c0-24.529-22.233-41.12-44.195-44.831c-16.46-2.713-33.733-4.092-51.302-4.092       c-17.549,0-34.956,1.444-50.337,4.175c-39.908,7.064-44.275,19.689-44.275,44.847v11.453h95.152c5.523,0,10,4.477,10,10v31.959       c0,5.523-4.477,10-10,10H102.032z' style='fill:#275C87;'/></g></g><g><path d='M474.975,209.372c-7.575-30.395-21.935-53.315-52.527-53.315h-39.443v46.626      c0,36.199-30.692,66.691-65.71,66.691H212.24c-28.724,0-52.528,24.594-52.528,53.414v100.138      c0,28.524,24.788,45.246,52.528,53.413c33.247,9.737,65.215,11.509,105.054,0c26.462-7.675,52.529-23.116,52.529-53.413v-20.997      H264.867v-32.417h157.58c30.593,0,41.904-21.346,52.527-53.314C485.992,283.244,485.501,251.57,474.975,209.372L474.975,209.372      z' style='fill:#FFCA1D;'/><g><path d='M264.431,494.32c-17.747,0-35.738-2.743-55.001-8.385       c-38.515-11.339-59.718-33.715-59.718-63.01V322.788c0-34.374,28.634-63.414,62.528-63.414h105.054       c29.678,0,55.71-26.491,55.71-56.691v-46.626c0-5.523,4.478-10,10-10h39.443c17.276,0,31.546,6.279,42.412,18.664       c8.734,9.955,15.217,23.77,19.818,42.232c11.191,44.863,11.126,78.483-0.219,112.415c-10.11,30.424-23.23,60.144-62.012,60.144       h-147.58v12.417h94.956c5.522,0,10,4.478,10,10v20.997c0,20.844-10.365,48.696-59.744,63.018       C300.563,491.581,282.364,494.32,264.431,494.32z M212.24,279.374c-23.053,0-42.528,19.881-42.528,43.414v100.138       c0,26.51,28.415,38.834,45.353,43.82c17.639,5.166,33.33,7.574,49.366,7.574c16.028,0,32.413-2.482,50.088-7.589       c30.059-8.718,45.305-23.457,45.305-43.806v-10.997h-94.956c-5.522,0-10-4.478-10-10v-32.417c0-5.522,4.478-10,10-10h157.58       c21.148,0,31.204-10.857,43.037-46.468c10.189-30.476,10.126-59.805-0.213-101.252c-7.883-31.631-21.09-45.735-42.824-45.735       h-29.443v36.626c0,41.571-34.671,76.691-75.71,76.691H212.24z' style='fill:#BF9816;'/></g></g><path d='M187.414,89.594c-10.479,0-18.975-8.591-18.975-19.164c0.094-10.668,8.496-19.259,18.975-19.259     c10.386,0,18.976,8.685,18.976,19.259C206.39,81.003,197.894,89.594,187.414,89.594z' style='fill:#FFFFFF;'/><path d='M314.908,460.076c-10.479,0-18.976-8.591-18.976-19.164c0.095-10.668,8.496-19.259,18.976-19.259     c10.385,0,18.976,8.685,18.976,19.259C333.884,451.485,325.388,460.076,314.908,460.076z' style='fill:#FFFFFF;'/></g></g></g><g id='Layer_1'/></svg>
-	<data:label.name/> 
-	<b:elseif cond='data:label.name == &quot;Web API&quot;'/>
-	<svg class='u-mr-xsmall' style='width:14px;' version='1.1' viewBox='0 0 512 512' xml:space='preserve' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><circle class='st0' cx='255.8' cy='343.7' r='63.1'/><circle class='st1' cx='54.8' cy='346.3' r='42.8'/><circle class='st1' cx='458.2' cy='343.7' r='42.8'/><circle class='st1' cx='255.8' cy='142.9' r='42.8'/><circle class='st1' cx='104.2' cy='201.5' r='42.8'/><circle class='st1' cx='405.6' cy='201.5' r='42.8'/><line class='st2' x1='255.8' x2='255.8' y1='280.5' y2='185.7'/><line class='st2' x1='134.6' x2='215.5' y1='231.6' y2='295.1'/><line class='st2' x1='296.2' x2='376.7' y1='295.1' y2='233.1'/><line class='st2' x1='97.5' x2='192.7' y1='346.3' y2='346.3'/><line class='st2' x1='318.9' x2='415.5' y1='346.3' y2='346.3'/></svg>
-	<data:label.name/> 
-	<b:else/>
-	<i class='fa fa-hashtag u-mr-xsmall'/><data:label.name/> 
+<svg class='u-mr-xsmall' id='Layer_1' style='width:14px;' version='1.1' viewBox='0 0 256 304' xml:space='preserve' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><style type='text/css'>
+.st0{fill:#EE4323;}
+</style><g><path class='st0' d='M85.2,303.1c-18-7.8-34.8-27.5-34.8-47.7c0-22,13.9-40.7,31.3-53c-2.1,7.9-3.2,15.1,1.9,22.2   c4.8,6.6,13.2,9.8,21.2,8c18.6-4.1,19.4-24.5,8.4-36.4C102.3,184.3,91.8,171,96,153.9c2.1-8.6,7.3-16.6,14-22.3   c-5.1,13.5,9.4,26.7,19,33.4c16.6,11.5,34.9,20.1,50.2,33.6c16.1,14.1,28,33.3,25.6,55.4c-2.6,24-21.7,40.7-43.1,49.2   c45.3-10,92-45.1,93-95.3c0.8-41.3-27.5-73.1-62.6-91.3l-1.8-1c1,2.3,1.3,4.3,1.2,6.1c0.3-1.3,0.5-2.7,0.6-4.1   c0,1.7-0.2,3.4-0.6,4.9l0.1-0.8c-0.5,2.2-1.4,4.3-2.6,6.2l0.5-0.6c-7,11.6-26,14.1-35.3,2.1c-15.1-19.3,0.3-40.2,2.5-60.7   c2.7-25.7-13.4-50.6-33.4-65.5c11,17.8-3.5,41.3-15.1,54.5c-11.2,12.8-24.9,23.4-37.3,35c-13.3,12.4-26.1,25.5-37.1,40.1   c-21.9,29.2-35.3,66-25.5,102.4C18,271.7,49.6,294.9,85.2,303.1L85.2,303.1z'/></g></svg>
+<data:label.name/> 
+<b:elseif cond='data:label.name == &quot;HTML&quot;'/>
+<svg class='u-mr-xsmall' enable-background='new 0 0 50 50' id='Layer_1' style='width:14px;' version='1.1' viewBox='0 0 50 50' xml:space='preserve' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><g id='HTML_5'><polygon fill='#F16529' points='17.4,12.7 18.6,12.7 18.6,14 20,14 20,10 18.6,10 18.6,11.3 17.4,11.3 17.4,10 16,10 16,14    17.4,14  '/><polygon fill='#F16529' points='22.2,14 23.5,14 23.5,11.3 24.7,11.3 24.7,10 21,10 21,11.3 22.2,11.3  '/><polygon fill='#F16529' points='26.8,12 27.7,13.5 27.7,13.5 28.6,12 28.6,14 30,14 30,10 28.6,10 27.7,11.4 26.8,10 25.4,10    25.4,14 26.8,14  '/><polygon fill='#F16529' points='34,12.7 32.1,12.7 32.1,10 30.7,10 30.7,14 34,14  '/><path d='M14,16l2,22l9,2l9-2l2-22H14z M31.5,23H25h-4l0.5,2H25h6l-1,9l-5,2l-5-2l-0.8-4H22l0.5,2l2.5,1l2.5-1l0.5-4   h-3h-6l-1-8h7h7L31.5,23z' fill='#F16529'/></g><path d='M25,1C11.7,1,1,11.7,1,25s10.7,24,24,24s24-10.7,24-24S38.3,1,25,1z M25,44C14.5,44,6,35.5,6,25S14.5,6,25,6  s19,8.5,19,19S35.5,44,25,44z' fill='#F16529'/></svg>
+<data:label.name/> 
+<b:elseif cond='data:label.name == &quot;Python&quot;'/>
+<svg class='u-mr-xsmall' style='width:14px;' version='1.1' viewBox='0 0 512 512' xml:space='preserve' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><g id='comp_x5F_267-python'><g><g><g><path d='M194.005,240.252h105.054c29.216,0,52.529-24.101,52.529-53.414V86.603      c0-28.525-24.002-49.871-52.529-54.691c-35.214-5.804-73.479-5.509-105.054,0.097c-44.462,7.87-52.527,24.298-52.527,54.693      v21.453H246.63v31.959H102.032c-30.591,0-57.349,18.394-65.709,53.315c-9.64,40.035-10.032,65.02,0,106.826      c7.477,31.085,25.28,53.314,55.872,53.314h36.101v-48.001C128.296,270.845,158.298,240.252,194.005,240.252L194.005,240.252z' style='fill:#347AB4;'/><g><path d='M128.296,363.569H92.195c-32.842,0-56.137-21.655-65.595-60.976       c-10.146-42.276-10.145-69.37,0-111.505c4.521-18.885,14.243-34.559,28.112-45.314c13.21-10.245,29.573-15.66,47.319-15.66       H236.63v-11.959h-95.152c-5.523,0-10-4.477-10-10V86.702c0-13.954,1.423-29.889,11.979-42.278       c9.452-11.094,24.504-17.96,48.806-22.261c16.512-2.932,35.127-4.482,53.829-4.482c18.655,0,37.023,1.469,54.594,4.365       c16.345,2.762,31.383,10.299,42.385,21.229c11.941,11.865,18.519,27.253,18.519,43.329v100.235       c0,34.967-28.051,63.414-62.529,63.414H194.005c-29.677,0-55.709,25.849-55.709,55.316v48.001       C138.296,359.092,133.819,363.569,128.296,363.569z M102.032,150.114c-28.213,0-49.142,17.063-55.984,45.643       c-9.526,39.563-9.525,62.475-0.001,102.165c5.008,20.821,17.081,45.647,46.148,45.647h26.101v-38.001       c0-19.263,8.159-38.487,22.386-52.743c14.527-14.557,33.464-22.573,53.323-22.573h105.054       c23.451,0,42.529-19.476,42.529-43.414V86.603c0-24.529-22.233-41.12-44.195-44.831c-16.46-2.713-33.733-4.092-51.302-4.092       c-17.549,0-34.956,1.444-50.337,4.175c-39.908,7.064-44.275,19.689-44.275,44.847v11.453h95.152c5.523,0,10,4.477,10,10v31.959       c0,5.523-4.477,10-10,10H102.032z' style='fill:#275C87;'/></g></g><g><path d='M474.975,209.372c-7.575-30.395-21.935-53.315-52.527-53.315h-39.443v46.626      c0,36.199-30.692,66.691-65.71,66.691H212.24c-28.724,0-52.528,24.594-52.528,53.414v100.138      c0,28.524,24.788,45.246,52.528,53.413c33.247,9.737,65.215,11.509,105.054,0c26.462-7.675,52.529-23.116,52.529-53.413v-20.997      H264.867v-32.417h157.58c30.593,0,41.904-21.346,52.527-53.314C485.992,283.244,485.501,251.57,474.975,209.372L474.975,209.372      z' style='fill:#FFCA1D;'/><g><path d='M264.431,494.32c-17.747,0-35.738-2.743-55.001-8.385       c-38.515-11.339-59.718-33.715-59.718-63.01V322.788c0-34.374,28.634-63.414,62.528-63.414h105.054       c29.678,0,55.71-26.491,55.71-56.691v-46.626c0-5.523,4.478-10,10-10h39.443c17.276,0,31.546,6.279,42.412,18.664       c8.734,9.955,15.217,23.77,19.818,42.232c11.191,44.863,11.126,78.483-0.219,112.415c-10.11,30.424-23.23,60.144-62.012,60.144       h-147.58v12.417h94.956c5.522,0,10,4.478,10,10v20.997c0,20.844-10.365,48.696-59.744,63.018       C300.563,491.581,282.364,494.32,264.431,494.32z M212.24,279.374c-23.053,0-42.528,19.881-42.528,43.414v100.138       c0,26.51,28.415,38.834,45.353,43.82c17.639,5.166,33.33,7.574,49.366,7.574c16.028,0,32.413-2.482,50.088-7.589       c30.059-8.718,45.305-23.457,45.305-43.806v-10.997h-94.956c-5.522,0-10-4.478-10-10v-32.417c0-5.522,4.478-10,10-10h157.58       c21.148,0,31.204-10.857,43.037-46.468c10.189-30.476,10.126-59.805-0.213-101.252c-7.883-31.631-21.09-45.735-42.824-45.735       h-29.443v36.626c0,41.571-34.671,76.691-75.71,76.691H212.24z' style='fill:#BF9816;'/></g></g><path d='M187.414,89.594c-10.479,0-18.975-8.591-18.975-19.164c0.094-10.668,8.496-19.259,18.975-19.259     c10.386,0,18.976,8.685,18.976,19.259C206.39,81.003,197.894,89.594,187.414,89.594z' style='fill:#FFFFFF;'/><path d='M314.908,460.076c-10.479,0-18.976-8.591-18.976-19.164c0.095-10.668,8.496-19.259,18.976-19.259     c10.385,0,18.976,8.685,18.976,19.259C333.884,451.485,325.388,460.076,314.908,460.076z' style='fill:#FFFFFF;'/></g></g></g><g id='Layer_1'/></svg>
+<data:label.name/> 
+<b:elseif cond='data:label.name == &quot;Web API&quot;'/>
+<svg class='u-mr-xsmall' style='width:14px;' version='1.1' viewBox='0 0 512 512' xml:space='preserve' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><circle class='st0' cx='255.8' cy='343.7' r='63.1'/><circle class='st1' cx='54.8' cy='346.3' r='42.8'/><circle class='st1' cx='458.2' cy='343.7' r='42.8'/><circle class='st1' cx='255.8' cy='142.9' r='42.8'/><circle class='st1' cx='104.2' cy='201.5' r='42.8'/><circle class='st1' cx='405.6' cy='201.5' r='42.8'/><line class='st2' x1='255.8' x2='255.8' y1='280.5' y2='185.7'/><line class='st2' x1='134.6' x2='215.5' y1='231.6' y2='295.1'/><line class='st2' x1='296.2' x2='376.7' y1='295.1' y2='233.1'/><line class='st2' x1='97.5' x2='192.7' y1='346.3' y2='346.3'/><line class='st2' x1='318.9' x2='415.5' y1='346.3' y2='346.3'/></svg>
+<data:label.name/> 
+<b:else/>
+<i class='fa fa-hashtag u-mr-xsmall'/><data:label.name/> 
 </b:if>
 <b:if cond='data:this.showFreqNumbers'>(<data:label.count/>)</b:if>
 </a>
@@ -896,22 +908,22 @@ data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;&lt;script&gt;(adsbyg
 <div class='col-md-12 u-mb-xsmall'>
 <article class='c-event u-m-zero u-p-zero'>
 
-	<b:if cond='data:postDisplay.showFeaturedImage'>
-		<div class='c-event__img u-m-zero'>
-			<a expr:href='data:post.link ? data:post.link : data:post.url' expr:title='data:post.title ? data:post.title : data:messages.noTitle'>
-				<img class='c-post-image' expr:href='data:post.link ? data:post.link : data:post.url' expr:src='data:post.featuredImage ? data:post.featuredImage : &quot;https://1.bp.blogspot.com/-P6sIgHwSrZU/XrncUn1POBI/AAAAAAAABK4/cpGgDNNzCuIDFXn5Uqmey4qh23efe-f_QCLcBGAsYHQ/s1600/no-image-compress.jpg&quot;' expr:title='data:post.title ? data:post.title : data:messages.noTitle'/>
-			</a>
-		</div>
-	</b:if>
-	<div class='c-event__meta u-ph-small u-pt-xsmall'>
+<b:if cond='data:postDisplay.showFeaturedImage'>
+<div class='c-event__img u-m-zero'>
+<a expr:href='data:post.link ? data:post.link : data:post.url' expr:title='data:post.title ? data:post.title : data:messages.noTitle'>
+<img class='c-post-image' expr:href='data:post.link ? data:post.link : data:post.url' expr:src='data:post.featuredImage ? data:post.featuredImage : &quot;https://1.bp.blogspot.com/-P6sIgHwSrZU/XrncUn1POBI/AAAAAAAABK4/cpGgDNNzCuIDFXn5Uqmey4qh23efe-f_QCLcBGAsYHQ/s1600/no-image-compress.jpg&quot;' expr:title='data:post.title ? data:post.title : data:messages.noTitle'/>
+</a>
+</div>
+</b:if>
+<div class='c-event__meta u-ph-small u-pt-xsmall'>
 
-		<a class='c-post-title-link' expr:href='data:post.link ? data:post.link : data:post.url' expr:title='data:post.title ? data:post.title : data:messages.noTitle'>
-			<h2 class='c-event__title'>
-				<b:eval expr='data:post.title ? data:post.title : data:messages.noTitle'/>
-			</h2>
-		</a>
+<a class='c-post-title-link' expr:href='data:post.link ? data:post.link : data:post.url' expr:title='data:post.title ? data:post.title : data:messages.noTitle'>
+<h2 class='c-event__title'>
+<b:eval expr='data:post.title ? data:post.title : data:messages.noTitle'/>
+</h2>
+</a>
 
-	</div>
+</div>
 
 </article><!-- // .c-event -->
 </div>
@@ -1472,7 +1484,7 @@ BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
 <div class='u-flex u-justify-between'>
 <div class='c-stream-item__actionlist'>
 <a class='comment-reply-link c-stream-item__action c-btn u-color-white c-btn--small u-m-zero u-pl-xsmall u-pr-xsmall' expr:data-comment-id='data:commentLevel1.id' href='javascript:;'>
-	<i class='fa fa-reply'/>Reply
+<i class='fa fa-reply'/>Reply
 </a>
 </div>
 </div>
@@ -1507,9 +1519,9 @@ BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
 <b:if cond='data:commentL2.size != &quot;0&quot;'>
 <ol class='c-stream u-ml-small u-mt-small u-mb-zero'>
 <b:loop values='data:commentL2' var='commentLevel2'>
-	<li class='c-stream-item u-border-bottom-zero' expr:id='&quot;c&quot; + data:commentLevel2.id'>
-		<b:include data='{level: data:commentLevel2,d: false}' name='COMMENT_CONTENT'/>
-	</li>
+<li class='c-stream-item u-border-bottom-zero' expr:id='&quot;c&quot; + data:commentLevel2.id'>
+<b:include data='{level: data:commentLevel2,d: false}' name='COMMENT_CONTENT'/>
+</li>
 </b:loop>
 </ol>
 </b:if>
