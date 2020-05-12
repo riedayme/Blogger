@@ -19,6 +19,7 @@ MASTER_BODY
 - MY_JS_EXTERNAL
 - MY_JS_MANUAL
 - MY_JS_INTERNAL
+- MY_BODY_JS
 WIDGET
 - MY_HEADER_WIDGET_HEADER
 - MY_LINKLIST_WIDGET_HEADER
@@ -547,7 +548,6 @@ WIDGET
 			&lt;/body&gt;
 		</b:includable>
 		<b:includable id='MY_JS_EXTERNAL'>
-			<b:include name='MY_BODY_JS'/>
 			<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@81e7f1b9cc6cd1b9759423f6eb2f0db1b5460fff/RidayFeed/assets/js/main.js'/>
 			<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@81e7f1b9cc6cd1b9759423f6eb2f0db1b5460fff/RidayFeed/assets/js/custom.js'/>
 			<b:if cond='data:view.isPage'>
@@ -812,7 +812,7 @@ WIDGET
 											<b:if cond='data:postDisplay.showFeaturedImage'>
 												<div class='c-event__img u-m-zero'>
 													<a expr:href='data:post.link ? data:post.link : data:post.url' expr:title='data:post.title ? data:post.title : data:messages.noTitle'>
-														<img class='c-post-image' expr:href='data:post.link ? data:post.link : data:post.url' expr:src='data:post.featuredImage ? data:post.featuredImage : &quot;https://lh3.googleusercontent.com/-jVmO_aPaG0k/XViP6n5PXxI/AAAAAAAAAX4/GskZfM6jfbowlfyJUwv7BLJmCWAJPzPUgCLcBGAs/s1600/noimage-kurteyki.jpg&quot;' expr:title='data:post.title ? data:post.title : data:messages.noTitle'/>
+														<img class='c-post-image' expr:href='data:post.link ? data:post.link : data:post.url' expr:src='data:post.featuredImage ? data:post.featuredImage : &quot;https://1.bp.blogspot.com/-P6sIgHwSrZU/XrncUn1POBI/AAAAAAAABK4/cpGgDNNzCuIDFXn5Uqmey4qh23efe-f_QCLcBGAsYHQ/s1600/no-image-compress.jpg&quot;' expr:title='data:post.title ? data:post.title : data:messages.noTitle'/>
 													</a>
 												</div>
 											</b:if>
@@ -1085,7 +1085,7 @@ WIDGET
 
 							<div class='c-event__img u-m-zero'>
 								<a expr:href='data:post.link ? data:post.link : data:post.url' expr:title='data:post.title ? data:post.title : data:messages.noTitle'>
-									<img class='c-post-image' expr:data-src='data:post.featuredImage ? data:post.featuredImage : &quot;https://lh3.googleusercontent.com/-jVmO_aPaG0k/XViP6n5PXxI/AAAAAAAAAX4/GskZfM6jfbowlfyJUwv7BLJmCWAJPzPUgCLcBGAs/s1600/noimage-kurteyki.jpg&quot;' expr:title='data:post.title ? data:post.title : data:messages.noTitle' src='data:image/svg+xml,%3Csvg xmlns=&apos;http://www.w3.org/2000/svg&apos; viewBox=&apos;0 0 3 2&apos;%3E%3C/svg%3E'/>
+									<img class='c-post-image' expr:data-src='data:post.featuredImage ? data:post.featuredImage : &quot;https://1.bp.blogspot.com/-P6sIgHwSrZU/XrncUn1POBI/AAAAAAAABK4/cpGgDNNzCuIDFXn5Uqmey4qh23efe-f_QCLcBGAsYHQ/s1600/no-image-compress.jpg&quot;' expr:title='data:post.title ? data:post.title : data:messages.noTitle' src='data:image/svg+xml,%3Csvg xmlns=&apos;http://www.w3.org/2000/svg&apos; viewBox=&apos;0 0 3 2&apos;%3E%3C/svg%3E'/>
 								</a>
 							</div>
 							<div class='c-event__meta u-ph-small u-pt-xsmall'>

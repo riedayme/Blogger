@@ -812,7 +812,7 @@ data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;&lt;script&gt;(adsbyg
 <b:if cond='data:postDisplay.showFeaturedImage'>
 <div class='c-event__img u-m-zero'>
 <a expr:href='data:post.link ? data:post.link : data:post.url' expr:title='data:post.title ? data:post.title : data:messages.noTitle'>
-<img class='c-post-image' expr:href='data:post.link ? data:post.link : data:post.url' expr:src='data:post.featuredImage ? data:post.featuredImage : &quot;https://lh3.googleusercontent.com/-jVmO_aPaG0k/XViP6n5PXxI/AAAAAAAAAX4/GskZfM6jfbowlfyJUwv7BLJmCWAJPzPUgCLcBGAs/s1600/noimage-kurteyki.jpg&quot;' expr:title='data:post.title ? data:post.title : data:messages.noTitle'/>
+<img class='c-post-image' expr:href='data:post.link ? data:post.link : data:post.url' expr:src='data:post.featuredImage ? data:post.featuredImage : &quot;https://1.bp.blogspot.com/-P6sIgHwSrZU/XrncUn1POBI/AAAAAAAABK4/cpGgDNNzCuIDFXn5Uqmey4qh23efe-f_QCLcBGAsYHQ/s1600/no-image-compress.jpg&quot;' expr:title='data:post.title ? data:post.title : data:messages.noTitle'/>
 </a>
 </div>
 </b:if>
@@ -1085,7 +1085,7 @@ kodein_MoveByID(&#39;ads-bottom-post-source&#39;,&#39;ads-bottom-target&#39;);
 
 <div class='c-event__img u-m-zero'>
 <a expr:href='data:post.link ? data:post.link : data:post.url' expr:title='data:post.title ? data:post.title : data:messages.noTitle'>
-<img class='c-post-image' expr:data-src='data:post.featuredImage ? data:post.featuredImage : &quot;https://lh3.googleusercontent.com/-jVmO_aPaG0k/XViP6n5PXxI/AAAAAAAAAX4/GskZfM6jfbowlfyJUwv7BLJmCWAJPzPUgCLcBGAs/s1600/noimage-kurteyki.jpg&quot;' expr:title='data:post.title ? data:post.title : data:messages.noTitle' src='data:image/svg+xml,%3Csvg xmlns=&apos;http://www.w3.org/2000/svg&apos; viewBox=&apos;0 0 3 2&apos;%3E%3C/svg%3E'/>
+<img class='c-post-image' expr:data-src='data:post.featuredImage ? data:post.featuredImage : &quot;https://1.bp.blogspot.com/-P6sIgHwSrZU/XrncUn1POBI/AAAAAAAABK4/cpGgDNNzCuIDFXn5Uqmey4qh23efe-f_QCLcBGAsYHQ/s1600/no-image-compress.jpg&quot;' expr:title='data:post.title ? data:post.title : data:messages.noTitle' src='data:image/svg+xml,%3Csvg xmlns=&apos;http://www.w3.org/2000/svg&apos; viewBox=&apos;0 0 3 2&apos;%3E%3C/svg%3E'/>
 </a>
 </div>
 <div class='c-event__meta u-ph-small u-pt-xsmall'>
