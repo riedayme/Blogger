@@ -19,6 +19,7 @@ MASTER_BODY
 - MY_JS_EXTERNAL
 - MY_JS_MANUAL
 - MY_JS_INTERNAL
+- MY_BODY_JS
 WIDGET
 - MY_HEADER_WIDGET_HEADER
 - MY_LINKLIST_WIDGET_HEADER
@@ -393,8 +394,8 @@ body#layout .widget-content{box-shadow:none}
 </b:skin>
 </b:includable>     
 <b:includable id='MY_CSS_EXTERNAL'>
-<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@81e7f1b9cc6cd1b9759423f6eb2f0db1b5460fff/RidayFeed/assets/css/main.css' rel='stylesheet'/>
-<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@81e7f1b9cc6cd1b9759423f6eb2f0db1b5460fff/RidayFeed/assets/css/custom.css' rel='stylesheet'/>
+<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@91c93db07117ca9b4b4c1f2ccffd3cf4508f4064/RidayFeed/assets/css/main.css' rel='stylesheet'/>
+<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@91c93db07117ca9b4b4c1f2ccffd3cf4508f4064/RidayFeed/assets/css/custom.css' rel='stylesheet'/>
 </b:includable> 
 <b:includable id='MY_CSS_INTERNAL'>
 <style>
@@ -547,9 +548,8 @@ text-align: center
 &lt;/body&gt;
 </b:includable>
 <b:includable id='MY_JS_EXTERNAL'>
-<b:include name='MY_BODY_JS'/>
-<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@81e7f1b9cc6cd1b9759423f6eb2f0db1b5460fff/RidayFeed/assets/js/main.js'/>
-<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@81e7f1b9cc6cd1b9759423f6eb2f0db1b5460fff/RidayFeed/assets/js/custom.js'/>
+<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@91c93db07117ca9b4b4c1f2ccffd3cf4508f4064/RidayFeed/assets/js/main.js'/>
+<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@91c93db07117ca9b4b4c1f2ccffd3cf4508f4064/RidayFeed/assets/js/custom.js'/>
 <b:if cond='data:view.isPage'>
 <script src='https://min.gitcdn.link/repo/irfaanprogrammer/bloggercode/master/js/crypto.js' type='text/javascript'/>
 </b:if>
