@@ -584,6 +584,7 @@ WIDGET
 			--&gt;
 		</b:includable>
 		<b:includable id='MY_JS_INTERNAL'>
+			<b:include name='MY_BODY_JS'/>
 			<script>
 				//<![CDATA[     
 				window.cookieconsent.initialise({

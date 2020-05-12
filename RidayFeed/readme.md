@@ -3,6 +3,9 @@
 ![Riedayme](https://github.com/riedayme/Blogger/blob/master/RidayFeed/preview.png?raw=true)
 
 ## Change Log
+12 May 2020
+* Add schema breadcrumb
+
 11 May 2020
 * Add Lazyload Adsense
 * Change Colorbox Assets
