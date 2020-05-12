@@ -646,7 +646,6 @@ WIDGET
 			</b:includable>
 			<b:includable id='MY_JS_EXTERNAL'>
 				<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@761d765f47fe9ea022e3223583d959ebba086f75/RidayFeed/assets/js/main.js'/>
-				<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@761d765f47fe9ea022e3223583d959ebba086f75/RidayFeed/assets/js/custom.js'/>
 				<b:if cond='data:view.isPage'>
 					<script src='https://min.gitcdn.link/repo/irfaanprogrammer/bloggercode/master/js/crypto.js' type='text/javascript'/>
 				</b:if>
@@ -977,6 +976,25 @@ WIDGET
 						</b:includable>
 						<b:includable id='aboutPostAuthor'/><b:includable id='addComments'/><b:includable id='blogThisShare'/><b:includable id='bylineByName'/><b:includable id='bylineRegion'/><b:includable id='commentAuthorAvatar'/><b:includable id='commentDeleteIcon'/><b:includable id='commentForm'/><b:includable id='commentFormIframeSrc'/><b:includable id='commentItem'/><b:includable id='commentList'/><b:includable id='commentPicker'/><b:includable id='comments'/><b:includable id='commentsLink'/><b:includable id='commentsLinkIframe'/><b:includable id='commentsTitle'/><b:includable id='defaultAdUnit'/><b:includable id='emailPostIcon'/><b:includable id='facebookShare'/><b:includable id='feedLinks'/><b:includable id='feedLinksBody'/><b:includable id='footerBylines'/><b:includable id='googlePlusShare'/><b:includable id='headerByline'/><b:includable id='homePageLink'/><b:includable id='iframeComments'/><b:includable id='inlineAd'/><b:includable id='linkShare'/><b:includable id='nextPageLink'/><b:includable id='otherSharingButton'/><b:includable id='platformShare'/><b:includable id='post'/><b:includable id='postAuthor'/><b:includable id='postBody'/><b:includable id='postBodySnippet'/><b:includable id='postCommentsAndAd'/><b:includable id='postCommentsLink'/><b:includable id='postFooter'/><b:includable id='postFooterAuthorProfile'/><b:includable id='postHeader'/><b:includable id='postJumpLink'/><b:includable id='postLabels'/><b:includable id='postLocation'/><b:includable id='postMeta'/><b:includable id='postMetadataJSONImage'/><b:includable id='postMetadataJSONPublisher'/><b:includable id='postPagination'/><b:includable id='postReactions'/><b:includable id='postShareButtons'/><b:includable id='postTimestamp'/><b:includable id='postTitle'/><b:includable id='previousPageLink'/><b:includable id='sharingButton'/><b:includable id='sharingButtonContent'/><b:includable id='sharingButtons'/><b:includable id='sharingButtonsMenu'/><b:includable id='sharingPlatformIcon'/><b:includable id='status-message'/><b:includable id='threadedCommentForm'/><b:includable id='threadedCommentJs'/><b:includable id='threadedComments'/>
 					</b:widget>
+					<b:widget cond='data:view.isMultipleItems and not data:view.isPreview' id='HTML555' locked='true' title='Iklan feed' type='HTML' version='2' visible='false'>
+						<b:widget-settings>
+							<b:widget-setting name='content'>
+								&lt;ins class=&quot;adsbygoogle&quot;
+								style=&quot;display:block;min-height:250px&quot;
+								data-ad-client=&quot;ca-pub-2846006866814506&quot;
+								data-ad-slot=&quot;6243178602&quot;
+								data-ad-format=&quot;auto&quot;
+								data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;&lt;script&gt;(adsbygoogle = window.adsbygoogle || []).push({});&lt;/script&gt;	
+							</b:widget-setting>
+						</b:widget-settings>
+						<b:includable id='main'>      
+							<div id='ads-feed-post-source'>                
+								<div class='adspost'>
+									<data:content/>
+								</div>
+							</div>             
+						</b:includable>
+					</b:widget>
 					<b:widget cond='!data:view.isPreview and data:view.isPost' id='HTML602' locked='true' title='Iklan atas artikel' type='HTML' version='2' visible='true'>
 						<b:widget-settings>
 							<b:widget-setting name='content'>
@@ -1201,6 +1219,10 @@ WIDGET
 
 							</article><!-- // .c-event -->
 						</div>
+
+						<b:if cond='data:x==1 and !data:view.search.query'>
+							<div class='ads-feed-target col-12 u-ph-zero'/>  
+						</b:if>
 					</b:loop>
 				</div>
 				<b:if cond='data:olderPageUrl'>
