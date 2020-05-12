@@ -157,48 +157,21 @@ function kodein_MoveByID(e, n) {
 /**
 * Adsense LazyLoad 
 */
-if(adsense_lazyload_status == 'active') {                            
-    var lazyAdsense = false;
-    window.addEventListener("scroll", function(){
-        if ((document.documentElement.scrollTop != 0 && lazyAdsense === false) || (document.body.scrollTop != 0 && lazyAdsense === false)) {
-            (function() { var ad = document.createElement('script'); ad.setAttribute('data-ad-client',adsense_client_code); ad.async = true; ad.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'; var sc = document.getElementsByTagName('script')[0]; sc.parentNode.insertBefore(ad, sc); })();
-            lazyAdsense = true;
-        }
-    }, true);    
-}else {
-    var ad = document.createElement('script'); 
-    ad.setAttribute('data-ad-client',adsense_client_code); 
-    ad.async = true; 
-    ad.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'; 
-    var sc = document.getElementsByTagName('script')[0]; 
-    sc.parentNode.insertBefore(ad, sc);
+if (adsense_status == 'true') {
+    if(adsense_lazyload_status == 'true') {                            
+        var lazyAdsense = false;
+        window.addEventListener("scroll", function(){
+            if ((document.documentElement.scrollTop != 0 && lazyAdsense === false) || (document.body.scrollTop != 0 && lazyAdsense === false)) {
+                (function() { var ad = document.createElement('script'); ad.setAttribute('data-ad-client',adsense_client_code); ad.async = true; ad.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'; var sc = document.getElementsByTagName('script')[0]; sc.parentNode.insertBefore(ad, sc); })();
+                lazyAdsense = true;
+            }
+        }, true);    
+    }else {
+        var ad = document.createElement('script'); 
+        ad.setAttribute('data-ad-client',adsense_client_code); 
+        ad.async = true; 
+        ad.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'; 
+        var sc = document.getElementsByTagName('script')[0]; 
+        sc.parentNode.insertBefore(ad, sc);
+    }    
 }
-
-/**
- * Comment Show
- * https://stackoverflow.com/questions/19491336/get-url-parameter-jquery-or-how-to-get-query-string-values-in-js
- */
- var getUrlParameter = function getUrlParameter(sParam) {
-    var sPageURL = window.location.search.substring(1),
-    sURLVariables = sPageURL.split('&'),
-    sParameterName,
-    i;
-
-    for (i = 0; i < sURLVariables.length; i++) {
-        sParameterName = sURLVariables[i].split('=');
-
-        if (sParameterName[0] === sParam) {
-            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-        }
-    }
-};
-
-if(getUrlParameter('showComment') !== undefined) {
-    $(".comment-response").removeClass('u-hidden-visually');
-    $(".button-show-comemnt").remove();                 
-}
-
-$(".button-show-comemnt").on('click',function(){
-    $(".comment-response").removeClass('u-hidden-visually');
-    $(this).remove();                   
-});
