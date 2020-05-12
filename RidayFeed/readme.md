@@ -3,6 +3,10 @@
 ![Riedayme](https://github.com/riedayme/Blogger/blob/master/RidayFeed/preview.png?raw=true)
 
 ## Change Log
+13 May 2020
+* Hide Comment Response
+* Adsense lazyload active status
+
 12 May 2020
 * Add schema breadcrumb
 * Update Layouts css
