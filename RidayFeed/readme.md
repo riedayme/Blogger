@@ -5,6 +5,7 @@
 ## Change Log
 12 May 2020
 * Add schema breadcrumb
+* Update Layouts css
 
 11 May 2020
 * Add Lazyload Adsense
