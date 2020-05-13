@@ -650,7 +650,7 @@ WIDGET
 			</b:includable>
 			<b:includable id='MY_JS_EXTERNAL'>
 				<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@1ce0e1b52154869868b098568441bef52b5143c8/RidayFeed/assets/js/main.js'/>
-				<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@1ce0e1b52154869868b098568441bef52b5143c8/RidayFeed/assets/js/custom.js'/>				
+				<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@1ce0e1b52154869868b098568441bef52b5143c8/RidayFeed/assets/js/custom.js'/>
 				<b:if cond='data:view.isPage'>
 					<script src='https://min.gitcdn.link/repo/irfaanprogrammer/bloggercode/master/js/crypto.js' type='text/javascript'/>
 				</b:if>
@@ -1229,7 +1229,7 @@ WIDGET
 							</article><!-- // .c-event -->
 						</div>
 
-						<b:if cond='data:x==1 and !data:view.search.query'>
+						<b:if cond='data:posts.size AND data:x + 1 == data:posts.size and !data:view.search.query'>
 							<div class='ads-feed-target col-12 u-ph-zero'/>  
 						</b:if>
 					</b:loop>

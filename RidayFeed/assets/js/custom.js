@@ -73,7 +73,8 @@ function loadscroll() {
                         $("#linkloadmore").html(source.find('#Blog1_pagination-old').clone());
                         $("#linkloadmore").hide();
                         new LazyLoad();
-                        if( $('#ads-feed-post-source').length ){  
+                        if( $('#ads-feed-post-source').length && el.length){  
+                            alert('load');
                             $(".ads-feed-target:last").append(ads_feed);
                         }
                     }, 100);
@@ -85,7 +86,6 @@ function loadscroll() {
         }
     }
 }
-
 /**
 * Share Button
 */
