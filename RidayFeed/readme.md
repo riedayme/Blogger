@@ -4,6 +4,8 @@
 
 ## Change Log
 13 May 2020
+* Comment Reply
+* Comment disable, disable on post
 * Hide Comment Response
 * Adsense lazyload active status
 

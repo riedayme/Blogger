@@ -496,6 +496,10 @@ WIDGET
 					padding-top: 71px;
 					}
 
+					.lh-profile {
+					line-height:1.2
+					}
+
 					.smd .img-thumbnail {
 					border-radius: 33px;
 					width: 61px;
@@ -1293,7 +1297,7 @@ WIDGET
 
 							</div>
 						</div>
-						<div class='o-media__body'>
+						<div class='o-media__body lh-profile'>
 							<data:post.author.name/>
 							<small class='u-block u-text-mute'>
 								<time expr:datetime='data:post.date.iso8601' expr:title='data:post.date.iso8601'><b:eval expr='format(data:post.date, &quot; EEEE, d MMM YYYY&quot;)'/></time>
@@ -1301,7 +1305,7 @@ WIDGET
 						</div>
 					</div>
 					<div class='u-ml-auto'>
-						<div class='u-flex u-justify-between u-pt-xsmall'>
+						<div class='u-flex u-justify-between'>
 							<a class='u-text-dark button-share' data-target='#modal-share' data-toggle='modal' expr:data-url='data:post.url' href='javascript:;'>                       
 								<i class='fa fa-share'/>
 							</a>
@@ -1385,26 +1389,21 @@ WIDGET
 			<b:includable id='BLOG_POST_COMMENT'>
 				<b:if cond='data:post.allowComments'>
 					<b:if cond='data:post.allowNewComments'>
-						<b:if cond='data:post.commentSource == 1'>
-							<b:comment>Google Plus Comment (Deprecated !)</b:comment>
-							<b:else/>
-							<b:if cond='data:post.embedCommentForm'>
-								<b:include name='COMMENT_THREAD'/>
-							</b:if>
-						</b:if> 
+						<b:if cond='data:post.embedCommentForm'>
+							<b:include name='COMMENT_THREAD'/>
+						</b:if>
 						<b:else/>
 						<b:comment>Disable From Post</b:comment>
-						<b:if cond='data:post.commentSource == 1'>
-							<b:comment>Disable Google Comment</b:comment>
-							<b:include name='COMMENT_MESSAGE_DISABLE'/>
-							<b:else/>
-							<b:if cond='data:post.embedCommentForm'>
+						<b:if cond='data:post.embedCommentForm'>
+							<b:if cond='not data:post.allowNewComments and data:post.numberOfComments &gt; 0'>
 								<b:include name='COMMENT_THREAD'/>
 								<b:else/>
-								<b:comment>Full Comment and Popup Comment</b:comment>
-								<b:include name='COMMENT_BUTTON'>
-								</b:include>
+								<b:include name='COMMENT_MESSAGE_DISABLE'/>
 							</b:if>
+							<b:else/>
+							<b:comment>Full Comment and Popup Comment</b:comment>
+							<b:include name='COMMENT_BUTTON'>
+							</b:include>
 						</b:if>
 					</b:if>
 					<b:else/>
@@ -1502,7 +1501,7 @@ WIDGET
 					<div class='c-stream-item__content o-media__body'>
 
 						<div class='c-stream-item__header'>
-							<span class='c-stream-item__name' style='line-height:1.2'>
+							<span class='c-stream-item__name lh-profile'>
 								<span class='u-block u-text-bold'>
 									<b:if cond='data:cb.level.authorUrl != data:post.author.profileUrl'>
 										<data:cb.level.author/>
@@ -1513,7 +1512,7 @@ WIDGET
 								<span class='c-stream-item__time c-no-wrap'><data:cb.level.timestamp/></span>
 							</span>
 							<b:if cond='data:post.allowNewComments'>
-								<b:if cond='data:cb.d'>
+								<b:if cond='data:cb.parent AND data:cb.d == 0 OR !data:cb.parent AND data:cb.d + 1 == data:cb.child'>
 									<div class='u-flex u-justify-between'>
 										<div class='c-stream-item__actionlist'>
 											<a class='comment-reply-link c-stream-item__action c-btn u-color-white c-btn--small u-m-zero u-pl-xsmall u-pr-xsmall' expr:data-comment-id='data:commentLevel1.id' href='javascript:;'>
@@ -1542,8 +1541,6 @@ WIDGET
 						<data:cb.level.body/>
 					</b:if>
 				</div>
-
-				<div expr:id='&quot;c&quot; + data:cb.level.id'/>
 			</b:includable>
 			<b:includable id='COMMENT_THREAD'>
 
@@ -1562,18 +1559,19 @@ WIDGET
 						<ol class='c-stream u-mb-xsmall u-border-zero u-hidden-visually comment-response' style='background:none'>          
 							<b:loop values='data:post.comments where (c =&gt; not c.inReplyTo)' var='commentLevel1'>
 								<li class='c-stream-item u-mb-xsmall u-bg-white u-border-rounded u-border-top u-border-right u-border-bottom u-border-left'>
-									<b:include data='{level: data:commentLevel1,d: true}' name='COMMENT_CONTENT'/>
 									<b:with value='data:post.comments where (c =&gt; c.inReplyTo == data:commentLevel1.id)' var='commentL2'>
+										<b:include data='{level: data:commentLevel1,d: data:commentL2.size, parent: true, child: false}' name='COMMENT_CONTENT'/>
 										<b:if cond='data:commentL2.size != &quot;0&quot;'>
 											<ol class='c-stream u-ml-small u-mt-small u-mb-zero'>
-												<b:loop values='data:commentL2' var='commentLevel2'>
+												<b:loop index='x' values='data:commentL2' var='commentLevel2'>
 													<li class='c-stream-item u-border-bottom-zero' expr:id='&quot;c&quot; + data:commentLevel2.id'>
-														<b:include data='{level: data:commentLevel2,d: false}' name='COMMENT_CONTENT'/>
+														<b:include data='{level: data:commentLevel2,d: data:x, parent: false, child: data:commentL2.size}' name='COMMENT_CONTENT'/>
 													</li>
 												</b:loop>
 											</ol>
 										</b:if>
 									</b:with>   
+									<div expr:id='&quot;c&quot; + data:commentLevel1.id'/>
 								</li>
 							</b:loop>
 						</ol>
@@ -1586,13 +1584,13 @@ WIDGET
 						</div>
 					</b:if>
 					<b:comment>Disable Comment Post</b:comment>
-					<b:if cond='not data:post.allowNewComments and data:post.numberOfComments &gt; 0'>
+					<b:if cond='not data:post.allowNewComments'>
 						<div class='comment-disable c-alert c-alert--info'>
 							<data:post.noNewCommentsText/>
 						</div>
 					</b:if> 
 					<b:comment>Comment Thread JS</b:comment>
-					<b:if cond='data:post.showThreadedComments or data:post.allowNewComments and data:post.numberOfComments &gt; 0'>
+					<b:if cond='data:post.showThreadedComments'>
 						<b:include name='COMMENT_THREAD_JS'/>
 					</b:if>
 				</div>
@@ -1600,11 +1598,7 @@ WIDGET
 			</b:includable>
 			<b:includable id='COMMENT_MESSAGE_DISABLE'>
 				<div class='comment-disable c-alert c-alert--info'>
-					<b:if cond='data:post.allowComments'>
-
-						<b:elseif cond='not data:post.allowNewComments and not data:post.allowComments'/>
-						<data:messages.onlyTeamMembersCanComment/>
-					</b:if>
+					<data:messages.onlyTeamMembersCanComment/>
 				</div>
 			</b:includable>
 			<b:includable id='COMMENT_TITLE'>
