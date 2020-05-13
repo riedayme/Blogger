@@ -480,8 +480,8 @@ WIDGET
 				]]></b:template-skin>
 			</b:includable>     
 			<b:includable id='MY_CSS_EXTERNAL'>
-				<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@227b12074fc7ea09ab22ef479484a79aa6e78590/RidayFeed/assets/css/main.css' rel='stylesheet'/>
-				<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@227b12074fc7ea09ab22ef479484a79aa6e78590/RidayFeed/assets/css/custom.css' rel='stylesheet'/>
+				<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@3b1c5f798113f52448251d0fc019efa32ff61d49/RidayFeed/assets/css/main.css' rel='stylesheet'/>
+				<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@3b1c5f798113f52448251d0fc019efa32ff61d49/RidayFeed/assets/css/custom.css' rel='stylesheet'/>
 			</b:includable> 
 			<b:includable id='MY_CSS_INTERNAL'>
 				<style>
@@ -650,8 +650,8 @@ WIDGET
 				&lt;/body&gt;
 			</b:includable>
 			<b:includable id='MY_JS_EXTERNAL'>
-				<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@227b12074fc7ea09ab22ef479484a79aa6e78590/RidayFeed/assets/js/main.js'/>
-				<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@227b12074fc7ea09ab22ef479484a79aa6e78590/RidayFeed/assets/js/custom.js'/>
+				<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@3b1c5f798113f52448251d0fc019efa32ff61d49/RidayFeed/assets/js/main.js'/>
+				<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@3b1c5f798113f52448251d0fc019efa32ff61d49/RidayFeed/assets/js/custom.js'/>
 				<b:if cond='data:view.isPage'>
 					<script src='https://min.gitcdn.link/repo/irfaanprogrammer/bloggercode/master/js/crypto.js' type='text/javascript'/>
 				</b:if>
