@@ -175,31 +175,3 @@ if (adsense_status == 'true') {
         sc.parentNode.insertBefore(ad, sc);
     }    
 }
-
-/**
- * Nicescroll.js
- */
- (function($){
-    $(document).ready(
-        function() {
-            $("body").niceScroll({
-                cursorcolor:        "#6c63ff",
-                cursorwidth:        "12px",
-                cursorborder:       "0px solid #000",
-                scrollspeed:        60,
-                autohidemode:       false,
-                background:         '#ddd',
-                hidecursordelay:    400,
-                cursorfixedheight:  false,
-                cursorminheight:    20,
-                enablekeyboard:     true,
-                horizrailenabled:   true,
-                bouncescroll:       false,
-                smoothscroll:       true,
-                iframeautoresize:   true,
-                touchbehavior:      false,
-                zindex: 999
-            });
-        }
-        );
-})(jQuery);
