@@ -74,7 +74,6 @@ function loadscroll() {
                         $("#linkloadmore").hide();
                         new LazyLoad();
                         if( $('#ads-feed-post-source').length && el.length){  
-                            alert('load');
                             $(".ads-feed-target:last").append(ads_feed);
                         }
                     }, 100);
