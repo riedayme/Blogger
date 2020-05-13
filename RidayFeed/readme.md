@@ -8,6 +8,7 @@
 * Comment disable, disable on post
 * Hide Comment Response
 * Adsense lazyload active status
+* ads feed on load
 
 12 May 2020
 * Add schema breadcrumb
