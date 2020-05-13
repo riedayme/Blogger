@@ -590,7 +590,9 @@ WIDGET
 			</b:includable> 
 			<b:includable id='MY_MAIN'>
 				<main id='main-wrapper'>
-					<div class='container u-mv-small'>
+					<div class='container'>
+						<b:class cond='data:view.isMultipleItems' name='u-mv-small'/>
+						<b:class cond='data:view.isSingleItem' name='u-mt-small'/>
 						<div class='row'>
 
 							<div class='u-hidden-down@desktop'>
@@ -665,7 +667,7 @@ WIDGET
 							<b:widget-setting name='text-1'>adsense_lazyload_status</b:widget-setting>
 							<b:widget-setting name='link-1'>true</b:widget-setting>
 							<b:widget-setting name='text-0'>adsense_status</b:widget-setting>
-							<b:widget-setting name='link-0'>true</b:widget-setting>							
+							<b:widget-setting name='link-0'>false</b:widget-setting>							
 						</b:widget-settings>
 						<b:includable id='main'>--&gt;
 							<script>
@@ -1589,7 +1591,7 @@ WIDGET
 					</b:if>
 					<b:comment>Disable Comment Post</b:comment>
 					<b:if cond='not data:post.allowNewComments'>
-						<div class='comment-disable c-alert c-alert--info'>
+						<div class='comment-disable c-alert c-alert--info u-mb-zero'>
 							<data:post.noNewCommentsText/>
 						</div>
 					</b:if> 
@@ -1601,7 +1603,7 @@ WIDGET
 
 			</b:includable>
 			<b:includable id='COMMENT_MESSAGE_DISABLE'>
-				<div class='comment-disable c-alert c-alert--info'>
+				<div class='comment-disable c-alert c-alert--info u-mb-zero'>
 					<data:messages.onlyTeamMembersCanComment/>
 				</div>
 			</b:includable>
