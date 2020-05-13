@@ -9,6 +9,7 @@
 * Hide Comment Response
 * Adsense lazyload active status
 * ads feed on load
+* Navigation Icon and Header set to center
 
 12 May 2020
 * Add schema breadcrumb

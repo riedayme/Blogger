@@ -539,10 +539,15 @@ WIDGET
 							<div class='col-12'>
 								<div class='c-navbar u-border-bottom-zero u-p-zero'>
 
+									<button class="c-nav-toggle u-ml-zero u-mr-auto collapsed" data-target="#main-nav" data-toggle="collapse" type="button" aria-expanded="false">
+										<i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+									</button>
+									<!-- // .c-nav-toggle -->
+
 									<b:include name='MY_HEADER_WIDGET_HEADER'/> 
 
 									<div class='u-ml-auto u-hidden-up@tablet'/>
-									<form class='u-width-50 u-hidden-down@tablet' expr:action='data:blog.searchUrl' method='GET'>
+									<form class='u-width-50 u-ml-medium u-hidden-down@tablet' expr:action='data:blog.searchUrl' method='GET'>
 										<div class='c-field has-icon-right'>
 											<span class='c-field__icon'>
 												<i class='fa fa-search'/>
@@ -576,13 +581,7 @@ WIDGET
 											</ul>
 										</div>
 									</nav>
-
 									<!-- // Navigation items  -->
-									<button class='c-nav-toggle ' data-target='#main-nav' data-toggle='collapse' type='button'>
-										<span class='c-nav-toggle__bar'/>
-										<span class='c-nav-toggle__bar'/>
-										<span class='c-nav-toggle__bar'/>
-									</button><!-- // .c-nav-toggle -->
 								</div>
 							</div>
 						</div>
@@ -758,7 +757,7 @@ WIDGET
 								<b:else/>
 								<b:if cond='data:title'>
 									<b:tag class='u-h3 navbar__title u-text-bold u-mr-medium' cond='data:view.isSingleItem' name='span'>     
-										<b:tag class='u-h3 navbar__title u-text-bold u-mr-medium u-mb-zero' cond='!data:view.isSingleItem' name='h1'>     
+										<b:tag class='u-h3 navbar__title u-text-bold u-mb-zero' cond='!data:view.isSingleItem' name='h1'>     
 											<data:title/>
 										</b:tag>
 									</b:tag>
@@ -788,7 +787,12 @@ WIDGET
 						<b:includable id='main'>
 							<div class='c-dropdown dropdown u-ml-xsmall' style='top:4px;'>
 								<a aria-expanded='false' aria-haspopup='true' class='has-dropdown dropdown-toggle u-text-dark' data-toggle='dropdown' href='javascript:;' id='pagemenu'>
-									<svg class='gb_Ve' focusable='false' style='width: 24px; height: 24px; color: #333; opacity: 1; fill: currentColor;' viewBox='0 0 24 24'><path d='M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z'/></svg>
+									<span class='u-hidden-up@tablet'>
+										<i class="fa fa-ellipsis-v fa-2x" aria-hidden="true"></i>
+									</span>
+									<span class='u-hidden-down@tablet'>
+										<svg class='gb_Ve' focusable='false' style='width: 24px; height: 24px; color: #333; opacity: 1; fill: currentColor;' viewBox='0 0 24 24'><path d='M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z'/></svg>
+									</span>
 								</a>
 								<div aria-labelledby='pagemenu' class='c-dropdown__menu dropdown-menu dropdown-menu-right' x-placement='top-start'>
 									<a class='c-dropdown__item dropdown-item' expr:href='data:blog.homepageUrl' expr:title='data:messages.home'><data:messages.home/></a>
