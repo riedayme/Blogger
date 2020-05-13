@@ -480,8 +480,8 @@ font-size: 12px;
 ]]></b:template-skin>
 </b:includable>     
 <b:includable id='MY_CSS_EXTERNAL'>
-<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@1ce0e1b52154869868b098568441bef52b5143c8/RidayFeed/assets/css/main.css' rel='stylesheet'/>
-<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@1ce0e1b52154869868b098568441bef52b5143c8/RidayFeed/assets/css/custom.css' rel='stylesheet'/>
+<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@066deeef88b3d235a6250ada3ec857119f7a5e3f/RidayFeed/assets/css/main.css' rel='stylesheet'/>
+<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@066deeef88b3d235a6250ada3ec857119f7a5e3f/RidayFeed/assets/css/custom.css' rel='stylesheet'/>
 </b:includable> 
 <b:includable id='MY_CSS_INTERNAL'>
 <style>
@@ -563,14 +563,14 @@ text-align: center
 <ul class='c-nav__list'>         
 <li class='c-nav__item'>
 <form expr:action='data:blog.searchUrl' method='GET'>
-	<div class='c-field c-field--inline has-icon-right'>
-		<span class='c-field__icon'>
-			<i class='fa fa-search'/> 
-		</span>
+<div class='c-field c-field--inline has-icon-right'>
+<span class='c-field__icon'>
+<i class='fa fa-search'/> 
+</span>
 
-		<label class='u-hidden-visually' for='navbar-search-small'>Seach</label>
-		<input class='c-input' id='navbar-search-small' name='q' placeholder='Search' type='text'/>
-	</div>
+<label class='u-hidden-visually' for='navbar-search-small'>Seach</label>
+<input class='c-input' id='navbar-search-small' name='q' placeholder='Search' type='text'/>
+</div>
 </form>
 </li>
 </ul>
@@ -649,8 +649,8 @@ text-align: center
 &lt;/body&gt;
 </b:includable>
 <b:includable id='MY_JS_EXTERNAL'>
-<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@1ce0e1b52154869868b098568441bef52b5143c8/RidayFeed/assets/js/main.js'/>
-<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@1ce0e1b52154869868b098568441bef52b5143c8/RidayFeed/assets/js/custom.js'/>				
+<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@066deeef88b3d235a6250ada3ec857119f7a5e3f/RidayFeed/assets/js/main.js'/>
+<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@066deeef88b3d235a6250ada3ec857119f7a5e3f/RidayFeed/assets/js/custom.js'/>
 <b:if cond='data:view.isPage'>
 <script src='https://min.gitcdn.link/repo/irfaanprogrammer/bloggercode/master/js/crypto.js' type='text/javascript'/>
 </b:if>
@@ -918,17 +918,17 @@ data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;&lt;script&gt;(adsbyg
 
 <b:if cond='data:postDisplay.showFeaturedImage'>
 <div class='c-event__img u-m-zero'>
-	<a expr:href='data:post.link ? data:post.link : data:post.url' expr:title='data:post.title ? data:post.title : data:messages.noTitle'>
-		<img class='c-post-image' expr:href='data:post.link ? data:post.link : data:post.url' expr:src='data:post.featuredImage ? data:post.featuredImage : &quot;https://1.bp.blogspot.com/-P6sIgHwSrZU/XrncUn1POBI/AAAAAAAABK4/cpGgDNNzCuIDFXn5Uqmey4qh23efe-f_QCLcBGAsYHQ/s1600/no-image-compress.jpg&quot;' expr:title='data:post.title ? data:post.title : data:messages.noTitle'/>
-	</a>
+<a expr:href='data:post.link ? data:post.link : data:post.url' expr:title='data:post.title ? data:post.title : data:messages.noTitle'>
+<img class='c-post-image' expr:href='data:post.link ? data:post.link : data:post.url' expr:src='data:post.featuredImage ? data:post.featuredImage : &quot;https://1.bp.blogspot.com/-P6sIgHwSrZU/XrncUn1POBI/AAAAAAAABK4/cpGgDNNzCuIDFXn5Uqmey4qh23efe-f_QCLcBGAsYHQ/s1600/no-image-compress.jpg&quot;' expr:title='data:post.title ? data:post.title : data:messages.noTitle'/>
+</a>
 </div>
 </b:if>
 <div class='c-event__meta u-ph-small u-pt-xsmall'>
 
 <a class='c-post-title-link' expr:href='data:post.link ? data:post.link : data:post.url' expr:title='data:post.title ? data:post.title : data:messages.noTitle'>
-	<h2 class='c-event__title'>
-		<b:eval expr='data:post.title ? data:post.title : data:messages.noTitle'/>
-	</h2>
+<h2 class='c-event__title'>
+<b:eval expr='data:post.title ? data:post.title : data:messages.noTitle'/>
+</h2>
 </a>
 
 </div>
@@ -1229,7 +1229,7 @@ kodein_MoveByID(&#39;ads-bottom-post-source&#39;,&#39;ads-bottom-target&#39;);
 </article><!-- // .c-event -->
 </div>
 
-<b:if cond='data:x==1 and !data:view.search.query'>
+<b:if cond='data:posts.size AND data:x + 1 == data:posts.size and !data:view.search.query'>
 <div class='ads-feed-target col-12 u-ph-zero'/>  
 </b:if>
 </b:loop>
@@ -1565,7 +1565,7 @@ Show Comment
 <ol class='c-stream u-ml-small u-mt-small u-mb-zero'>
 <b:loop index='x' values='data:commentL2' var='commentLevel2'>
 <li class='c-stream-item u-border-bottom-zero' expr:id='&quot;c&quot; + data:commentLevel2.id'>
-	<b:include data='{level: data:commentLevel2,d: data:x, parent: false, child: data:commentL2.size}' name='COMMENT_CONTENT'/>
+<b:include data='{level: data:commentLevel2,d: data:x, parent: false, child: data:commentL2.size}' name='COMMENT_CONTENT'/>
 </li>
 </b:loop>
 </ol>
