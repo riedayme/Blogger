@@ -379,18 +379,17 @@ WIDGET
 
 						<!--[ Schema Google Search (ony homepage) ]-->
 						<b:if cond='data:view.isHomepage'>
-							<script type="application/ld+json">
-								{
-								"@context": "https://schema.org",
+							<script data-rh="true" type="application/ld+json">{
+								"@context": "http://schema.org",
 								"@type": "WebSite",
 								"url": "<data:blog.homepageUrl/>",
-								"potentialAction": [{
+								"potentialAction": {
 								"@type": "SearchAction",
-								"target": "<data:blog.homepageUrl/>search?q={q}",
-								"query-input": "required name=q"
-								}]
+								"target": "<data:blog.homepageUrl/>search?q={search_term_string}",
+								"query-input": "required name=search_term_string"
 								}
-							</script>
+								}
+							</script>  
 						</b:if>
 
 						&lt;!--&lt;head&gt;
@@ -1616,7 +1615,7 @@ WIDGET
 				<script>
 					//<![CDATA[
 					document.addEventListener("DOMContentLoaded", function() {
-					
+
 					/* comment show */
 					var getUrlParameter = function getUrlParameter(sParam) {var sPageURL = window.location.search.substring(1), sURLVariables = sPageURL.split('&'), sParameterName, i; for (i = 0; i < sURLVariables.length; i++) {sParameterName = sURLVariables[i].split('='); if (sParameterName[0] === sParam) {return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]); } } }; if(getUrlParameter('showComment') !== undefined) {$(".comment-response").removeClass('u-hidden-visually'); $(".button-show-comemnt").remove(); } $(".button-show-comemnt").on('click',function(){$(".comment-response").removeClass('u-hidden-visually'); $(this).remove(); });
 

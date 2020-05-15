@@ -379,18 +379,17 @@ WIDGET
 
 <!--[ Schema Google Search (ony homepage) ]-->
 <b:if cond='data:view.isHomepage'>
-<script type="application/ld+json">
-{
-"@context": "https://schema.org",
+<script data-rh="true" type="application/ld+json">{
+"@context": "http://schema.org",
 "@type": "WebSite",
 "url": "<data:blog.homepageUrl/>",
-"potentialAction": [{
+"potentialAction": {
 "@type": "SearchAction",
-"target": "<data:blog.homepageUrl/>search?q={q}",
-"query-input": "required name=q"
-}]
+"target": "<data:blog.homepageUrl/>search?q={search_term_string}",
+"query-input": "required name=search_term_string"
 }
-</script>
+}
+</script>  
 </b:if>
 
 &lt;!--&lt;head&gt;
@@ -569,12 +568,12 @@ text-align: center
 <li class='c-nav__item'>
 <form expr:action='data:blog.searchUrl' method='GET'>
 <div class='c-field c-field--inline has-icon-right'>
-	<span class='c-field__icon'>
-		<i class='fa fa-search'/> 
-	</span>
+<span class='c-field__icon'>
+<i class='fa fa-search'/> 
+</span>
 
-	<label class='u-hidden-visually' for='navbar-search-small'>Seach</label>
-	<input class='c-input' id='navbar-search-small' name='q' placeholder='Search' type='text'/>
+<label class='u-hidden-visually' for='navbar-search-small'>Seach</label>
+<input class='c-input' id='navbar-search-small' name='q' placeholder='Search' type='text'/>
 </div>
 </form>
 </li>
@@ -925,7 +924,7 @@ data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;&lt;script&gt;(adsbyg
 <b:if cond='data:postDisplay.showFeaturedImage'>
 <div class='c-event__img u-m-zero'>
 <a expr:href='data:post.link ? data:post.link : data:post.url' expr:title='data:post.title ? data:post.title : data:messages.noTitle'>
-	<img class='c-post-image' expr:href='data:post.link ? data:post.link : data:post.url' expr:src='data:post.featuredImage ? data:post.featuredImage : &quot;https://1.bp.blogspot.com/-P6sIgHwSrZU/XrncUn1POBI/AAAAAAAABK4/cpGgDNNzCuIDFXn5Uqmey4qh23efe-f_QCLcBGAsYHQ/s1600/no-image-compress.jpg&quot;' expr:title='data:post.title ? data:post.title : data:messages.noTitle'/>
+<img class='c-post-image' expr:href='data:post.link ? data:post.link : data:post.url' expr:src='data:post.featuredImage ? data:post.featuredImage : &quot;https://1.bp.blogspot.com/-P6sIgHwSrZU/XrncUn1POBI/AAAAAAAABK4/cpGgDNNzCuIDFXn5Uqmey4qh23efe-f_QCLcBGAsYHQ/s1600/no-image-compress.jpg&quot;' expr:title='data:post.title ? data:post.title : data:messages.noTitle'/>
 </a>
 </div>
 </b:if>
@@ -933,7 +932,7 @@ data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;&lt;script&gt;(adsbyg
 
 <a class='c-post-title-link' expr:href='data:post.link ? data:post.link : data:post.url' expr:title='data:post.title ? data:post.title : data:messages.noTitle'>
 <h2 class='c-event__title'>
-	<b:eval expr='data:post.title ? data:post.title : data:messages.noTitle'/>
+<b:eval expr='data:post.title ? data:post.title : data:messages.noTitle'/>
 </h2>
 </a>
 
