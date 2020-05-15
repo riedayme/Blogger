@@ -515,6 +515,12 @@ WIDGET
 					font-size: small;
 					text-align: center
 					}
+
+					@media(max-width: 575px) {
+					.c-pagination, #comment-container > h3 {
+					padding: 0 10px;
+					}
+					}
 				</style>
 			</b:includable>
 		</b:defaultmarkup>      
