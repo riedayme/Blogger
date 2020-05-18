@@ -29,8 +29,8 @@ iframe{max-width:100%;}
 .c-post-content h4,
 .c-post-content h5,
 .c-post-content h6 {
-margin: 0 0 0.6rem;
-font-weight: bold;
+	margin: 0 0 0.6rem;
+	font-weight: bold;
 }
 
 .c-post-content table{border-collapse:collapse;max-width:100%;font-size:13px;margin-bottom:2rem;width:100%}
@@ -68,3 +68,91 @@ font-weight: bold;
 
 /* back to top */
 #toTop{padding:8px 12px;color:#fff;background:#6c63ff;position:fixed;bottom:15px;right:20px;border-radius:50%;display:none}
+
+/* custom style */
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index:1;
+}
+
+.sticky + #main-wrapper {
+	padding-top: 71px;
+}
+
+.link-header,.link-header:hover {
+	color: #333;
+	text-decoration:none;
+}
+
+.lh-profile {
+	line-height:1.2
+}
+
+.smd .img-thumbnail {
+	border-radius: 33px;
+	width: 61px;
+	height: 61px
+}
+
+.smd .fa:before {
+	position: relative;
+	top: 20px
+}
+
+.smd {
+	width: 200px;
+	font-size: small;
+	text-align: center
+}
+
+@media(max-width: 575px) {
+	.c-pagination, #comment-container > h3 {
+		padding: 0 10px;
+	}
+}
+
+
+/* contact */
+.contact-form-button {
+	display: inline-block;
+	position: relative;
+	max-width: 100%;
+	margin: 0;
+	padding: .5rem 1.25rem;
+	-webkit-transition: all .15s ease-in-out;
+	transition: all .15s ease-in-out;
+	border: 1px solid;
+	border-radius: 4px;
+	border-color: #1a91eb;
+	color: #fff;
+	font-size: .875rem;
+	font-weight: 400;
+	line-height: 1.5;
+	text-align: center;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	cursor: pointer;
+	overflow: hidden;
+	vertical-align: middle;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	width: 100%;
+	background: #475364;
+	background: -webkit-gradient(linear,left top,left bottom,from(#475364),to(#273142));
+	background: linear-gradient(to bottom,#475364,#273142);
+	border-color: #354052;
+}
+.contact-form-error-message-with-border {
+	color: red;
+}
+.contact-form-error-message-with-border, .contact-form-success-message {
+	text-align: left;
+	display: inline-block;
+}

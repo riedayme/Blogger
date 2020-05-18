@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 */
 $(window).on("load resize", function() {
     if($(window).outerWidth() >= 993){      
-        $("#sidebar-left,#PopularPosts1").stick_in_parent({
+        $("#sidebar-left,#sidebar-right").stick_in_parent({
             parent: "#main-wrapper",
             offset_top: 71
         })

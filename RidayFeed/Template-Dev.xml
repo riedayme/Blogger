@@ -484,43 +484,6 @@ WIDGET
 			</b:includable> 
 			<b:includable id='MY_CSS_INTERNAL'>
 				<style>
-					.sticky {
-					position: fixed;
-					top: 0;
-					width: 100%;
-					z-index:1;
-					}
-
-					.sticky + #main-wrapper {
-					padding-top: 71px;
-					}
-
-					.lh-profile {
-					line-height:1.2
-					}
-
-					.smd .img-thumbnail {
-					border-radius: 33px;
-					width: 61px;
-					height: 61px
-					}
-
-					.smd .fa:before {
-					position: relative;
-					top: 20px
-					}
-
-					.smd {
-					width: 200px;
-					font-size: small;
-					text-align: center
-					}
-
-					@media(max-width: 575px) {
-					.c-pagination, #comment-container > h3 {
-					padding: 0 10px;
-					}
-					}
 				</style>
 			</b:includable>
 		</b:defaultmarkup>      
@@ -765,7 +728,7 @@ WIDGET
 								<b:if cond='data:title'>
 									<b:tag class='u-h3 navbar__title u-text-bold u-mr-medium' cond='data:view.isSingleItem' name='span'>     
 										<b:tag class='u-h3 navbar__title u-text-bold u-mb-zero' cond='!data:view.isSingleItem' name='h1'>     
-											<data:title/>
+											<b:tag cond='!data:view.isHomepage' expr:href='data:blog.homepageUrl' expr:title='data:title' class='link-header' name='a'><data:title/></b:tag>
 										</b:tag>
 									</b:tag>
 								</b:if>
@@ -802,7 +765,6 @@ WIDGET
 									</span>
 								</a>
 								<div aria-labelledby='pagemenu' class='c-dropdown__menu dropdown-menu dropdown-menu-right' x-placement='top-start'>
-									<a class='c-dropdown__item dropdown-item' expr:href='data:blog.homepageUrl' expr:title='data:messages.home'><data:messages.home/></a>
 									<b:loop values='data:links' var='link'>
 										<a class='c-dropdown__item dropdown-item' expr:href='data:link.target' expr:title='data:link.name'><data:link.name/></a>
 									</b:loop>
@@ -832,7 +794,6 @@ WIDGET
 									<li class='c-nav__item'>
 										<a class='c-nav__link' expr:href='data:label.url + &quot;?max-results=2&quot;' expr:title='data:label.name'>
 											<data:label.name/> 
-											<b:if cond='data:this.showFreqNumbers'>(<data:label.count/>)</b:if>
 										</a>
 									</li>
 								</b:loop>
@@ -846,6 +807,31 @@ WIDGET
 			</b:includable>     
 			<b:includable id='MY_WIDGET_MAIN_LEFT'>
 				<b:section id='ElementerLeft' maxwidgets='1' showaddelement='no'>
+					<b:widget id='LinkList5' locked='true' title='Navigasi' type='LinkList' version='2' visible='true'>
+						<b:widget-settings>
+							<b:widget-setting name='sorting'>NONE</b:widget-setting>
+							<b:widget-setting name='text-0'>Kebijakan Privasi</b:widget-setting>
+							<b:widget-setting name='link-0'>/</b:widget-setting>							
+						</b:widget-settings>
+						<b:includable id='main'>
+							<h4 class='c-menu__title u-h4 u-m-zero'>
+								<data:title/>
+							</h4>
+							<ul class='u-mb-small'>
+								<li class='c-menu__item'>
+									<a class='c-menu__link u-pl-zero' expr:href='data:blog.homepageUrl' expr:title='data:messages.home'><data:messages.home/></a>
+								</li> 
+								<b:loop values='data:links' var='link'>
+									<li class='c-menu__item'>
+										<a class='c-menu__link u-pl-zero' expr:href='data:link.target' expr:title='data:link.name'>
+											<data:link.name/>
+										</a>
+									</li> 
+								</b:loop>
+							</ul>
+						</b:includable>
+						<b:includable id='content'/>
+					</b:widget>
 					<b:widget id='Label1' locked='true' title='Topik Pembahasan' type='Label' version='2' visible='true'>
 						<b:widget-settings>
 							<b:widget-setting name='sorting'>ALPHA</b:widget-setting>
@@ -892,7 +878,197 @@ WIDGET
 				</b:section>  
 			</b:includable>
 			<b:includable id='MY_WIDGET_MAIN_RIGHT'>
-				<b:section id='ElementerRight' maxwidgets='1' showaddelement='no'>
+				<b:section id='ElementerRight' showaddelement='no'>
+					<b:widget id='LinkList4' locked='true' title='Social Profile' type='LinkList' version='2' visible='true'>
+						<b:widget-settings>
+							<b:widget-setting name='sorting'>NONE</b:widget-setting>
+							<b:widget-setting name='text-0'>social_facebook</b:widget-setting>
+							<b:widget-setting name='link-0'>https://facebook.com/</b:widget-setting>							
+							<b:widget-setting name='text-1'>social_twitter</b:widget-setting>
+							<b:widget-setting name='link-1'>https://twitter.com/</b:widget-setting>
+							<b:widget-setting name='text-2'>social_instagram</b:widget-setting>
+							<b:widget-setting name='link-2'>https://instagram.com/</b:widget-setting>
+							<b:widget-setting name='text-3'>social_youtube</b:widget-setting>
+							<b:widget-setting name='link-3'>https://youtube.com/</b:widget-setting>
+						</b:widget-settings>
+						<b:includable id='main'>
+							<div class="c-profile-card">
+
+								<ul class="c-profile-card__social u-justify-center">
+									<b:loop values='data:links' var='link'>
+										<b:if cond='data:link.name == &quot;social_facebook&quot;'>
+											<li class="u-mr-xsmall">
+												<a target="_blank" title="facebook" class="c-profile-card__social-icon u-bg-facebook" expr:href="data:link.target">
+													<i class="fa fa-facebook">
+													</i>
+												</a>
+											</li>
+										</b:if>
+										<b:if cond='data:link.name == &quot;social_twitter&quot;'>
+											<li class="u-mr-xsmall">
+												<a target="_blank" title="twitter" class="c-profile-card__social-icon u-bg-twitter" expr:href="data:link.target">
+													<i class="fa fa-twitter">
+													</i>
+												</a>
+											</li>
+										</b:if>
+										<b:if cond='data:link.name == &quot;social_instagram&quot;'>
+											<li class="u-mr-xsmall">
+												<a target="_blank" title="instagram" class="c-profile-card__social-icon u-bg-dribbble" expr:href="data:link.target">
+													<i class="fa fa-instagram">
+													</i>
+												</a>
+											</li>
+										</b:if>
+										<b:if cond='data:link.name == &quot;social_youtube&quot;'>
+											<li class="u-mr-xsmall">
+												<a target="_blank" title="youtube" class="c-profile-card__social-icon u-bg-danger" expr:href="data:link.target">
+													<i class="fa fa-youtube-play">
+													</i>
+												</a>
+											</li>
+										</b:if>
+									</b:loop>
+								</ul>
+
+								<ul class="c-profile-card__meta">
+									<li class="c-profile-card__meta-item">
+										<i class='fa fa-user-plus'></i>
+										<a class='btn-subscribe' expr:href='&quot;https://www.blogger.com/follow.g?view=FOLLOW&amp;blogID=&quot;+ data:blog.blogId' expr:title='data:messages.subscribe' rel='noopener' target='_blank'>
+											<data:messages.subscribe/>
+										</a>
+									</li>
+
+									<li class="c-profile-card__meta-item">
+										<i class="fa fa-bell"></i>
+										<a class='btn-followbyemail' data-target='#modal-followbyemail' data-toggle='modal' href='javascript:;' expr:title='data:messages.getEmailNotifications'>                       
+											<data:messages.getEmailNotifications/>
+										</a>
+									</li>
+
+									<li class="c-profile-card__meta-item">
+										<i class="fa fa-inbox"></i>
+										<a class='btn-contact' data-target='#modal-contactform' data-toggle='modal' href='javascript:;' title='Contact'>
+											<b:switch var='data:blog.locale'>
+												<b:case value='id' />
+												Kontak
+												<b:default />
+												Contact
+											</b:switch>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</b:includable>
+						<b:includable id='content'/>
+					</b:widget>
+					<b:widget id='ContactForm1' locked='true' title='Contact Form' type='ContactForm' visible='true'>
+						<b:includable id='main'>
+							<b:include name='content'/>
+						</b:includable>
+						<b:includable id='content'>
+							<div aria-labelledby='modal-contactform' class='c-modal c-modal--xsmall modal' id='modal-contactform' role='dialog' tabindex='-1'>
+								<div class='c-modal__dialog modal-dialog' role='document'>
+									<div class='modal-content'>
+
+										<a href='javascript:;' class="c-modal__close c-modal__close--absolute u-text-mute u-opacity-medium" data-dismiss="modal" aria-label="Close">
+											<i class="fa fa-close"></i>
+										</a>
+
+										<div class='c-card u-p-medium u-mh-auto' style='max-width:500px;'>
+
+											<h3><data:title/></h3>
+
+											<form name='contact-form'>	
+
+												<div class="c-field u-mb-xsmall">
+													<div class="c-field has-icon-left">
+														<span class="c-field__icon">
+															<i class="fa fa-user-o"></i>
+														</span> 
+														<input class="c-input contact-form-name" expr:id='data:widget.instanceId + "_contact-form-name"' name='name' type="text" expr:placeholder="data:contactFormNameMsg"/>
+													</div>
+												</div>
+
+												<div class="c-field u-mb-xsmall">
+													<div class="c-field has-icon-left">
+														<span class="c-field__icon">
+															<i class="fa fa-envelope"></i>
+														</span> 
+														<input class="c-input contact-form-email" expr:id='data:widget.instanceId + "_contact-form-email"' name='email' type="email" expr:placeholder="data:contactFormEmailMsg"/>
+													</div>
+												</div>
+
+												<div class="c-field u-mb-xsmall">
+													<textarea class='contact-form-email-message c-input' cols='25' expr:id='data:widget.instanceId + "_contact-form-email-message"' name='email-message' rows='5' expr:placeholder='data:contactFormMessageMsg'/>		
+												</div>
+
+												<input class='contact-form-button contact-form-button-submit' expr:id='data:widget.instanceId + "_contact-form-submit"' expr:value='data:contactFormSendMsg' type='button'/>	
+
+												<div class='u-text-center'>
+													<div class='contact-form-error-message' expr:id='data:widget.instanceId + "_contact-form-error-message"'></div>
+													<div class='contact-form-success-message' expr:id='data:widget.instanceId + "_contact-form-success-message"'></div>
+												</div>
+
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>        										
+							<b:switch var='data:blog.locale'>
+								<b:case value='id' />
+								<script src='https://www.blogger.com/static/v1/widgets/4075021528-widgets.js' type='text/javascript'/>
+								<script type='text/javascript'>
+									_WidgetManager._Init(&#39;//www.blogger.com/rearrange?blogID\x3d<data:blog.blogId/>&#39;,&#39;&#39;,&#39;<data:blog.blogId/>&#39;);
+									_WidgetManager._RegisterWidget(&#39;_ContactFormView&#39;, new _WidgetInfo(&#39;ContactForm1&#39;, &#39;BlogPost&#39;, null, document.getElementById(&#39;ContactForm1&#39;), {'contactFormMessageSendingMsg': 'Mengirim...', 'contactFormMessageSentMsg': 'Pesan sudah dikirim.', 'contactFormMessageNotSentMsg': 'Pesan tidak dapat dikirim. Coba lagi nanti.', 'contactFormInvalidEmailMsg': 'Alamat email harus valid.', 'contactFormEmptyMessageMsg': 'Bidang pesan harus diisi.', 'title': 'Contact Static Page', 'blogId': '<data:blog.blogId/>', 'contactFormNameMsg': 'Nama', 'contactFormEmailMsg': 'Email', 'contactFormMessageMsg': 'Pesan', 'contactFormSendMsg': 'Kirim', 'submitUrl': 'https://www.blogger.com/contact-form.do'}, &#39;displayModeFull&#39;));
+								</script>
+								<b:default />
+								<script src='https://www.blogger.com/static/v1/widgets/4075021528-widgets.js' type='text/javascript'/>
+								<script type='text/javascript'>
+									_WidgetManager._Init(&#39;//www.blogger.com/rearrange?blogID\x3d<data:blog.blogId/>&#39;,&#39;&#39;,&#39;<data:blog.blogId/>&#39;);
+									_WidgetManager._RegisterWidget(&#39;_ContactFormView&#39;, new _WidgetInfo(&#39;ContactForm1&#39;, &#39;BlogPost&#39;, null, document.getElementById(&#39;ContactForm1&#39;), {&#39;contactFormMessageSendingMsg&#39;: &#39;Sending...&#39;, &#39;contactFormMessageSentMsg&#39;: &#39;Your message has been sent.&#39;, &#39;contactFormMessageNotSentMsg&#39;: &#39;Message could not be sent. Please try again later.&#39;, &#39;contactFormInvalidEmailMsg&#39;: &#39;A valid email address is required.&#39;, &#39;contactFormEmptyMessageMsg&#39;: &#39;Message field cannot be empty.&#39;, &#39;title&#39;: &#39;Contact Form Static Page (Dont Remove)&#39;, &#39;blogId&#39;: &#39;<data:blog.blogId/>&#39;, &#39;contactFormNameMsg&#39;: &#39;Name&#39;, &#39;contactFormEmailMsg&#39;: &#39;Email&#39;, &#39;contactFormMessageMsg&#39;: &#39;Message&#39;, &#39;contactFormSendMsg&#39;: &#39;Send&#39;, &#39;submitUrl&#39;: &#39;https://www.blogger.com/contact-form.do&#39;}, &#39;displayModeFull&#39;));
+								</script>
+							</b:switch>
+						</b:includable>
+					</b:widget>
+					<b:widget id='FollowByEmail1' locked='true' title='Follow by Email' type='FollowByEmail' visible='true'>
+						<b:includable id='main'>
+							<b:include name='content'/>
+						</b:includable>
+						<b:includable id='content'>
+							<div aria-labelledby='modal-followbyemail' class='c-modal c-modal--small modal' id='modal-followbyemail' role='dialog' tabindex='-1'>
+								<div class='c-modal__dialog modal-dialog' role='document'>
+									<div class='modal-content'>
+
+										<a href='javascript:;' class="c-modal__close c-modal__close--absolute u-text-mute u-opacity-medium" data-dismiss="modal" aria-label="Close">
+											<i class="fa fa-close"></i>
+										</a>
+
+										<div class='c-card u-p-medium u-mh-auto' style='max-width:500px;'>
+
+											<h3><data:title/></h3>
+
+											<div class='follow-by-email-inner'>
+												<form action='https://feedburner.google.com/fb/a/mailverify' expr:onsubmit='&quot;window.open(\&quot;https://feedburner.google.com/fb/a/mailverify?uri=&quot; + data:feedPath + &quot;\&quot;, \&quot;popupwindow\&quot;, \&quot;scrollbars=yes,width=550,height=520\&quot;); return true&quot;' method='post' target='popupwindow'>
+
+													<div class="c-field u-mb-small">
+														<input required='' autocomplete='off' class='c-input follow-by-email-address' expr:placeholder='data:messages.emailAddress' name='email' type='email'/>
+													</div>
+													<div class="c-field u-mb-small">
+														<input class='follow-by-email-submit c-btn c-btn--primary c-btn--fullwidth' expr:value='data:messages.getEmailNotifications' type='submit'/>
+													</div>
+
+													<input expr:value='data:feedPath' name='uri' type='hidden'/>
+													<input name='loc' type='hidden' value='en_US'/>
+												</form>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>        							
+						</b:includable>
+					</b:widget>
 					<b:widget cond='!data:view.isPreview AND !data:view.search.query' id='HTML600' locked='true' title='Iklan Sidebar' type='HTML' version='2' visible='false'>
 						<b:widget-settings>
 							<b:widget-setting name='content'>&lt;ins class=&quot;adsbygoogle&quot;
@@ -961,7 +1137,71 @@ WIDGET
 	<b:defaultmarkups>
 		<b:defaultmarkup type='Common'>
 			<b:includable id='MY_BLOG_POST_WIDGET_MAIN'>
-				<b:section id='ElementerBlog' showaddelement='no'>
+				<b:section id='ElementerBlog' maxwidgets='1' showaddelement='no'>
+					<b:widget cond='data:view.isHomepage' id='FeaturedPost1' locked='true' title='Featured Post' type='FeaturedPost' version='2' visible='true'>
+						<b:widget-settings>
+							<b:widget-setting name='showSnippet'>true</b:widget-setting>
+							<b:widget-setting name='showPostTitle'>true</b:widget-setting>
+							<b:widget-setting name='postId'>7192277977333585881</b:widget-setting>
+							<b:widget-setting name='showFirstImage'>true</b:widget-setting>
+							<b:widget-setting name='useMostRecentPost'>true</b:widget-setting>
+						</b:widget-settings>
+						<b:includable id='main' var='this'>
+							<div class='row'>
+								<b:loop index='x' values='data:posts' var='post'> 
+
+									<div class='col-md-12 u-mb-small u-ph-zero'>
+										<article class='c-event u-m-zero u-p-zero'>
+
+											<div class='c-event__meta u-ph-small u-pt-xsmall u-pb-xsmall u-bg-info u-text-white'>
+												<div class='o-media'>
+													<div class='o-media__img u-mr-xsmall'>
+														<i class='fa fa-star'></i>
+													</div>
+													<div class='o-media__body'>
+														<data:title/>
+													</div>
+												</div>
+											</div>
+
+
+											<b:if cond='data:postDisplay.showTitle'>
+												<div class='c-event__meta u-ph-small u-pt-xsmall'>
+													<a class='c-post-title-link' expr:href='data:post.link ? data:post.link : data:post.url' expr:title='data:post.title ? data:post.title : data:messages.noTitle'>
+														<h2 class='c-event__title u-text-bold u-h4'>
+															<b:eval expr='data:post.title ? data:post.title : data:messages.noTitle'/>
+														</h2>
+													</a>
+												</div>
+											</b:if>
+
+											<b:if cond='data:postDisplay.showSnippet'>
+												<div class='c-event__meta u-ph-small'>
+													<p class='c-post-content'>
+														<b:eval expr='data:post.snippets.long.escaped snippet { length: 110, links: false, linebreaks: false, ellipsis: true }'/>
+														<a expr:href='data:post.url' expr:title='data:post.title'>
+															<b:eval expr='data:blog.jumpLinkMessage'/>
+														</a>
+													</p>
+												</div>
+											</b:if>
+
+											<b:if cond='data:postDisplay.showFeaturedImage'>
+												<div class='c-event__img u-m-zero'>
+													<a expr:href='data:post.link ? data:post.link : data:post.url' expr:title='data:post.title ? data:post.title : data:messages.noTitle' style='display:grid'>
+														<img class='c-post-image' expr:data-src='data:post.featuredImage ? data:post.featuredImage : &quot;https://1.bp.blogspot.com/-P6sIgHwSrZU/XrncUn1POBI/AAAAAAAABK4/cpGgDNNzCuIDFXn5Uqmey4qh23efe-f_QCLcBGAsYHQ/s1600/no-image-compress.jpg&quot;' expr:title='data:post.title ? data:post.title : data:messages.noTitle' src='data:image/svg+xml,%3Csvg xmlns=&apos;http://www.w3.org/2000/svg&apos; viewBox=&apos;0 0 3 2&apos;%3E%3C/svg%3E'/>
+													</a>
+												</div>
+											</b:if>
+
+											<b:include name='BLOG_POST_LAYOUTS_FOOTER'/>
+
+										</article><!-- // .c-event -->
+									</div>
+								</b:loop>
+							</div>				
+						</b:includable>
+					</b:widget>
 					<b:widget id='Blog1' locked='true' title='Posting Blog' type='Blog' version='2' visible='true'>
 						<b:widget-settings>
 							<b:widget-setting name='commentLabel'>Comment</b:widget-setting>
@@ -1126,8 +1366,8 @@ WIDGET
 					},
 					"url": "<data:post.url.https/>",
 					"headline": "<b:eval expr='data:blog.pageName.escaped'/>",
-					"description": "<b:eval expr='data:post.snippets.long.escaped snippet { length: 147, links: false, linebreaks: false, ellipsis: false }' name='twitter:description'/>",
-					"articleBody": "<b:eval expr='data:post.snippets.long.escaped snippet { length: 147, links: false, linebreaks: false, ellipsis: false }' name='twitter:description'/>",
+					"description": "<b:eval expr='data:post.snippets.long.escaped snippet { length: 147, links: false, linebreaks: false, ellipsis: false }'/>",
+					"articleBody": "<b:eval expr='data:post.snippets.long.escaped snippet { length: 147, links: false, linebreaks: false, ellipsis: false }'/>",
 					"image": "<b:eval expr='data:post.featuredImage'/>",
 					"datePublished": "<data:post.date.iso8601/>",
 					<b:if cond='data:post.lastUpdated'>"dateModified": "<data:post.lastUpdated.iso8601/>",</b:if>
@@ -1220,19 +1460,27 @@ WIDGET
 
 								<b:include name='BLOG_POST_LAYOUTS_HEADER'/>
 
-								<div class='c-event__img u-m-zero'>
-									<a expr:href='data:post.link ? data:post.link : data:post.url' expr:title='data:post.title ? data:post.title : data:messages.noTitle'>
-										<img class='c-post-image' expr:data-src='data:post.featuredImage ? data:post.featuredImage : &quot;https://1.bp.blogspot.com/-P6sIgHwSrZU/XrncUn1POBI/AAAAAAAABK4/cpGgDNNzCuIDFXn5Uqmey4qh23efe-f_QCLcBGAsYHQ/s1600/no-image-compress.jpg&quot;' expr:title='data:post.title ? data:post.title : data:messages.noTitle' src='data:image/svg+xml,%3Csvg xmlns=&apos;http://www.w3.org/2000/svg&apos; viewBox=&apos;0 0 3 2&apos;%3E%3C/svg%3E'/>
-									</a>
-								</div>
 								<div class='c-event__meta u-ph-small u-pt-xsmall'>
-
 									<a class='c-post-title-link' expr:href='data:post.link ? data:post.link : data:post.url' expr:title='data:post.title ? data:post.title : data:messages.noTitle'>
 										<h2 class='c-event__title u-text-bold u-h4'>
 											<b:eval expr='data:post.title ? data:post.title : data:messages.noTitle'/>
 										</h2>
 									</a>
+								</div>
 
+								<div class='c-event__meta u-ph-small'>
+									<p class='c-post-content'>
+										<b:eval expr='data:post.snippets.long.escaped snippet { length: 110, links: false, linebreaks: false, ellipsis: true }'/>
+										<a expr:href='data:post.url' expr:title='data:post.title'>
+											<b:eval expr='data:blog.jumpLinkMessage'/>
+										</a>
+									</p>
+								</div>
+
+								<div class='c-event__img u-m-zero'>
+									<a expr:href='data:post.link ? data:post.link : data:post.url' expr:title='data:post.title ? data:post.title : data:messages.noTitle' style='display:grid'>
+										<img class='c-post-image' expr:data-src='data:post.featuredImage ? data:post.featuredImage : &quot;https://1.bp.blogspot.com/-P6sIgHwSrZU/XrncUn1POBI/AAAAAAAABK4/cpGgDNNzCuIDFXn5Uqmey4qh23efe-f_QCLcBGAsYHQ/s1600/no-image-compress.jpg&quot;' expr:title='data:post.title ? data:post.title : data:messages.noTitle' src='data:image/svg+xml,%3Csvg xmlns=&apos;http://www.w3.org/2000/svg&apos; viewBox=&apos;0 0 3 2&apos;%3E%3C/svg%3E'/>
+									</a>
 								</div>
 
 								<b:include name='BLOG_POST_LAYOUTS_FOOTER'/>
@@ -1317,7 +1565,7 @@ WIDGET
 					</div>
 					<div class='u-ml-auto'>
 						<div class='u-flex u-justify-between'>
-							<a class='u-text-dark button-share' data-target='#modal-share' data-toggle='modal' expr:data-url='data:post.url' href='javascript:;'>                       
+							<a class='u-text-dark button-share' data-target='#modal-share' data-toggle='modal' expr:data-url='data:post.url' href='javascript:;' expr:title='data:messages.share'>                       
 								<i class='fa fa-share'/>
 							</a>
 						</div>
@@ -1361,9 +1609,12 @@ WIDGET
 				</nav>
 			</b:includable> 
 			<b:includable id='BLOG_POST_SHARE'> 
-				<div aria-labelledby='modal-share' class='c-modal modal' id='modal-share' role='dialog' tabindex='-1'>
+				<div aria-labelledby='modal-share' class='c-modal c-modal--small modal' id='modal-share' role='dialog' tabindex='-1'>
 					<div class='c-modal__dialog modal-dialog' role='document'>
 						<div class='modal-content'>
+							<a href='javascript:;' class="c-modal__close c-modal__close--absolute u-text-mute u-opacity-medium" data-dismiss="modal" aria-label="Close">
+								<i class="fa fa-close"></i>
+							</a>
 							<div class='c-card u-p-medium u-mh-auto' style='max-width:500px;'>
 								<h3>Share</h3>
 								<div class='u-mb-small d-flex'>

@@ -3,6 +3,15 @@
 ![Riedayme](https://github.com/riedayme/Blogger/blob/master/RidayFeed/preview.png?raw=true)
 
 ## Change Log
+18 May 2020
+* Widget Featured post
+* Style Index
+* Fix Schema post
+* follow
+* subscribe
+* social icon
+* contact
+
 13 May 2020
 * Comment Reply
 * Comment disable, disable on post
