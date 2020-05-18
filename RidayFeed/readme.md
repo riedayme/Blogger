@@ -3,6 +3,11 @@
 ![Riedayme](https://github.com/riedayme/Blogger/blob/master/RidayFeed/preview.png?raw=true)
 
 ## Change Log
+19 May 2020
+* Update Ads Sidebar
+* Move js Cookies Notification 
+* Move crpyo.js
+
 18 May 2020
 * Widget Featured post
 * Style Index
