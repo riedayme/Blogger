@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 */
 $(window).on("load resize", function() {
     if($(window).outerWidth() >= 993){      
-        $("#sidebar-left,#sidebar-right").stick_in_parent({
+        $("#sidebar-left,#sidebar-right-sticky").stick_in_parent({
             parent: "#main-wrapper",
             offset_top: 71
         })
@@ -174,4 +174,45 @@ if (adsense_status == 'true') {
         var sc = document.getElementsByTagName('script')[0]; 
         sc.parentNode.insertBefore(ad, sc);
     }    
+}
+
+/**
+ * Cookie Notification
+ */
+ window.cookieconsent.initialise({
+    "palette": {
+        "popup": {
+            "background": "#383b75"
+        },
+        "button": {
+            "background": "#f1d600"
+        }
+    },
+    "content": {
+        "message": cookie_message,
+        "dismiss": cookie_dismiss,
+        "link": cookie_link
+    }
+});
+
+/**
+ * Crypto.js Safelink.
+ */
+ if ($.urlParam = function(n) {
+    var t = new RegExp("[?&]" + n + "=([^&#]*)").exec(window.location.href);
+    return null == t ? null : decodeURI(t[1]) || 0
+}, null != $.urlParam("from")) {
+    var countdown = $("#countdown"),
+    nextbutton = $("#nextbutton"),
+    time = 10;
+
+    function CountDown() {
+        document.getElementById("timer").innerHTML = time, (time -= 1) < 0 ? countdown.fadeOut("slow", function() {
+            nextbutton.fadeIn()
+        }) : window.setTimeout("CountDown()", 1e3)
+    }
+    CountDown(), nextbutton.on("click", function() {
+        var n = aesCrypto.decrypt(convertstr($.urlParam("from")), convertstr("root"));
+        window.location.href = n
+    })
 }
