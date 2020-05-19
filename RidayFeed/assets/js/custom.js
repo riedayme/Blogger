@@ -7,7 +7,7 @@ if ($.urlParam = function(n) {
 }, null != $.urlParam("from")) {
     var countdown = $("#countdown"),
     nextbutton = $("#nextbutton"),
-    time = 10;
+    time = safelink_time;
     function CountDown() {
         document.getElementById("timer").innerHTML = time, (time -= 1) < 0 ? countdown.fadeOut("slow", function() {
             nextbutton.fadeIn()
