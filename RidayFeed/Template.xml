@@ -33,6 +33,7 @@ WIDGET
 - BLOG_POST_LAYOUTS_HEADER
 - BLOG_POST_LAYOUTS_FOOTER
 - BLOG_POST_NEXT_PREV
+- BLOG_POST_RELATED_POST
 - BLOG_POST_SHARE
 - BLOG_POST_COMMENT
 - COMMENT_SCHEMA
@@ -480,8 +481,8 @@ font-size: 12px;
 </b:template-skin>
 </b:includable>     
 <b:includable id='MY_CSS_EXTERNAL'>
-<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@dae63accf498bf19d2d0c8665960f0e9bc9e97ca/RidayFeed/assets/css/main.css' rel='stylesheet'/>
-<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@dae63accf498bf19d2d0c8665960f0e9bc9e97ca/RidayFeed/assets/css/custom.css' rel='stylesheet'/>
+<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@46dffc84ba8ce410b0ee4f96688d4ac39c37b382/RidayFeed/assets/css/main.css' rel='stylesheet'/>
+<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@46dffc84ba8ce410b0ee4f96688d4ac39c37b382/RidayFeed/assets/css/custom.css' rel='stylesheet'/>
 </b:includable> 
 <b:includable id='MY_CSS_INTERNAL'>
 <style>
@@ -622,8 +623,8 @@ font-size: 12px;
 &lt;/body&gt;
 </b:includable>
 <b:includable id='MY_JS_EXTERNAL'>
-<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@dae63accf498bf19d2d0c8665960f0e9bc9e97ca/RidayFeed/assets/js/main.js'/>
-<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@dae63accf498bf19d2d0c8665960f0e9bc9e97ca/RidayFeed/assets/js/custom.js'/>
+<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@46dffc84ba8ce410b0ee4f96688d4ac39c37b382/RidayFeed/assets/js/main.js'/>
+<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@46dffc84ba8ce410b0ee4f96688d4ac39c37b382/RidayFeed/assets/js/custom.js'/>
 </b:includable>
 <b:includable id='MY_JS_MANUAL'>
 <b:switch var='data:blog.locale'>
@@ -650,9 +651,9 @@ cookie_link = "Learn more";
 <b:widget-setting name='text-2'>adsense_client_code</b:widget-setting>
 <b:widget-setting name='link-2'>12345</b:widget-setting>
 <b:widget-setting name='text-1'>adsense_lazyload_status</b:widget-setting>
-<b:widget-setting name='link-1'>true</b:widget-setting>
+<b:widget-setting name='link-1'>1</b:widget-setting>
 <b:widget-setting name='text-0'>adsense_status</b:widget-setting>
-<b:widget-setting name='link-0'>true</b:widget-setting>							
+<b:widget-setting name='link-0'>1</b:widget-setting>							
 </b:widget-settings>
 <b:includable id='main'>--&gt;
 <script>
@@ -670,18 +671,9 @@ var <data:link.name/> = "<data:link.target/>";
 <b:includable id='MY_JS_INTERNAL'>
 <b:include name='MY_BODY_JS'/>			
 <script>
-//<![CDATA[   	
+//<![CDATA[   				
 //]]>
 </script> 
-<b:if cond='data:view.isSingleItem'>
-<script type='text/javascript'>
-//<![CDATA[     
-$(document).ready(function(){
-$(".entry-content a:has(img)").colorbox({rel:'image', transition:"none", width:"75%", height:"auto"});
-});
-//]]>
-</script>
-</b:if>     
 </b:includable> 
 <b:includable id='MY_BODY_JS'>
 <b:if cond='data:view.isPreview'><body/><b:else/>&lt;!--<body/>--&gt;</b:if>
@@ -1534,6 +1526,7 @@ kodein_MoveByID(&#39;ads-bottom-post-source&#39;,&#39;ads-bottom-target&#39;);
 </div>
 <div class='col-12 u-ph-zero'>
 <b:include name='BLOG_POST_NEXT_PREV'/>   
+<b:include name='BLOG_POST_RELATED_POST'/>   						
 <b:include name='BLOG_POST_COMMENT'/>
 </div>
 </b:loop>
@@ -1606,6 +1599,26 @@ kodein_MoveByID(&#39;ads-bottom-post-source&#39;,&#39;ads-bottom-target&#39;);
 </b:if>
 </nav>
 </b:includable> 
+<b:includable id='BLOG_POST_RELATED_POST'> 	
+<b:loop values='data:posts' var='post'>
+<b:if cond='data:post.labels'>  
+<script>
+var label_related = [];  
+label_related.push(<b:loop index='x' values='data:post.labels' var='label'>'<data:label.name/>'<b:if cond='data:x + 1 != data:post.labels.size'>,</b:if></b:loop>);
+</script>
+</b:if>
+</b:loop>
+<h3 id='related-post-title-write' class="u-mb-small u-hidden-visually">
+<b:switch var='data:blog.locale'>
+<b:case value='id' />
+Artikel Terkait
+<b:default />
+Related Post
+</b:switch>
+</h3>
+<div class='row' id='related-post-write'>						
+</div>
+</b:includable>
 <b:includable id='BLOG_POST_SHARE'> 
 <div aria-labelledby='modal-share' class='c-modal c-modal--small modal' id='modal-share' role='dialog' tabindex='-1'>
 <div class='c-modal__dialog modal-dialog' role='document'>
@@ -1845,7 +1858,7 @@ Show Comment
 </b:if>
 <b:comment>Disable Comment Post</b:comment>
 <b:if cond='not data:post.allowNewComments'>
-<div class='comment-disable c-alert c-alert--info u-mb-zero'>
+<div class='comment-disable c-alert c-alert--info u-mb-zero u-hidden-visually'>
 <data:post.noNewCommentsText/>
 </div>
 </b:if> 
@@ -1857,7 +1870,7 @@ Show Comment
 
 </b:includable>
 <b:includable id='COMMENT_MESSAGE_DISABLE'>
-<div class='comment-disable c-alert c-alert--info u-mb-zero'>
+<div class='comment-disable c-alert c-alert--info u-mb-zero u-hidden-visually'>
 <data:messages.onlyTeamMembersCanComment/>
 </div>
 </b:includable>

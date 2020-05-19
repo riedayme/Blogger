@@ -223,11 +223,11 @@ window.cookieconsent.initialise({
 }); 
 
 /**
- * Related Post
- */
- var allrelatedfeedorigin = new Array;
+* Related Post
+*/
+var allrelatedfeedorigin = new Array;
 
- function removetag(e, t) {
+function removetag(e, t) {
     for (var i = e.split("<"), n = 0; n < i.length; n++) - 1 != i[n].indexOf(">") && (i[n] = i[n].substring(i[n].indexOf(">") + 1, i[n].length));
         return i = (i = i.join("")).substring(0, t - 1)
 }
@@ -247,22 +247,22 @@ function extractfeed(e) {
         var m = removetag(a, 150);
         if ("media$thumbnail" in t[i]) h = (h = t[i].media$thumbnail.url).replace("/s72-c/", "/s1600/");
         else var h = "https://1.bp.blogspot.com/-P6sIgHwSrZU/XrncUn1POBI/AAAAAAAABK4/cpGgDNNzCuIDFXn5Uqmey4qh23efe-f_QCLcBGAsYHQ/s1600/no-image-compress.jpg";
-        for (var c = h, v = 0; v < t[i].link.length; v++){
-            
+        for (var c = h, v = 0; v < t[i].link.length; v++) {
+
             if ("alternate" == t[i].link[v].rel) {
                 var A = t[i].link[v].href;
                 break
-            } 
-            var b = t[i].author[0].name.$t;
-            allrelatedfeedorigin.push({
-                title: l,
-                link: A,
-                images: c,
-                author: b,
-                date: g,
-                snippet: m
-            }), 0
+            }
         }
+        var b = t[i].author[0].name.$t;
+        allrelatedfeedorigin.push({
+            title: l,
+            link: A,
+            images: c,
+            author: b,
+            date: g,
+            snippet: m
+        }), 0
     }
 }
 
@@ -282,7 +282,7 @@ function createrelated(){
     var allrelatedfeedlength = allrelatedfeed.length;
     var url_path = location.protocol + '//' + location.host + location.pathname;
     for (var xx = 0; xx < allrelatedfeedlength; xx++) {
-        if (allrelatedfeedlength != 1 && allrelatedfeed[xx].link != url_path) {
+        if (allrelatedfeedlength != 1 && allrelatedfeed[xx].link !== url_path) {
             $("#related-post-title-write").removeClass('u-hidden-visually');
         }
         if (allrelatedfeed[xx].link !== url_path) {
@@ -326,8 +326,8 @@ if(typeof label_related !== 'undefined') {
 }
 
 /**
- * Color Box
- */
- $(document).ready(function(){
+* Color Box
+*/
+$(document).ready(function(){
     $(".entry-content a:has(img)").colorbox({rel:'image', transition:"none", width:"75%", height:"auto"});
 }); 

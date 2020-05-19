@@ -8,6 +8,7 @@
 * Safelink Page
 * Move js Cookies Notification 
 * Move crpyo.js
+* add Related post
 
 18 May 2020
 * Widget Featured post
