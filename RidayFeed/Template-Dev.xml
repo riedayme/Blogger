@@ -460,7 +460,7 @@ WIDGET
 				width: 47%;
 				float: left;
 				}
-				body#layout  #ElementerRight {
+				body#layout  #ElementerRight, body#layout  #ElementerRightFixed {
 				width: 20%;
 				float: right;
 				}
@@ -480,8 +480,8 @@ WIDGET
 			</b:template-skin>
 		</b:includable>     
 		<b:includable id='MY_CSS_EXTERNAL'>
-			<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@a94c20d56e4a7d8f4ff9acfbcf1649bdfac2833e/RidayFeed/assets/css/main.css' rel='stylesheet'/>
-			<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@a94c20d56e4a7d8f4ff9acfbcf1649bdfac2833e/RidayFeed/assets/css/custom.css' rel='stylesheet'/>
+			<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@dae63accf498bf19d2d0c8665960f0e9bc9e97ca/RidayFeed/assets/css/main.css' rel='stylesheet'/>
+			<link href='https://cdn.jsdelivr.net/gh/riedayme/Blogger@dae63accf498bf19d2d0c8665960f0e9bc9e97ca/RidayFeed/assets/css/custom.css' rel='stylesheet'/>
 		</b:includable> 
 		<b:includable id='MY_CSS_INTERNAL'>
 			<style>
@@ -622,8 +622,8 @@ WIDGET
 			&lt;/body&gt;
 		</b:includable>
 		<b:includable id='MY_JS_EXTERNAL'>
-			<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@a94c20d56e4a7d8f4ff9acfbcf1649bdfac2833e/RidayFeed/assets/js/main.js'/>
-			<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@a94c20d56e4a7d8f4ff9acfbcf1649bdfac2833e/RidayFeed/assets/js/custom.js'/>
+			<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@dae63accf498bf19d2d0c8665960f0e9bc9e97ca/RidayFeed/assets/js/main.js'/>
+			<script src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@dae63accf498bf19d2d0c8665960f0e9bc9e97ca/RidayFeed/assets/js/custom.js'/>
 		</b:includable>
 		<b:includable id='MY_JS_MANUAL'>
 			<b:switch var='data:blog.locale'>

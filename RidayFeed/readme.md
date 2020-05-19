@@ -5,6 +5,7 @@
 ## Change Log
 19 May 2020
 * Update Ads Sidebar
+* Safelink Page
 * Move js Cookies Notification 
 * Move crpyo.js
 
