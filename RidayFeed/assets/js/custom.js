@@ -276,7 +276,7 @@ const removeDupliactes = e => {
 };
 
 function createrelated(){
-    var maxrelated = 6;
+    var maxrelated = 5;
     write = document.getElementById('related-post-write');
     var allrelatedfeed = shuffle(removeDupliactes(allrelatedfeedorigin));
     var allrelatedfeedlength = allrelatedfeed.length;
