@@ -286,9 +286,9 @@ function createrelated(){
             $("#related-post-title-write").removeClass('u-hidden-visually');
         }
         if (allrelatedfeed[xx].link !== url_path) {
-            html = '<div class="col-lg-4 col-md-6 col-sm-6 col-6 u-ph-xsmall u-mb-xsmall">';
+            html = '<div class="col-lg-4 col-md-6 col-sm-12 col-12 u-ph-xsmall u-mb-xsmall">';
             html += '<article class="c-event u-m-zero u-p-zero">';
-            html += '<div class="c-event__img u-m-zero">';
+            html += '<div class="c-event__img u-m-zero u-hidden-down@mobile">';
             html += '   <a href="'+allrelatedfeed[xx].link+'" title="'+allrelatedfeed[xx].title+'" style="display:grid">';
             html += '       <img class="c-post-image" src="'+allrelatedfeed[xx].images+'" alt="'+allrelatedfeed[xx].title+'"/>';
             html += '   </a>';
