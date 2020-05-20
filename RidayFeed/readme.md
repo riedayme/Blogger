@@ -3,6 +3,9 @@
 ![Riedayme](https://github.com/riedayme/Blogger/blob/master/RidayFeed/preview.png?raw=true)
 
 ## Change Log
+20 May 2020
+* Schme WebPage remove Description
+
 19 May 2020
 * Update Ads Sidebar
 * Safelink Page
