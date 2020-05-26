@@ -3,6 +3,9 @@
 ![Riedayme](https://github.com/riedayme/Blogger/blob/master/RidayFeed/preview.png?raw=true)
 
 ## Change Log
+23 May 2020
+* Remove Emoticon JS Duplicate
+
 20 May 2020
 * Schme WebPage remove Description
 
