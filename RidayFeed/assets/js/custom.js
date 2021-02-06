@@ -245,8 +245,8 @@ function extractfeed(e) {
         g = (s.substring(11, 16), f + " " + r[parseInt(o, 10)] + "," + u);
         "summary" in t[i] ? a = t[i].summary.$t : "content" in t[i] && (a = t[i].content.$t);
         var m = removetag(a, 150);
-        if ("media$thumbnail" in t[i]) h = (h = t[i].media$thumbnail.url).replace("/s72-c/", "/s1600/");
-        else var h = "https://1.bp.blogspot.com/-P6sIgHwSrZU/XrncUn1POBI/AAAAAAAABK4/cpGgDNNzCuIDFXn5Uqmey4qh23efe-f_QCLcBGAsYHQ/s1600/no-image-compress.jpg";
+        if ("media$thumbnail" in t[i]) h = (h = t[i].media$thumbnail.url).replace("/s72-c/", "/s210/");
+        else var h = "https://1.bp.blogspot.com/-P6sIgHwSrZU/XrncUn1POBI/AAAAAAAABK4/cpGgDNNzCuIDFXn5Uqmey4qh23efe-f_QCLcBGAsYHQ/s210/no-image-compress.jpg";
         for (var c = h, v = 0; v < t[i].link.length; v++) {
 
             if ("alternate" == t[i].link[v].rel) {
@@ -290,7 +290,7 @@ function createrelated(){
             html += '<article class="c-event u-m-zero u-p-zero">';
             html += '<div class="c-event__img u-m-zero u-hidden-down@mobile">';
             html += '   <a href="'+allrelatedfeed[xx].link+'" title="'+allrelatedfeed[xx].title+'" style="display:grid">';
-            html += '       <img class="c-post-image" src="'+allrelatedfeed[xx].images+'" alt="'+allrelatedfeed[xx].title+'"/>';
+            html += '       <img src="data:image/svg+xml,%3Csvg xmlns=&apos;http://www.w3.org/2000/svg&apos; viewBox=&apos;0 0 3 2&apos;%3E%3C/svg%3E" class="c-post-image" data-src="'+allrelatedfeed[xx].images+'" alt="'+allrelatedfeed[xx].title+'"/>';
             html += '   </a>';
             html += '</div>';
             html += '<div class="c-event__meta u-ph-small u-pt-xsmall related-cards-title" data-mh="related-cards">';                                                           
@@ -314,15 +314,31 @@ function createrelated(){
 }
 
 if(typeof label_related !== 'undefined') {
+
+    var async_request=[];
+    var responses=[];
+
     for (var loop_related = 0; loop_related < label_related.length; loop_related++){
-        $.getJSON("/feeds/posts/default/-/"+ label_related[loop_related] + "?alt=json-in-script&max-results=7&callback=?",function(result){
-            extractfeed(result);
-        });
+
+        async_request.push($.ajax({
+            url:"/feeds/posts/default/-/"+ label_related[loop_related] + "?alt=json-in-script&max-results=7&callback=?", 
+            method:'get',
+            dataType: 'jsonp',
+            success: function(data){
+                responses.push(data);
+            }
+        }));
     }
-    $(document).ajaxComplete(function () {
+
+    $.when.apply(null, async_request).done( function(){
+        for (var loop_related = 0; loop_related < responses.length; loop_related++){
+            extractfeed(responses[loop_related]);
+        }
         createrelated();
         $('.related-cards-title').matchHeight();
+        new LazyLoad();
     });
+
 }
 
 /**
@@ -331,3 +347,54 @@ if(typeof label_related !== 'undefined') {
 $(document).ready(function(){
     $(".entry-content a:has(img)").colorbox({rel:'image', transition:"none", width:"75%", height:"auto"});
 }); 
+
+// Setting defualt datatables
+$.extend( $.fn.dataTable.defaults, {
+    'dom': '<"c-table__title u-flex u-pb-zero"lf>rtip',
+    'language': {
+        'length': "",
+        'search': "",
+        "lengthMenu": "_MENU_",
+        'searchPlaceholder': 'Cari...',
+        'processing': 'Loading...</span> ',
+        'emptyTable': 'Tidak ada data untuk ditampilan',
+        "info": "Menampilkan Data _START_ Sampai _END_ dari _TOTAL_ data",
+        "infoEmpty": "Menampilkan 0 data",
+        "paginate": {
+            "first":      "Awal",
+            "last":       "Akhir",
+            "next":       "Lanjut",
+            "previous":   "Sebelumnya"
+        },
+    },
+    'select': {
+        'style': 'multi'
+    },
+    'pagingType': 'simple',    
+    responsive: {
+        details: {
+            type: 'column',
+            target: 'button[name="action-view"]'
+        }
+    },
+    autoWidth: false,
+    'createdRow': function( row, data, dataIndex ) {
+        $(row).addClass( 'c-table__row' );
+    },
+    "columnDefs": [
+    {
+        "targets": 'no-sort',
+        "orderable": false,
+    },{
+        "targets": 'no-search',
+        "searchable": false,
+    }],
+    'lengthMenu': [
+    [10, 15, 20, 30, 50, 100],
+    [10, 15, 20, 30, 50, 100]
+    ]
+});
+
+$(document).ready( function () {
+    $('.datatable').DataTable();
+});

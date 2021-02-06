@@ -3,6 +3,14 @@
 ![Riedayme](https://github.com/riedayme/Blogger/blob/master/RidayFeed/preview.png?raw=true)
 
 ## Change Log
+06 Februari 2020
+* Post Content CSS
+* Fix Related Post Duplicated when two labels
+
+04 October 2020
+* Fix Navigation
+* Change Icon Label
+
 23 May 2020
 * Remove Emoticon JS Duplicate
 
