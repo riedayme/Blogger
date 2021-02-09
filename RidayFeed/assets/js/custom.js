@@ -349,7 +349,6 @@ $.extend( $.fn.dataTable.defaults, {
     'select': {
         'style': 'multi'
     },
-    'paging': false,
     'pagingType': 'simple',    
     responsive: {
         details: {
@@ -370,8 +369,8 @@ $.extend( $.fn.dataTable.defaults, {
         "searchable": false,
     }],
     'lengthMenu': [
-    [10, 15, 20, 30, 50, 100],
-    [10, 15, 20, 30, 50, 100]
+    ['All', 10, 15, 20, 30, 50, 100],
+    [-1, 10, 15, 20, 30, 50, 100]
     ]
 });
 
