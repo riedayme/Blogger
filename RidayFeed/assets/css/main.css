@@ -101,11 +101,11 @@ http://www.jacklmoore.com/colorbox
 .dataTables_filter input:focus{border-color:#2ea1f8;outline:none}
 .dataTables_filter{width:50%;float:right;text-align:right}
 .dataTables_length{margin-left:0;width:50%;float:left}
-.dataTable thead .sorting:before,.dataTable thead .sorting:after,.dataTable thead .sorting_asc:before,.dataTable thead .sorting_asc:after,.dataTable thead .sorting_desc:before,.dataTable thead .sorting_desc:after{position:absolute;display:inline-block;content:&quot;\f0d8&quot;;color:#7f8fa4;font-family:&quot;FontAwesome&quot;}
+.dataTable thead .sorting:before,.dataTable thead .sorting:after,.dataTable thead .sorting_asc:before,.dataTable thead .sorting_asc:after,.dataTable thead .sorting_desc:before,.dataTable thead .sorting_desc:after{position:absolute;display:inline-block;content:"\f0d8";color:#7f8fa4;font-family:"FontAwesome"}
 .dataTable thead .sorting:before,.dataTable thead .sorting_asc:before,.dataTable thead .sorting_desc:before{right:10px;top:25%}
-.dataTable thead .sorting:after,.dataTable thead .sorting_asc:after,.dataTable thead .sorting_desc:after{right:10px;bottom:25%;content:&quot;\f0d7&quot;}
+.dataTable thead .sorting:after,.dataTable thead .sorting_asc:after,.dataTable thead .sorting_desc:after{right:10px;bottom:25%;content:"\f0d7"}
 .dataTable thead.c-table__head--slim .sorting:before,.dataTable thead.c-table__head--slim .sorting_asc:before,.dataTable thead.c-table__head--slim .sorting_desc:before{right:10px;top:6px}
-.dataTable thead.c-table__head--slim .sorting:after,.dataTable thead.c-table__head--slim .sorting_asc:after,.dataTable thead.c-table__head--slim .sorting_desc:after{right:10px;bottom:6px;content:&quot;\f0d7&quot;}
+.dataTable thead.c-table__head--slim .sorting:after,.dataTable thead.c-table__head--slim .sorting_asc:after,.dataTable thead.c-table__head--slim .sorting_desc:after{right:10px;bottom:6px;content:"\f0d7"}
 .dataTable thead .sorting:last-child:after,.dataTable thead .sorting_asc:last-child:after,.dataTable thead .sorting_desc:last-child:after,.dataTable thead .sorting:last-child:before,.dataTable thead .sorting_asc:last-child:before,.dataTable thead .sorting_desc:last-child:before{right:20px}
 .dataTable thead .sorting_asc:after{opacity:0.5}
 .dataTable thead .sorting_desc:before{opacity:0.5}
