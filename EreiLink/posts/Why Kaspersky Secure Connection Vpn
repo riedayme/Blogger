@@ -1,0 +1,32 @@
+<p>Public Wi-Fi networks may be under-protected, for example, if a Wi-Fi network uses a vulnerable encryption protocol or a popular Wi-Fi network name (SSID). When you make Internet purchases over insecure Wi-Fi networks, your passwords and other confidential data are transmitted in non-encrypted text. Hackers can intercept your confidential data, find out your bank card number, and obtain access to your money.</p>
+<br>
+
+<p>When you connect to a Wi-Fi network, Kaspersky Secure Connection checks the network. If the Wi-Fi network is insecure, Kaspersky Secure Connection prompts you to enable a secure connection via a specially allocated server located in the country you specify. When a secure connection is enabled, data from a website is first received by the allocated server. Kaspersky Secure Connection then sends the data to your device over an encrypted secure connection.</p>
+<br>
+
+<p>Kaspersky Secure Connection provides the following advantages:</p>
+<br>
+
+<p>Safe use of payment systems and booking sites</p>
+<p>Hackers will not be able to intercept your bank card number on a website when you make online payments, book hotel rooms, or rent cars.</p>
+<br>
+
+<div class='adspost'></div> 
+<div id="outlink"><span id="countdown" class="countdown"><span id="timer" class="timer">0</span> Seconds</span><button id="nextbutton"style="display:none">Get Link</button></div> 
+<div class='adspost bottom'></div>
+
+<p>Protection for your secret information</p>
+<p>No one will be able to determine the IP address of your device or your location.</p>
+<br>
+
+<p>Protection of your privacy</p>
+<p>No one will be able to intercept and read your private correspondence on social networks, chats, and email websites.</p>
+<br>
+
+<p>Kaspersky Secure Connection can also be used for other types of network connections, such as a local Internet connection or USB modem connection.</p>
+<br>
+
+<p>By default, Kaspersky Secure Connection does not prompt you to enable a secure connection if the HTTPS protocol is used to connect to a website.</p>
+<br>
+
+<p>Changing the country to connect from when visiting websites of banks, payment systems, booking websites, social networks, chats, and email websites could result in the triggering of anti-fraud systems. Anti-fraud systems are intended for analyzing online financial transactions for signs of fraudulent operations.</p>
