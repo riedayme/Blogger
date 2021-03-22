@@ -1,0 +1,11 @@
+<script type="text/javascript">
+var setting = {
+pengecualianstatus : true,
+pengecualian : "google.com,twitter.com,javascript:;,mailto:",
+hanyauntukstatus : false,
+hanyauntuk : "githubusercontent.com", //use ::withpath for autolink specific path exampe.com/download/::withpath
+path : "#?from="
+};    
+</script>
+<script type="text/javascript" src='https://cdn.jsdelivr.net/gh/riedayme/Blogger@1750fbfa1abeda8b7a5136d1ea111ae20a4773ca/EreiLink/assets/js/auto.js'></script>
+<script src="https://www.blogger.com/feeds/__BLOG_ID__/posts/default?alt=json-in-script&amp;max-results=13&amp;callback=showurl"></script>

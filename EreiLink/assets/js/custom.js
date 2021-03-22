@@ -7,17 +7,21 @@ if ($.urlParam = function(n) {
 }, null != $.urlParam("from")) {
     var countdown = $("#countdown"),
     nextbutton = $("#nextbutton"),
+    tempcode = $.urlParam("from"),
     time = safelink_time;
 
-    function CountDown() {
-        document.getElementById("timer").innerHTML = time, (time -= 1) < 0 ? countdown.fadeOut("slow", function() {
-            nextbutton.fadeIn()
-        }) : window.setTimeout('CountDown()', 1e3)
-    }
-    CountDown(), nextbutton.on("click", function() {
-        var n = aesCrypto.decrypt(convertstr($.urlParam("from")), convertstr("root"));
-        window.location.href = n
-    })
+// remove params
+window.history.pushState("", document.title, "/"+window.location.href.substring(window.location.href.indexOf('/')).split("#?")[0]);
+
+function CountDown() {
+    document.getElementById("timer").innerHTML = time, (time -= 1) < 0 ? countdown.fadeOut("slow", function() {
+        nextbutton.fadeIn()
+    }) : window.setTimeout('CountDown()', 1e3)
+}
+CountDown(), nextbutton.on("click", function() {
+    var n = aesCrypto.decrypt(convertstr(tempcode), convertstr("root"));
+    window.location.href = n
+})
 }else {
     $("#outlink").remove();
 }
