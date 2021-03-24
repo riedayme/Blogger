@@ -23,7 +23,7 @@ CountDown(), nextbutton.on("click", function() {
     window.location.href = n
 })
 }else {
-    $("#outlink").remove();
+    $("#outlink,.adspost").remove();
 }
 
 /**
